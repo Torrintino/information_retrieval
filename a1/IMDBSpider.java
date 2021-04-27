@@ -156,6 +156,30 @@ public class IMDBSpider {
 	    genreList.put(e.text());
 	}
 	result.put("genreList", genreList);
+
+	JSONArray countryList = new JSONArray();
+        Element countrySection = html.select("h4:contains(Country:)").first().parent();
+	Elements countryElements = countrySection.getElementsByTag("a");
+	for(var e : countryElements) {
+	    countryList.put(e.text());
+	}
+	result.put("countryList", countryList);
+	
+	JSONArray keywordList = new JSONArray();
+        Element keywordSection = html.select("h4:contains(Plot Keywords:)").first().parent();
+	Elements keywordElements = keywordSection.getElementsByTag("a");
+	for(var e : keywordElements) {
+	    String keyword = e.text();
+	    if(keyword.contains("See All"))
+	       break;
+	    keywordList.put(keyword);
+	}
+	result.put("keywordList", keywordList);
+
+        Element storyLine = html.select("h2:contains(Storyline)").first();
+	String description = storyLine.nextElementSibling().child(0).child(0).text();
+	result.put("description", description);
+	System.out.println(description);
 	
 	return result;
     }
