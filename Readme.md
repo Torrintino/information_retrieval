@@ -11,9 +11,9 @@ execution.
 
 From the task directory, run `javac -cp ".:dependencies/*" <file>.java`.
 
-## Run
+## Run the Spider
 
-From the task directory run `java -cp ".:dependencies/*" <name>`.
+From the task directory run `java -cp ".:dependencies/*" IMDBSpider materials/movies.json data`.
 
 ## Rules
 

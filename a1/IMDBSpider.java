@@ -51,8 +51,8 @@ public class IMDBSpider {
      * @param outputDir     output directory for JSON files with metadata of movies.
      * @throws IOException
      */
-    public void persistOutput(JSONArray result, String outputDir) {
-	String file_name = outputDir + "result.json";
+    public void persistOutput(JSONArray result, String outputDir, String filename) {
+	String file_name = outputDir + "/" + filename + ".json";
 	File output_file = new File(file_name);
 	try {
 	    output_file.createNewFile();
@@ -88,8 +88,24 @@ public class IMDBSpider {
 	for (String movie : movie_queue) {
 	    var output = this.scrapeMovie(client, movie);
 	    result.put(output);
+	    this.persistOutput(result, outputDir, titleToFilename(movie));
 	}
-	//this.persistOutput(result, outputDir);
+    }
+
+    public String titleToFilename(String title) {
+	return title.replaceAll(" ", "_")
+	    .replaceAll(":", "")
+	    .replaceAll(",", "")
+	    .replaceAll("\\.", "")
+	    .replaceAll("\\\\", "")
+	    .replaceAll("&", "")
+	    .replaceAll("é", "e")
+	    .replaceAll("à", "a")
+	    .replaceAll("\\(", "")
+	    .replaceAll("\\)", "")
+	    .replaceAll("/", "")
+	    .replaceAll("'", "")
+	    .toLowerCase();
     }
 
     public String titleToQuery(String title) {
