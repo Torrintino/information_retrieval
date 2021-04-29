@@ -1,6 +1,7 @@
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 public class IMDBQueries {
@@ -33,6 +34,30 @@ public class IMDBQueries {
         }
     }
 
+    protected void addDirector(LinkedList<Tuple<Movie, String>> result,
+			       Movie movie, String director) {
+	if(result.isEmpty()) {
+	    result.add(new Tuple<Movie, String>(movie, director));
+	    return;
+	}
+	if(result.size() == 10) {
+	    double rating = Double.parseDouble(result.getLast().first.getRatingValue());
+	    if(Double.parseDouble(movie.getRatingValue()) < rating)
+		return;
+	}
+        int i = 0;
+	while (i < result.size()) {
+	    double rating = Double.parseDouble(result.get(i).first.getRatingValue());
+	    if(Double.parseDouble(movie.getRatingValue()) > rating) {
+		result.add(i, new Tuple<Movie, String>(movie, director));
+		break;
+	    }
+	}
+	if(result.size() > 10) {
+	    result.removeLast();
+	}
+    }
+    
     /**
      * All-rounder: Determine all movies in which the director stars as an actor
      * (cast). Return the top ten matches sorted by decreasing IMDB rating.
@@ -41,8 +66,15 @@ public class IMDBQueries {
      * @return top ten movies and the director, sorted by decreasing IMDB rating
      */
     protected List<Tuple<Movie, String>> queryAllRounder(List<Movie> movies) {
-        // TODO Basic Query: insert code here
-        return new ArrayList<>();
+        LinkedList<Tuple<Movie, String>> result = new LinkedList<>();
+	for(Movie movie : movies) {
+	    for(var director : movie.getDirectorList()) {
+		if(movie.getCharacterList().contains(director)) {
+		    addDirector(result, movie, director);
+		}
+	    }
+	}
+        return result;
     }
 
     /**
