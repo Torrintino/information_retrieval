@@ -1,0 +1,70 @@
+[
+  {
+    "url": "https://www.imdb.com/title/tt0107362/?ref_=fn_ft_tt_1",
+    "title": "Last Action Hero",
+    "year": "1993",
+    "genreList": [
+      "Action",
+      "Adventure",
+      "Comedy",
+      "Fantasy"
+    ],
+    "countryList": [
+      "USA"
+    ],
+    "keywordList": [
+      "villain",
+      "taxi",
+      "funeral",
+      "video store",
+      "child drives a car"
+    ],
+    "description": "Young Danny Madigan is a huge fan of Jack Slater, a larger-than-life action hero played by Arnold Schwarzenegger. When his best friend, Nick the projectionist, gives him a magic ticket to the newest Jack Slater movie, Danny is transported into Slater's world, his number one hero where the good guys always win. It's a dream come true for Danny, but things take a turn for the worse when one of Slater's enemies, Benedict the hit man, gets ahold of the ticket and ends up in Danny's world. Slater and Danny must join forces and travel back and stop him at all costs before it'll be the end of Jack Slater.",
+    "directorList": [
+      "John McTiernan"
+    ],
+    "castList": [
+      "Arnold Schwarzenegger",
+      "F. Murray Abraham",
+      "Art Carney",
+      "Charles Dance",
+      "Frank McRae",
+      "Tom Noonan",
+      "Robert Prosky",
+      "Anthony Quinn",
+      "Mercedes Ruehl",
+      "Austin O'Brien",
+      "Ian McKellen",
+      "Professor Toru Tanaka",
+      "Joan Plowright",
+      "Keith Barish",
+      "Jim Belushi"
+    ],
+    "characterList": [
+      "Jack Slater",
+      "John Practice",
+      "Frank",
+      "Benedict",
+      "Dekker",
+      "Ripper",
+      "Nick",
+      "Vivaldi",
+      "Mom",
+      "Danny",
+      "Death (as Sir Ian McKellan)",
+      "Tough Asian Man",
+      "Teacher",
+      "Keith Barish",
+      "James Belushi"
+    ],
+    "duration": "2h 10min",
+    "budget": "$85,000,000 (estimated)",
+    "gross": "$137,298,489",
+    "ratingValue": "6.4",
+    "ratingCount": "138,525",
+    "contentRating": "12",
+    "aspectRatio": "2.39 : 1",
+    "reviews": "320 user",
+    "critics": "120 critic"
+  }
+]

@@ -1,0 +1,71 @@
+[
+  {
+    "url": "https://www.imdb.com/title/tt3410834/?ref_=fn_ft_tt_1",
+    "title": "Allegiant",
+    "year": "2016",
+    "genreList": [
+      "Action",
+      "Adventure",
+      "Mystery",
+      "Sci-Fi",
+      "Thriller"
+    ],
+    "countryList": [
+      "USA"
+    ],
+    "keywordList": [
+      "based on young adult novel",
+      "tough girl",
+      "surveillance",
+      "based on novel",
+      "utopia"
+    ],
+    "description": "After the earth-shattering revelations of INSURGENT, Tris must escape with Four and go beyond the wall enclosing Chicago. For the first time ever, they will leave the only city and family they have ever known. Once outside, old discoveries are quickly rendered meaningless with the revelation of shocking new truths. Tris and Four must quickly decide who they can trust as a ruthless battle ignites beyond the walls of Chicago which threatens all of humanity. In order to survive, Tris will be forced to make impossible choices about courage, allegiance, sacrifice and love.",
+    "directorList": [
+      "Robert Schwentke"
+    ],
+    "castList": [
+      "Shailene Woodley",
+      "Theo James",
+      "Naomi Watts",
+      "Octavia Spencer",
+      "Jeff Daniels",
+      "Zoë Kravitz",
+      "Ansel Elgort",
+      "Miles Teller",
+      "Keiynan Lonsdale",
+      "Daniel Dae Kim",
+      "Maggie Q",
+      "Bill Skarsgård",
+      "Jonny Weston",
+      "Nadia Hilker",
+      "Andy Bean"
+    ],
+    "characterList": [
+      "Tris",
+      "Four",
+      "Evelyn",
+      "Johanna",
+      "David",
+      "Christina",
+      "Caleb",
+      "Peter",
+      "Uriah",
+      "Jack Kang",
+      "Tori",
+      "Matthew",
+      "Edgar",
+      "Nita",
+      "Romit"
+    ],
+    "duration": "2h",
+    "budget": "$110,000,000 (estimated)",
+    "gross": "$179,246,868",
+    "ratingValue": "5.7",
+    "ratingCount": "111,243",
+    "contentRating": "12",
+    "aspectRatio": "2.35 : 1",
+    "reviews": "239 user",
+    "critics": "215 critic"
+  }
+]

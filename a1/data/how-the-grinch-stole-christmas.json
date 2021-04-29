@@ -1,0 +1,70 @@
+[
+  {
+    "url": "https://www.imdb.com/title/tt0170016/?ref_=fn_ft_tt_1",
+    "title": "How the Grinch Stole Christmas",
+    "year": "2000",
+    "genreList": [
+      "Comedy",
+      "Family",
+      "Fantasy"
+    ],
+    "countryList": [
+      "USA",
+      "Germany"
+    ],
+    "keywordList": [
+      "the grinch",
+      "monster",
+      "blockbuster",
+      "dr. seuss' how the grinch stole christmas",
+      "christmas"
+    ],
+    "description": "Inside a snowflake exists the magical land of Whoville, wherein live the Whos, an almost-mutated sort of Munchkin-like people who all love Christmas. Just outside of their beloved town lives the Grinch (Jim Carrey), a nasty creature that hates Christmas and plans to steal it from the Whos, which he equally abhors. Little Cindy Lou Who (Taylor Momsen) decides to befriend the Grinch.",
+    "directorList": [
+      "Ron Howard"
+    ],
+    "castList": [
+      "Jim Carrey",
+      "Taylor Momsen",
+      "Kelley",
+      "Jeffrey Tambor",
+      "Christine Baranski",
+      "Bill Irwin",
+      "Molly Shannon",
+      "Clint Howard",
+      "Josh Ryan Evans",
+      "Mindy Sterling",
+      "Rachel Winfree",
+      "Rance Howard",
+      "Jeremy Howard",
+      "T.J. Thyne",
+      "Lacey Kohl"
+    ],
+    "characterList": [
+      "Grinch",
+      "Cindy Lou Who",
+      "Max",
+      "Mayor Augustus Maywho",
+      "Martha May Whovier",
+      "Lou Lou Who",
+      "Betty Lou Who",
+      "Whobris",
+      "8-Year-Old Grinch",
+      "Clarnella",
+      "Rose",
+      "Elderly Timekeeper",
+      "Drew Lou Who",
+      "Stu Lou Who",
+      "Christina Whoterberry"
+    ],
+    "duration": "1h 44min",
+    "budget": "$123,000,000 (estimated)",
+    "gross": "$363,597,184",
+    "ratingValue": "6.2",
+    "ratingCount": "217,790",
+    "contentRating": "6",
+    "aspectRatio": "1.85 : 1",
+    "reviews": "634 user",
+    "critics": "126 critic"
+  }
+]

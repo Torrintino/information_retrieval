@@ -1,0 +1,69 @@
+[
+  {
+    "url": "https://www.imdb.com/title/tt0337978/?ref_=fn_ft_tt_1",
+    "title": "Live Free or Die Hard",
+    "year": "2007",
+    "genreList": [
+      "Action",
+      "Thriller"
+    ],
+    "countryList": [
+      "USA",
+      "UK"
+    ],
+    "keywordList": [
+      "ford crown victoria",
+      "hacker",
+      "hacking",
+      "cyber terrorist",
+      "washington d.c."
+    ],
+    "description": "When someone hacks into the computers at the FBI's Cyber Crime Division; the Director decides to round up all the hackers who could have done this. When he's told that because it's the 4th of July most of their agents are not around so they might have trouble getting people to get the hackers. So he instructs them to get local PD'S to take care of it. And one of the cops they ask is John McClane who is tasked with bringing a hacker named Farrell to the FBI. But as soon as he gets there someone starts shooting at them. McClane manages to get them out but they're still being pursued. And it's just when McClane arrives in Washington that the whole system breaks down and chaos ensues.",
+    "directorList": [
+      "Len Wiseman"
+    ],
+    "castList": [
+      "Bruce Willis",
+      "Timothy Olyphant",
+      "Justin Long",
+      "Maggie Q",
+      "Cliff Curtis",
+      "Jonathan Sadowski",
+      "Andrew Friedman",
+      "Kevin Smith",
+      "Yorgo Constantine",
+      "Cyril Raffaelli",
+      "Chris Palermo",
+      "Mary Elizabeth Winstead",
+      "Sung Kang",
+      "Zeljko Ivanek",
+      "Christina Chang"
+    ],
+    "characterList": [
+      "John McClane",
+      "Thomas Gabriel",
+      "Matt Farrell",
+      "Mai",
+      "Bowman",
+      "Trey",
+      "Casper",
+      "Warlock",
+      "Russo",
+      "Rand",
+      "Del (as Christopher Palermo)",
+      "Lucy",
+      "Raj",
+      "Molina",
+      "Taylor"
+    ],
+    "duration": "2h 8min",
+    "budget": "$110,000,000 (estimated)",
+    "gross": "$388,156,011",
+    "ratingValue": "7.1",
+    "ratingCount": "391,668",
+    "contentRating": "16",
+    "aspectRatio": "2.35 : 1",
+    "reviews": "853 user",
+    "critics": "372 critic"
+  }
+]

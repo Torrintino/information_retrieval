@@ -1,0 +1,73 @@
+[
+  {
+    "url": "https://www.imdb.com/title/tt1216475/?ref_=fn_ft_tt_1",
+    "title": "Cars 2",
+    "year": "2011",
+    "genreList": [
+      "Animation",
+      "Adventure",
+      "Comedy",
+      "Family",
+      "Sci-Fi",
+      "Sport"
+    ],
+    "countryList": [
+      "USA"
+    ],
+    "keywordList": [
+      "car race",
+      "car",
+      "best friend",
+      "spy",
+      "conspiracy"
+    ],
+    "description": "The famous race car Lightning McQueen and his team are invited to compete in the World Grand Prix race. There, McQueen's best friend Mater finds himself involved in international espionage, and alongside two professional British spies attempts to uncover a secret plan led by a mysterious mastermind and his criminal gang, which threatens the lives of all competitors in the tournament.",
+    "directorList": [
+      "John Lasseter",
+      "Bradford Lewis"
+    ],
+    "castList": [
+      "Larry the Cable Guy",
+      "Owen Wilson",
+      "Michael Caine",
+      "Emily Mortimer",
+      "Eddie Izzard",
+      "John Turturro",
+      "Brent Musburger",
+      "Joe Mantegna",
+      "Thomas Kretschmann",
+      "Peter Jacobson",
+      "Bonnie Hunt",
+      "Darrell Waltrip",
+      "Franco Nero",
+      "David Hobbs",
+      "Patrick Walker"
+    ],
+    "characterList": [
+      "Mater (voice)",
+      "Lightning McQueen (voice)",
+      "Finn McMissile (voice)",
+      "Holley Shiftwell (voice)",
+      "Sir Miles Axlerod (voice)",
+      "Francesco Bernoulli (voice)",
+      "Brent Mustangburger (voice)",
+      "Grem (voice)",
+      "Professor Z (voice)",
+      "Acer (voice)",
+      "Sally (voice)",
+      "Darrell Cartrip (voice)",
+      "Uncle Topolino (voice)",
+      "David Hobbscap (voice)",
+      "Mel Dorado (voice)"
+    ],
+    "duration": "1h 46min",
+    "budget": "$200,000,000 (estimated)",
+    "gross": "$559,852,396",
+    "ratingValue": "6.1",
+    "ratingCount": "164,611",
+    "contentRating": "0",
+    "aspectRatio": "2.39 : 1",
+    "reviews": "367 user",
+    "critics": "320 critic"
+  }
+]

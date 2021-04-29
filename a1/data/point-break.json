@@ -1,0 +1,70 @@
+[
+  {
+    "url": "https://www.imdb.com/title/tt0102685/?ref_=fn_ft_tt_1",
+    "title": "Point Break",
+    "year": "1991",
+    "genreList": [
+      "Action",
+      "Crime",
+      "Thriller"
+    ],
+    "countryList": [
+      "USA",
+      "Japan"
+    ],
+    "keywordList": [
+      "surfer",
+      "bank robbery",
+      "title directed by female",
+      "male bonding",
+      "robbery"
+    ],
+    "description": "In Los Angeles, California, a gang of bank robbers call themselves The Ex-Presidents. commit their crimes while wearing masks of ex-Presidents Reagan, Carter, Nixon, and Johnson. The F.B.I. believes that the members of the gang could be surfers, and send young Agent Johnny Utah undercover at the beach to mix with the surfers and gather information. Utah meets surfer Bodhi, and gets drawn into the lifestyle of his new friend.",
+    "directorList": [
+      "Kathryn Bigelow"
+    ],
+    "castList": [
+      "Patrick Swayze",
+      "Keanu Reeves",
+      "Gary Busey",
+      "Lori Petty",
+      "John C. McGinley",
+      "James Le Gros",
+      "John Philbin",
+      "Bojesse Christopher",
+      "Julian Reyes",
+      "Daniel Beer",
+      "Chris Pedersen",
+      "Vincent Klyn",
+      "Anthony Kiedis",
+      "Dave Olson",
+      "Lee Tergesen"
+    ],
+    "characterList": [
+      "Bodhi",
+      "Johnny Utah",
+      "Pappas",
+      "Tyler",
+      "Ben Harp (as John McGinley)",
+      "Roach",
+      "Nathanial",
+      "Grommet",
+      "Alvarez",
+      "Babbit",
+      "Bunker",
+      "Warchild",
+      "Tone",
+      "Archbold",
+      "Rosie"
+    ],
+    "duration": "2h 2min",
+    "budget": "$24,000,000 (estimated)",
+    "gross": "$83,531,958",
+    "ratingValue": "7.3",
+    "ratingCount": "162,458",
+    "contentRating": "16",
+    "aspectRatio": "2.35 : 1",
+    "reviews": "395 user",
+    "critics": "122 critic"
+  }
+]

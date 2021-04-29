@@ -1,0 +1,71 @@
+[
+  {
+    "url": "https://www.imdb.com/title/tt0339291/?ref_=fn_ft_tt_1",
+    "title": "A Series of Unfortunate Events",
+    "year": "2004",
+    "genreList": [
+      "Adventure",
+      "Comedy",
+      "Family",
+      "Fantasy"
+    ],
+    "countryList": [
+      "Germany",
+      "USA"
+    ],
+    "keywordList": [
+      "orphan",
+      "steampunk",
+      "uncle niece relationship",
+      "snakebite",
+      "sunlight"
+    ],
+    "description": "Three children - Violet (Emily Browning), Klaus (Liam Aiken), and Sunny Baudelaire (Kara and Shelby Hoffman) - are left orphaned when their house burns down, with their parents in it, in mysterious circumstances. They are left in the custody of a distant relative, Count Olaf (Jim Carrey). It is soon apparent that Count Olaf only cares about the children for their large inheritance.",
+    "directorList": [
+      "Brad Silberling"
+    ],
+    "castList": [
+      "Jim Carrey",
+      "Liam Aiken",
+      "Emily Browning",
+      "Kara Hoffman",
+      "Shelby Hoffman",
+      "Jude Law",
+      "Timothy Spall",
+      "Catherine O'Hara",
+      "Billy Connolly",
+      "Meryl Streep",
+      "Luis Guzmán",
+      "Jamie Harris",
+      "Craig Ferguson",
+      "Jennifer Coolidge",
+      "Jane Adams"
+    ],
+    "characterList": [
+      "Count Olaf",
+      "Klaus",
+      "Violet",
+      "Sunny",
+      "Sunny",
+      "Lemony Snicket (voice)",
+      "Mr. Poe",
+      "Justice Strauss",
+      "Uncle Monty",
+      "Aunt Josephine",
+      "Bald Man (as Luis Guzman)",
+      "Hook-Handed Man",
+      "Person of Indeterminate Gender",
+      "White Faced Woman",
+      "White Faced Woman"
+    ],
+    "duration": "1h 48min",
+    "budget": "$140,000,000 (estimated)",
+    "gross": "$211,468,235",
+    "ratingValue": "6.8",
+    "ratingCount": "197,932",
+    "contentRating": "6",
+    "aspectRatio": "1.85 : 1",
+    "reviews": "642 user",
+    "critics": "178 critic"
+  }
+]

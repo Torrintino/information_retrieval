@@ -1,0 +1,70 @@
+[
+  {
+    "url": "https://www.imdb.com/title/tt0407887/?ref_=fn_ft_tt_1",
+    "title": "The Departed",
+    "year": "2006",
+    "genreList": [
+      "Crime",
+      "Drama",
+      "Thriller"
+    ],
+    "countryList": [
+      "USA",
+      "Hong Kong"
+    ],
+    "keywordList": [
+      "police",
+      "mobster",
+      "irish mafia",
+      "organized crime",
+      "violence"
+    ],
+    "description": "In this crime-action tour de force, the South Boston state police force is waging war on Irish-American organized crime. Young undercover cop Billy Costigan is assigned to infiltrate the mob syndicate run by gangland chief Frank Costello. While Billy quickly gains Costello's confidence, Colin Sullivan, a hardened young criminal who has infiltrated the state police as an informer for the syndicate is rising to a position of power in the Special Investigation Unit. Each man becomes deeply consumed by their double lives, gathering information about the plans and counter-plans of the operations they have penetrated. But when it becomes clear to both the mob and the police that there is a mole in their midst, Billy and Colin are suddenly in danger of being caught and exposed to the enemy - and each must race to uncover the identity of the other man in time to save themselves. But is either willing to turn on their friends and comrades they've made during their long stints undercover?",
+    "directorList": [
+      "Martin Scorsese"
+    ],
+    "castList": [
+      "Leonardo DiCaprio",
+      "Matt Damon",
+      "Jack Nicholson",
+      "Mark Wahlberg",
+      "Martin Sheen",
+      "Ray Winstone",
+      "Vera Farmiga",
+      "Anthony Anderson",
+      "Alec Baldwin",
+      "Kevin Corrigan",
+      "James Badge Dale",
+      "David O'Hara",
+      "Mark Rolston",
+      "Robert Wahlberg",
+      "Kristen Dalton"
+    ],
+    "characterList": [
+      "Billy",
+      "Colin",
+      "Costello",
+      "Dignam",
+      "Queenan",
+      "Mr. French",
+      "Madolyn",
+      "Brown",
+      "Ellerby",
+      "Cousin Sean",
+      "Barrigan",
+      "Fitzy (as David Patrick O'Hara)",
+      "Delahunt",
+      "Lazio (FBI)",
+      "Gwen"
+    ],
+    "duration": "2h 31min",
+    "budget": "$90,000,000 (estimated)",
+    "gross": "$291,465,373",
+    "ratingValue": "8.5",
+    "ratingCount": "1,208,452",
+    "contentRating": "16",
+    "aspectRatio": "2.39 : 1",
+    "reviews": "2,406 user",
+    "critics": "297 critic"
+  }
+]

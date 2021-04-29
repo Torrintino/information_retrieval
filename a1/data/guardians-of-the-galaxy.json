@@ -1,0 +1,70 @@
+[
+  {
+    "url": "https://www.imdb.com/title/tt2015381/?ref_=fn_ft_tt_1",
+    "title": "Guardians of the Galaxy",
+    "year": "2014",
+    "genreList": [
+      "Action",
+      "Adventure",
+      "Comedy",
+      "Sci-Fi"
+    ],
+    "countryList": [
+      "USA"
+    ],
+    "keywordList": [
+      "outer space",
+      "bounty hunter",
+      "tree",
+      "talking animal",
+      "raccoon"
+    ],
+    "description": "After stealing a mysterious orb in the far reaches of outer space, Peter Quill from Earth is now the main target of a manhunt led by the villain known as Ronan the Accuser. To help fight Ronan and his team and save the galaxy from his power, Quill creates a team of space heroes known as the \"Guardians of the Galaxy\" to save the galaxy.",
+    "directorList": [
+      "James Gunn"
+    ],
+    "castList": [
+      "Chris Pratt",
+      "Zoe Saldana",
+      "Dave Bautista",
+      "Vin Diesel",
+      "Bradley Cooper",
+      "Lee Pace",
+      "Michael Rooker",
+      "Karen Gillan",
+      "Djimon Hounsou",
+      "John C. Reilly",
+      "Glenn Close",
+      "Benicio Del Toro",
+      "Laura Haddock",
+      "Sean Gunn",
+      "Peter Serafinowicz"
+    ],
+    "characterList": [
+      "Peter Quill",
+      "Gamora",
+      "Drax",
+      "Groot (voice)",
+      "Rocket (voice)",
+      "Ronan",
+      "Yondu Udonta",
+      "Nebula",
+      "Korath",
+      "Corpsman Dey",
+      "Nova Prime",
+      "The Collector",
+      "Meredith Quill",
+      "Kraglin / On Set Rocket",
+      "Denarian Saal"
+    ],
+    "duration": "2h 1min",
+    "budget": "$170,000,000 (estimated)",
+    "gross": "$773,350,147",
+    "ratingValue": "8.0",
+    "ratingCount": "1,059,971",
+    "contentRating": "12",
+    "aspectRatio": "2.39 : 1",
+    "reviews": "1,445 user",
+    "critics": "726 critic"
+  }
+]

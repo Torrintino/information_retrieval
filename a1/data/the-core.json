@@ -1,0 +1,75 @@
+[
+  {
+    "url": "https://www.imdb.com/title/tt0298814/?ref_=fn_ft_tt_1",
+    "title": "The Core",
+    "year": "2003",
+    "genreList": [
+      "Action",
+      "Adventure",
+      "Sci-Fi",
+      "Thriller"
+    ],
+    "countryList": [
+      "USA",
+      "Germany",
+      "Canada",
+      "UK",
+      "Italy",
+      "France"
+    ],
+    "keywordList": [
+      "natural disaster",
+      "terranaut",
+      "earth",
+      "core",
+      "scientist"
+    ],
+    "description": "The Earth's core has stopped spinning. Disasters are happening around the globe, including; animals acting in bizarre ways, monstrous thunderstorms. Dr. Josh Keyes and his crew of 5 go down to the centre to set off a nuclear device, hoping to make the core start spinning again, or humanity will cease.",
+    "directorList": [
+      "Jon Amiel"
+    ],
+    "castList": [
+      "Christopher Shyer",
+      "Ray Galletti",
+      "Eileen Pedde",
+      "Rekha Sharma",
+      "Tom Scholte",
+      "Aaron Eckhart",
+      "Glenn Morshower",
+      "Anthony Harrison",
+      "Tchéky Karyo",
+      "Richard Jenkins",
+      "Bart Anderson",
+      "Nicole Leroux",
+      "Justin Callan",
+      "Chris Humphreys",
+      "Hilary Swank"
+    ],
+    "characterList": [
+      "Dave Perry",
+      "Paul",
+      "Lynne",
+      "Danni (as Rékha Sharma)",
+      "Acker",
+      "Josh",
+      "FBI Agent",
+      "FBI Agent",
+      "Serge (as Tcheky Karyo)",
+      "General Purcell",
+      "Dad",
+      "Mom",
+      "Little Boy",
+      "GBTV Reporter - Trafalgar Square",
+      "Beck"
+    ],
+    "duration": "2h 15min",
+    "budget": "$60,000,000 (estimated)",
+    "gross": "$73,498,611",
+    "ratingValue": "5.5",
+    "ratingCount": "94,387",
+    "contentRating": "12",
+    "aspectRatio": "2.39 : 1",
+    "reviews": "573 user",
+    "critics": "77 critic"
+  }
+]

@@ -1,0 +1,71 @@
+[
+  {
+    "url": "https://www.imdb.com/title/tt0417741/?ref_=fn_ft_tt_1",
+    "title": "Harry Potter and the Half-Blood Prince",
+    "year": "2009",
+    "genreList": [
+      "Action",
+      "Adventure",
+      "Family",
+      "Fantasy",
+      "Mystery"
+    ],
+    "countryList": [
+      "UK"
+    ],
+    "keywordList": [
+      "school of magic",
+      "hereditary gift of witchcraft",
+      "witchcraft",
+      "hourglass",
+      "lifting a female into the air"
+    ],
+    "description": "In Harry Potter's (Daniel Radcliffe's) sixth year at Hogwarts School of Witchcraft, he finds a book marked mysteriously, \"This book is the property of the Half Blood Prince\", which helps him excel at Potions class and teaches him a few dark and dangerous ones along the way. Meanwhile, Harry is taking private lessons with Dumbledore (Sir Michael Gambon) in order to find out about Voldemort's (Ralph Fiennes') past so they can find out what might be his only weakness.",
+    "directorList": [
+      "David Yates"
+    ],
+    "castList": [
+      "Daniel Radcliffe",
+      "Michael Gambon",
+      "Dave Legeno",
+      "Elarica Johnson",
+      "Jim Broadbent",
+      "Geraldine Somerville",
+      "Bonnie Wright",
+      "Julie Walters",
+      "Rupert Grint",
+      "Emma Watson",
+      "Helena Bonham Carter",
+      "Helen McCrory",
+      "Timothy Spall",
+      "Alan Rickman",
+      "Oliver Phelps"
+    ],
+    "characterList": [
+      "Harry Potter",
+      "Professor Albus Dumbledore",
+      "Fenrir Greyback",
+      "Waitress (as Elarica Gallacher)",
+      "Professor Horace Slughorn",
+      "Lily Potter",
+      "Ginny Weasley",
+      "Molly Weasley",
+      "Ron Weasley",
+      "Hermione Granger",
+      "Bellatrix Lestrange",
+      "Narcissa Malfoy",
+      "Wormtail",
+      "Professor Severus Snape",
+      "George Weasley"
+    ],
+    "duration": "2h 33min",
+    "budget": "$250,000,000 (estimated)",
+    "gross": "$934,454,096",
+    "ratingValue": "7.6",
+    "ratingCount": "484,443",
+    "contentRating": "12",
+    "aspectRatio": "2.39 : 1",
+    "reviews": "1,095 user",
+    "critics": "399 critic"
+  }
+]

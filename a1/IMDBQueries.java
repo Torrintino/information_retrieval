@@ -49,7 +49,7 @@ public class IMDBQueries {
      * Under the Radar: Determine the top ten US-American movies until (including)
      * 2015 that have made the biggest loss despite an IMDB score above
      * (excluding) 8.0, based on at least 1,000 votes. Here, loss is defined as
-     * budget minus gross.
+     * gross minus budget.
      *
      * @param movies the list of movies which is to be queried
      * @return top ten highest rated US-American movie until 2015, sorted by

@@ -1,0 +1,71 @@
+[
+  {
+    "url": "https://www.imdb.com/title/tt3040964/?ref_=fn_ft_tt_1",
+    "title": "The Jungle Book",
+    "year": "2016",
+    "genreList": [
+      "Adventure",
+      "Drama",
+      "Family",
+      "Fantasy"
+    ],
+    "countryList": [
+      "UK",
+      "USA"
+    ],
+    "keywordList": [
+      "jungle",
+      "wolf",
+      "fire",
+      "tiger",
+      "black panther"
+    ],
+    "description": "Living among the wolves in the jungle, young man cub Mowgli quickly learns to live life among his wolf pack and all the animals that inhabit the jungle, but when the villainous tiger Shere Khan threatens Mowgli's life, black panther Bagheera offers to take Mowgli to a nearby man village where he will be safe from the tiger's wrath. Along the way, Mowgli gets tangled up in a series of encounters with a sly snake named Kaa, a swimmingly ruthless gigantopithecus named King Louie and a lazy bear named Baloo, who quickly becomes his guide to the 'bear necessities' of life.",
+    "directorList": [
+      "Jon Favreau"
+    ],
+    "castList": [
+      "Neel Sethi",
+      "Bill Murray",
+      "Ben Kingsley",
+      "Idris Elba",
+      "Lupita Nyong'o",
+      "Scarlett Johansson",
+      "Giancarlo Esposito",
+      "Christopher Walken",
+      "Garry Shandling",
+      "Brighton Rose Favreau",
+      "Emjay Anthony",
+      "Max Favreau",
+      "Chloe Hechter",
+      "Asher Blinkoff",
+      "Knox Gagnon"
+    ],
+    "characterList": [
+      "Mowgli",
+      "Baloo (voice)",
+      "Bagheera (voice)",
+      "Shere Khan (voice)",
+      "Raksha (voice)",
+      "Kaa (voice)",
+      "Akela (voice)",
+      "King Louie (voice)",
+      "Ikki (voice)",
+      "Gray (voice) (as Brighton Rose)",
+      "Young Wolf (voice)",
+      "Young Wolf (voice)",
+      "Young Wolf (voice)",
+      "Young Wolf (voice)",
+      "Young Wolf (voice)"
+    ],
+    "duration": "1h 46min",
+    "budget": "$175,000,000 (estimated)",
+    "gross": "$966,554,929",
+    "ratingValue": "7.4",
+    "ratingCount": "261,383",
+    "contentRating": "6",
+    "aspectRatio": "1.85 : 1",
+    "reviews": "608 user",
+    "critics": "459 critic"
+  }
+]

@@ -1,0 +1,72 @@
+[
+  {
+    "url": "https://www.imdb.com/title/tt1877832/?ref_=fn_ft_tt_1",
+    "title": "X-Men: Days of Future Past",
+    "year": "2014",
+    "genreList": [
+      "Action",
+      "Adventure",
+      "Sci-Fi",
+      "Thriller"
+    ],
+    "countryList": [
+      "USA",
+      "UK",
+      "Canada"
+    ],
+    "keywordList": [
+      "time travel",
+      "supernatural power",
+      "super strength",
+      "time paradox",
+      "dystopia"
+    ],
+    "description": "In the future, the mutants and the humans who help them are slaughtered by powerful robots named Sentinels. Professor Xavier, Wolverine, Magneto, Storm, Kitty Pryde, and her friends meet at a monastery in China and Xavier explains that the invincible Sentinels were created using the DNA of Mystique that was captured in 1973 when she tried to assassinate their creator Dr. Bolivar Trask. Xavier tells that their only chance is return to 1973 using Pryde's ability to join Charles Xavier and Erik Lehnsherr to convince Mystique to give up her intention. However, only Wolverine can withstand the damages of the time travel. Will he succeed in stopping Mystique and the Sentinel Program, and save the mutants and their human friends from annihilation?",
+    "directorList": [
+      "Bryan Singer"
+    ],
+    "castList": [
+      "Hugh Jackman",
+      "James McAvoy",
+      "Michael Fassbender",
+      "Jennifer Lawrence",
+      "Halle Berry",
+      "Nicholas Hoult",
+      "Anna Paquin",
+      "Elliot Page",
+      "Peter Dinklage",
+      "Shawn Ashmore",
+      "Omar Sy",
+      "Evan Peters",
+      "Josh Helman",
+      "Daniel Cudmore",
+      "Bingbing Fan"
+    ],
+    "characterList": [
+      "Logan / Wolverine",
+      "Charles Xavier",
+      "Erik Lehnsherr",
+      "Raven / Mystique",
+      "Storm",
+      "Hank / Beast",
+      "Rogue",
+      "Kitty Pryde (as Ellen Page)",
+      "Dr. Bolivar Trask",
+      "Bobby / Iceman",
+      "Bishop",
+      "Peter / Quicksilver",
+      "Maj. Bill Stryker",
+      "Colossus",
+      "Blink"
+    ],
+    "duration": "2h 12min",
+    "budget": "$200,000,000 (estimated)",
+    "gross": "$746,045,700",
+    "ratingValue": "7.9",
+    "ratingCount": "667,165",
+    "contentRating": "12",
+    "aspectRatio": "2.39 : 1",
+    "reviews": "843 user",
+    "critics": "574 critic"
+  }
+]

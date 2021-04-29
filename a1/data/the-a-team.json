@@ -1,0 +1,70 @@
+[
+  {
+    "url": "https://www.imdb.com/title/tt0429493/?ref_=fn_ft_tt_1",
+    "title": "The A-Team",
+    "year": "2010",
+    "genreList": [
+      "Action",
+      "Adventure",
+      "Thriller"
+    ],
+    "countryList": [
+      "USA",
+      "UK"
+    ],
+    "keywordList": [
+      "cia agent",
+      "prison escape",
+      "based on tv series",
+      "prison",
+      "captain"
+    ],
+    "description": "Four American soldiers who are in Iraq are sent on a mission to recover plates for printing 100 dollar bills that were used to print a billion dollars. After doing the job and returning to the base their commanding officer is killed in an explosion and the plates are stolen by another operative. They would be court martialed and sent to different prisons. 6 months later, the leader, Hannibal Smith is visited by a CIA spook who tells him he knows where the man who took the plates is and wants him and his men to recover it. So he helps him escape and he breaks out the others and they go after the plates. But after doing it, they discover that the spook might not be ok. And a military intelligence officer who was involved with one of them is pursuing them.",
+    "directorList": [
+      "Joe Carnahan"
+    ],
+    "castList": [
+      "Liam Neeson",
+      "Bradley Cooper",
+      "Jessica Biel",
+      "Quinton 'Rampage' Jackson",
+      "Sharlto Copley",
+      "Patrick Wilson",
+      "Gerald McRaney",
+      "Henry Czerny",
+      "Yul Vazquez",
+      "Brian Bloom",
+      "Maury Sterling",
+      "Terry Chen",
+      "Omari Hardwick",
+      "David Hugghins",
+      "Jacob Blair"
+    ],
+    "characterList": [
+      "Hannibal",
+      "Face",
+      "Charissa Sosa",
+      "B.A. Baracus",
+      "Murdock",
+      "Lynch",
+      "General Morrison",
+      "Director McCready",
+      "General Javier Tuco (as Yul Vázquez)",
+      "Pike",
+      "Gammons",
+      "Ravech",
+      "Chopshop Jay",
+      "Oskar Shunt",
+      "Agent Blair"
+    ],
+    "duration": "1h 57min",
+    "budget": "$110,000,000 (estimated)",
+    "gross": "$177,238,796",
+    "ratingValue": "6.7",
+    "ratingCount": "247,650",
+    "contentRating": "12",
+    "aspectRatio": "2.35 : 1",
+    "reviews": "409 user",
+    "critics": "329 critic"
+  }
+]

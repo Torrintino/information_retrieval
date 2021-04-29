@@ -1,0 +1,58 @@
+[
+  {
+    "url": "https://www.imdb.com/title/tt0481499/?ref_=fn_ft_tt_1",
+    "title": "The Croods",
+    "year": "2013",
+    "genreList": [
+      "Animation",
+      "Adventure",
+      "Comedy",
+      "Family",
+      "Fantasy"
+    ],
+    "countryList": [
+      "USA"
+    ],
+    "keywordList": [
+      "caveman",
+      "journey",
+      "cave",
+      "survival",
+      "strict father"
+    ],
+    "description": "\"The Croods\" are an eccentric family of cavemen, who survive the harsh terrain by living accordingly to a strict set of rules. But when their home is destroyed in the wake of an impending disaster known as \"The End\", they are forced to leave their home of shelter and security, and into the wilderness of the unknown to find a new home.",
+    "directorList": [
+      "Kirk DeMicco",
+      "Chris Sanders"
+    ],
+    "castList": [
+      "Nicolas Cage",
+      "Emma Stone",
+      "Ryan Reynolds",
+      "Catherine Keener",
+      "Cloris Leachman",
+      "Clark Duke",
+      "Chris Sanders",
+      "Randy Thom"
+    ],
+    "characterList": [
+      "Grug (voice)",
+      "Eep (voice)",
+      "Guy (voice)",
+      "Ugga (voice)",
+      "Gran (voice)",
+      "Thunk (voice)",
+      "Belt (voice)",
+      "Sandy (voice)"
+    ],
+    "duration": "1h 38min",
+    "budget": "$135,000,000 (estimated)",
+    "gross": "$587,205,319",
+    "ratingValue": "7.2",
+    "ratingCount": "196,346",
+    "contentRating": "0",
+    "aspectRatio": "2.35 : 1",
+    "reviews": "261 user",
+    "critics": "274 critic"
+  }
+]

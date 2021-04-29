@@ -1,0 +1,70 @@
+[
+  {
+    "url": "https://www.imdb.com/title/tt0371746/?ref_=fn_ft_tt_1",
+    "title": "Iron Man",
+    "year": "2008",
+    "genreList": [
+      "Action",
+      "Adventure",
+      "Sci-Fi"
+    ],
+    "countryList": [
+      "USA",
+      "Canada"
+    ],
+    "keywordList": [
+      "billionaire",
+      "inventor",
+      "robot suit",
+      "based on comic",
+      "marvel cinematic universe"
+    ],
+    "description": "Tony Stark. Genius, billionaire, playboy, philanthropist. Son of legendary inventor and weapons contractor Howard Stark. When Tony Stark is assigned to give a weapons presentation to an Iraqi unit led by Lt. Col. James Rhodes, he's given a ride on enemy lines. That ride ends badly when Stark's Humvee that he's riding in is attacked by enemy combatants. He survives - barely - with a chest full of shrapnel and a car battery attached to his heart. In order to survive he comes up with a way to miniaturize the battery and figures out that the battery can power something else. Thus Iron Man is born. He uses the primitive device to escape from the cave in Iraq. Once back home, he then begins work on perfecting the Iron Man suit. But the man who was put in charge of Stark Industries has plans of his own to take over Tony's technology for other matters.",
+    "directorList": [
+      "Jon Favreau"
+    ],
+    "castList": [
+      "Robert Downey Jr.",
+      "Terrence Howard",
+      "Jeff Bridges",
+      "Gwyneth Paltrow",
+      "Leslie Bibb",
+      "Shaun Toub",
+      "Faran Tahir",
+      "Clark Gregg",
+      "Bill Smitrovich",
+      "Sayed Badreya",
+      "Paul Bettany",
+      "Jon Favreau",
+      "Peter Billingsley",
+      "Tim Guinee",
+      "Will Lyman"
+    ],
+    "characterList": [
+      "Tony Stark",
+      "Rhodey",
+      "Obadiah Stane",
+      "Pepper Potts",
+      "Christine Everhart",
+      "Yinsen",
+      "Raza",
+      "Agent Coulson",
+      "General Gabriel",
+      "Abu Bakaar",
+      "JARVIS (voice)",
+      "Hogan",
+      "William Ginter Riva",
+      "Major Allen",
+      "Award Ceremony Narrator (voice)"
+    ],
+    "duration": "2h 6min",
+    "budget": "$140,000,000 (estimated)",
+    "gross": "$585,796,247",
+    "ratingValue": "7.9",
+    "ratingCount": "955,182",
+    "contentRating": "PG-13",
+    "aspectRatio": "2.39 : 1",
+    "reviews": "1,395 user",
+    "critics": "546 critic"
+  }
+]

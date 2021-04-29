@@ -1,0 +1,69 @@
+[
+  {
+    "url": "https://www.imdb.com/title/tt1170358/?ref_=fn_ft_tt_1",
+    "title": "The Hobbit: The Desolation of Smaug",
+    "year": "2013",
+    "genreList": [
+      "Adventure",
+      "Fantasy"
+    ],
+    "countryList": [
+      "New Zealand",
+      "USA"
+    ],
+    "keywordList": [
+      "lord of the rings",
+      "middle earth",
+      "epic",
+      "dragon",
+      "giant spider"
+    ],
+    "description": "After successfully crossing over (and under) the Misty Mountains, Thorin and Company must seek aid from a powerful stranger before taking on the dangers of Mirkwood Forest--without their Wizard. If they reach the human settlement of Lake-town it will be time for the hobbit Bilbo Baggins to fulfill his contract with the dwarves. The party must complete the journey to Lonely Mountain and burglar Baggins must seek out the Secret Door that will give them access to the hoard of the dragon Smaug. And, where has Gandalf got off to? And what is his secret business to the south?",
+    "directorList": [
+      "Peter Jackson"
+    ],
+    "castList": [
+      "Ian McKellen",
+      "Martin Freeman",
+      "Richard Armitage",
+      "Ken Stott",
+      "Graham McTavish",
+      "William Kircher",
+      "James Nesbitt",
+      "Stephen Hunter",
+      "Dean O'Gorman",
+      "Aidan Turner",
+      "John Callen",
+      "Peter Hambleton",
+      "Jed Brophy",
+      "Mark Hadlow",
+      "Adam Brown"
+    ],
+    "characterList": [
+      "Gandalf",
+      "Bilbo",
+      "Thorin",
+      "Balin",
+      "Dwalin",
+      "Bifur",
+      "Bofur",
+      "Bombur",
+      "Fili",
+      "Kili",
+      "Oin",
+      "Gloin",
+      "Nori",
+      "Dori",
+      "Ori"
+    ],
+    "duration": "2h 41min",
+    "budget": "$225,000,000 (estimated)",
+    "gross": "$958,366,855",
+    "ratingValue": "7.8",
+    "ratingCount": "608,751",
+    "contentRating": "12",
+    "aspectRatio": "2.35 : 1",
+    "reviews": "1,000 user",
+    "critics": "539 critic"
+  }
+]

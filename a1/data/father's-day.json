@@ -1,0 +1,69 @@
+[
+  {
+    "url": "https://www.imdb.com/title/tt0083767/?ref_=fn_ft_tt_1",
+    "title": "Creepshow",
+    "year": "1982",
+    "genreList": [
+      "Comedy",
+      "Fantasy",
+      "Horror"
+    ],
+    "countryList": [
+      "USA"
+    ],
+    "keywordList": [
+      "anthology",
+      "dark comedy",
+      "death",
+      "meteorite",
+      "child abuse"
+    ],
+    "description": "Five tales of terror are presented. The first deals with a demented old man returning from the grave to get the Father's Day cake his murdering daughter never gave him. The second is about a not-too-bright farmer discovering a meteor that turns everything into plant-life. The third is about a vengeful husband burying his wife and her lover up to their necks on the beach. The fourth is about a creature that resides in a crate under the steps of a college. The final story is about an ultra-rich businessman who gets his comeuppance from cockroaches.",
+    "directorList": [
+      "George A. Romero"
+    ],
+    "castList": [
+      "Hal Holbrook",
+      "Adrienne Barbeau",
+      "Fritz Weaver",
+      "Leslie Nielsen",
+      "Carrie Nye",
+      "E.G. Marshall",
+      "Viveca Lindfors",
+      "Ed Harris",
+      "Ted Danson",
+      "Stephen King",
+      "Warner Shook",
+      "Robert Harper",
+      "Elizabeth Regan",
+      "Gaylen Ross",
+      "Jon Lormer"
+    ],
+    "characterList": [
+      "Henry Northrup (segment \"The Crate\")",
+      "Wilma Northrup (segment \"The Crate\")",
+      "Dexter Stanley (segment \"The Crate\")",
+      "Richard Vickers (segment \"Something To Tide You Over\")",
+      "Sylvia Grantham (segment \"Father's Day\")",
+      "Upson Pratt (segment \"They're Creeping Up On You\")",
+      "Aunt Bedelia (segment \"Father's Day\")",
+      "Hank Blaine (segment \"Father's Day\")",
+      "Harry Wentworth (segment \"Something To Tide You Over)",
+      "Jordy Verrill (segment \"The Lonesome Death of Jordy Verrill\")",
+      "Richard Grantham (segment \"Father's Day\")",
+      "Charlie Gereson (segment \"The Crate\")",
+      "Cass Blaine (segment \"Father's Day\")",
+      "Becky Vickers (segment \"Something To Tide You Over\")",
+      "Nathan Grantham (segment \"Father's Day\")"
+    ],
+    "duration": "2h",
+    "budget": "$8,000,000 (estimated)",
+    "gross": "$21,028,755",
+    "ratingValue": "6.9",
+    "ratingCount": "43,019",
+    "contentRating": "16",
+    "aspectRatio": "1.33 : 1",
+    "reviews": "246 user",
+    "critics": "186 critic"
+  }
+]

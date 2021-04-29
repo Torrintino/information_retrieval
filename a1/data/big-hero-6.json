@@ -1,0 +1,73 @@
+[
+  {
+    "url": "https://www.imdb.com/title/tt2245084/?ref_=fn_ft_tt_1",
+    "title": "Big Hero 6",
+    "year": "2014",
+    "genreList": [
+      "Animation",
+      "Action",
+      "Adventure",
+      "Family",
+      "Sci-Fi"
+    ],
+    "countryList": [
+      "USA",
+      "Japan"
+    ],
+    "keywordList": [
+      "robot",
+      "superhero",
+      "martial arts",
+      "san francisco california",
+      "friendship"
+    ],
+    "description": "When a devastating event befalls the city of San Fransokyo and catapults Hiro into the midst of danger, he turns to Baymax and his close friends adrenaline junkie Go Go Tomago, neatnik Wasabi, chemistry whiz Honey Lemon and fanboy Fred. Determined to uncover the mystery, Hiro transforms his friends into a band of high-tech heroes called \"Big Hero 6.\"",
+    "directorList": [
+      "Don Hall",
+      "Chris Williams"
+    ],
+    "castList": [
+      "Scott Adsit",
+      "Ryan Potter",
+      "Daniel Henney",
+      "T.J. Miller",
+      "Jamie Chung",
+      "Damon Wayans Jr.",
+      "Genesis Rodriguez",
+      "James Cromwell",
+      "Alan Tudyk",
+      "Maya Rudolph",
+      "Abraham Benrubi",
+      "Katie Lowes",
+      "Billy Bush",
+      "Daniel Gerson",
+      "Paul Briggs"
+    ],
+    "characterList": [
+      "Baymax (voice)",
+      "Hiro (voice)",
+      "Tadashi (voice)",
+      "Fred (voice)",
+      "Go Go (voice)",
+      "Wasabi (voice)",
+      "Honey Lemon (voice)",
+      "Robert Callaghan (voice)",
+      "Alistair Krei (voice)",
+      "Cass (voice)",
+      "General (voice)",
+      "Abigail (voice)",
+      "Newscaster (voice)",
+      "Desk Sergeant (voice)",
+      "Yama (voice)"
+    ],
+    "duration": "1h 42min",
+    "budget": "$165,000,000 (estimated)",
+    "gross": "$657,869,686",
+    "ratingValue": "7.8",
+    "ratingCount": "416,931",
+    "contentRating": "6",
+    "aspectRatio": "2.39 : 1",
+    "reviews": "583 user",
+    "critics": "419 critic"
+  }
+]

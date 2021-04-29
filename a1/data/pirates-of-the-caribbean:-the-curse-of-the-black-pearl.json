@@ -1,0 +1,69 @@
+[
+  {
+    "url": "https://www.imdb.com/title/tt0325980/?ref_=fn_ft_tt_1",
+    "title": "Pirates of the Caribbean: The Curse of the Black Pearl",
+    "year": "2003",
+    "genreList": [
+      "Action",
+      "Adventure",
+      "Fantasy"
+    ],
+    "countryList": [
+      "USA"
+    ],
+    "keywordList": [
+      "pirate",
+      "curse",
+      "undead",
+      "based on theme park attraction",
+      "based on theme park ride"
+    ],
+    "description": "This swash-buckling tale follows the quest of Captain Jack Sparrow, a savvy pirate, and Will Turner, a resourceful blacksmith, as they search for Elizabeth Swann. Elizabeth, the daughter of the governor and the love of Will's life, has been kidnapped by the feared Captain Barbossa. Little do they know, but the fierce and clever Barbossa has been cursed. He, along with his large crew, are under an ancient curse, doomed for eternity to neither live, nor die. That is, unless a blood sacrifice is made.",
+    "directorList": [
+      "Gore Verbinski"
+    ],
+    "castList": [
+      "Johnny Depp",
+      "Geoffrey Rush",
+      "Orlando Bloom",
+      "Keira Knightley",
+      "Jack Davenport",
+      "Jonathan Pryce",
+      "Lee Arenberg",
+      "Mackenzie Crook",
+      "Damian O'Hare",
+      "Giles New",
+      "Angus Barnett",
+      "David Bailie",
+      "Michael Berry Jr.",
+      "Isaac C. Singleton Jr.",
+      "Kevin McNally"
+    ],
+    "characterList": [
+      "Jack Sparrow",
+      "Barbossa",
+      "Will Turner",
+      "Elizabeth Swann",
+      "Norrington",
+      "Governor Weatherby Swann",
+      "Pintel",
+      "Ragetti",
+      "Lt. Gillette",
+      "Murtogg",
+      "Mullroy",
+      "Cotton",
+      "Twigg",
+      "Bo'sun",
+      "Joshamee Gibbs (as Kevin R. McNally)"
+    ],
+    "duration": "2h 23min",
+    "budget": "$140,000,000 (estimated)",
+    "gross": "$654,264,015",
+    "ratingValue": "8.0",
+    "ratingCount": "1,024,158",
+    "contentRating": "12",
+    "aspectRatio": "2.39 : 1",
+    "reviews": "2,240 user",
+    "critics": "293 critic"
+  }
+]

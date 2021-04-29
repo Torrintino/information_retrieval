@@ -1,0 +1,73 @@
+[
+  {
+    "url": "https://www.imdb.com/title/tt0267626/?ref_=fn_ft_tt_1",
+    "title": "K-19: The Widowmaker",
+    "year": "2002",
+    "genreList": [
+      "Drama",
+      "History",
+      "Thriller",
+      "War"
+    ],
+    "countryList": [
+      "UK",
+      "Germany",
+      "Canada",
+      "USA"
+    ],
+    "keywordList": [
+      "radiation sickness",
+      "radioactive contamination",
+      "soviet union",
+      "submarine",
+      "nuclear submarine"
+    ],
+    "description": "The story of USSR's first nuclear ballistic submarine, which suffered a malfunction in its nuclear reactor on its maiden voyage in the North Atlantic in 1961. The submarine's crew, led by the unyielding Captain Alexi Vostrikov, races against time to prevent a Chernobyl-like nuclear disaster which threatens not only the lives of his crew, but has the potential to ignite a world war between the super powers.",
+    "directorList": [
+      "Kathryn Bigelow"
+    ],
+    "castList": [
+      "Sam Spruell",
+      "Peter Stebbings",
+      "Christian Camargo",
+      "Roman Podhora",
+      "Sam Redford",
+      "Steve Nicolson",
+      "Liam Neeson",
+      "Ravil Isyanov",
+      "Tim Woodward",
+      "Lex Shrapnel",
+      "Shaun Benson",
+      "Kris Holden-Ried",
+      "Dmitry Chepovetsky",
+      "Christopher Redman",
+      "Tygh Runyan"
+    ],
+    "characterList": [
+      "Dmitri",
+      "Kuryshev",
+      "Pavel",
+      "Lapinsh",
+      "Vasily",
+      "Demichev",
+      "Capt. Mikhail Polenin",
+      "Suslov",
+      "Partonov",
+      "Kornilov",
+      "Leonid",
+      "Anton (as Kristen Holden-Ried)",
+      "Sergei",
+      "Kiklidze",
+      "Maxim"
+    ],
+    "duration": "2h 18min",
+    "budget": "$100,000,000 (estimated)",
+    "gross": "$65,716,126",
+    "ratingValue": "6.7",
+    "ratingCount": "60,217",
+    "contentRating": "12",
+    "aspectRatio": "2.39 : 1",
+    "reviews": "293 user",
+    "critics": "117 critic"
+  }
+]

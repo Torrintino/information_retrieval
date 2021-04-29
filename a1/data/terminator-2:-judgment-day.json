@@ -1,0 +1,68 @@
+[
+  {
+    "url": "https://www.imdb.com/title/tt0103064/?ref_=fn_ft_tt_1",
+    "title": "Terminator 2: Judgment Day",
+    "year": "1991",
+    "genreList": [
+      "Action",
+      "Sci-Fi"
+    ],
+    "countryList": [
+      "USA"
+    ],
+    "keywordList": [
+      "time travel",
+      "future",
+      "sequel",
+      "artificial intelligence",
+      "mother son relationship"
+    ],
+    "description": "Over 10 years have passed since the first machine called The Terminator tried to kill Sarah Connor and her unborn son, John. The man who will become the future leader of the human resistance against the Machines is now a healthy young boy. However, another Terminator, called the T-1000, is sent back through time by the supercomputer Skynet. This new Terminator is more advanced and more powerful than its predecessor and its mission is to kill John Connor when he's still a child. However, in the Internet and John do not have to face the threat of the T-1000 alone. Another Terminator (identical to the same model that tried and failed to kill Sarah Connor in 1984) is also sent back through time to protect them. Now, the battle for tomorrow has begun.",
+    "directorList": [
+      "James Cameron"
+    ],
+    "castList": [
+      "Arnold Schwarzenegger",
+      "Linda Hamilton",
+      "Edward Furlong",
+      "Robert Patrick",
+      "Earl Boen",
+      "Joe Morton",
+      "S. Epatha Merkerson",
+      "Castulo Guerra",
+      "Danny Cooksey",
+      "Jenette Goldstein",
+      "Xander Berkeley",
+      "Leslie Hamilton Gearren",
+      "Ken Gibbel",
+      "Robert Winley",
+      "Peter Schrum"
+    ],
+    "characterList": [
+      "The Terminator",
+      "Sarah Connor",
+      "John Connor",
+      "T-1000",
+      "Dr. Silberman",
+      "Miles Dyson",
+      "Tarissa Dyson",
+      "Enrique Salceda",
+      "Tim",
+      "Janelle Voight",
+      "Todd Voight",
+      "Twin Sarah",
+      "Douglas",
+      "Cigar Biker",
+      "Lloyd (as Pete Schrum)"
+    ],
+    "duration": "2h 17min",
+    "budget": "$102,000,000 (estimated)",
+    "gross": "$520,881,154",
+    "ratingValue": "8.5",
+    "ratingCount": "1,007,651",
+    "contentRating": "16",
+    "aspectRatio": "2.39 : 1",
+    "reviews": "1,356 user",
+    "critics": "300 critic"
+  }
+]

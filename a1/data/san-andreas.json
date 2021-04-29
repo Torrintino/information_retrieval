@@ -1,0 +1,69 @@
+[
+  {
+    "url": "https://www.imdb.com/title/tt2126355/?ref_=fn_ft_tt_1",
+    "title": "San Andreas",
+    "year": "2015",
+    "genreList": [
+      "Action",
+      "Adventure",
+      "Thriller"
+    ],
+    "countryList": [
+      "USA"
+    ],
+    "keywordList": [
+      "natural disaster",
+      "disaster movie",
+      "earthquake",
+      "san andreas fault",
+      "daughter"
+    ],
+    "description": "In San Andreas, California is experiencing a statewide earthquake that goes on record as easily the biggest earthquake in history. Dwayne Johnson plays Ray Gaines, a helicopter rescue pilot for the Los Angeles Fire Department, who is trying to find his daughter, Blake (Alexandra Daddario), who is in San Francisco amid-st the chaos. Ray's estranged wife, Emma, is forced to turn to Ray for help, as he is her last resort. Together they journey to save their daughter.",
+    "directorList": [
+      "Brad Peyton"
+    ],
+    "castList": [
+      "Dwayne Johnson",
+      "Carla Gugino",
+      "Alexandra Daddario",
+      "Ioan Gruffudd",
+      "Archie Panjabi",
+      "Paul Giamatti",
+      "Hugo Johnstone-Burt",
+      "Art Parkinson",
+      "Will Yun Lee",
+      "Kylie Minogue",
+      "Colton Haynes",
+      "Todd Williams",
+      "Matt Gerald",
+      "Alec Utgoff",
+      "Marissa Neitling"
+    ],
+    "characterList": [
+      "Raymond Gaines",
+      "Emma Gaines",
+      "Blake Gaines",
+      "Daniel Riddick",
+      "Serena Johnson",
+      "Dr. Lawrence Hayes",
+      "Ben Taylor",
+      "Ollie Taylor",
+      "Dr. Kim Park",
+      "Susan Riddick",
+      "Joby O'Leary",
+      "Marcus",
+      "Harrison",
+      "Alexi",
+      "Phoebe"
+    ],
+    "duration": "1h 54min",
+    "budget": "$110,000,000 (estimated)",
+    "gross": "$473,990,832",
+    "ratingValue": "6.1",
+    "ratingCount": "215,984",
+    "contentRating": "12",
+    "aspectRatio": "2.39 : 1",
+    "reviews": "656 user",
+    "critics": "403 critic"
+  }
+]

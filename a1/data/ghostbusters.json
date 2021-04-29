@@ -1,0 +1,70 @@
+[
+  {
+    "url": "https://www.imdb.com/title/tt0087332/?ref_=fn_ft_tt_1",
+    "title": "Ghost Busters",
+    "year": "1984",
+    "genreList": [
+      "Action",
+      "Comedy",
+      "Fantasy",
+      "Sci-Fi"
+    ],
+    "countryList": [
+      "USA"
+    ],
+    "keywordList": [
+      "ghost",
+      "ghostbuster",
+      "university",
+      "scientist",
+      "paranormal investigation team"
+    ],
+    "description": "Peter Venkman, Ray Stantz and Egon Spengler work at Columbia University. where they delve into the paranormal and fiddle with many unethical experiments on their students. As they are kicked out of the University, they really understand the paranormal and go into business for themselves. Under the new snazzy business name of 'Ghostbusters', and living in the old firehouse building they work out of, they are called to rid New York City of paranormal phenomenon at everyone's whim. - for a price. They make national press as the media reports the Ghostbusters are the cause of it all. Thrown in jail by the EPA, the mayor takes a chance and calls on them to help save the city. Unbeknownst to all, a long dead Gozer worshiper (Evo Shandor) erected a downtown apartment building which is the cause of all the paranormal activity. They find out the building could resurrect the ancient Hittite god, Gozer, and bring an end to all of humanity. Who are you gonna call to stop this terrible ...",
+    "directorList": [
+      "Ivan Reitman"
+    ],
+    "castList": [
+      "Bill Murray",
+      "Dan Aykroyd",
+      "Sigourney Weaver",
+      "Harold Ramis",
+      "Rick Moranis",
+      "Annie Potts",
+      "William Atherton",
+      "Ernie Hudson",
+      "David Margulies",
+      "Steven Tash",
+      "Jennifer Runyon",
+      "Slavitza Jovan",
+      "Michael Ensign",
+      "Alice Drummond",
+      "Jordan Charney"
+    ],
+    "characterList": [
+      "Dr. Peter Venkman",
+      "Dr. Raymond Stantz",
+      "Dana Barrett",
+      "Dr. Egon Spengler",
+      "Louis Tully",
+      "Janine Melnitz",
+      "Walter Peck",
+      "Winston Zeddemore",
+      "Mayor",
+      "Male Student",
+      "Female Student",
+      "Gozer",
+      "Hotel Manager",
+      "Librarian",
+      "Dean Yeager"
+    ],
+    "duration": "1h 45min",
+    "budget": "$30,000,000 (estimated)",
+    "gross": "$296,187,079",
+    "ratingValue": "7.8",
+    "ratingCount": "360,181",
+    "contentRating": "12",
+    "aspectRatio": "2.39 : 1",
+    "reviews": "591 user",
+    "critics": "265 critic"
+  }
+]

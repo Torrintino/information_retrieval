@@ -1,0 +1,70 @@
+[
+  {
+    "url": "https://www.imdb.com/title/tt0100802/?ref_=fn_ft_tt_1",
+    "title": "Total Recall",
+    "year": "1990",
+    "genreList": [
+      "Action",
+      "Sci-Fi",
+      "Thriller"
+    ],
+    "countryList": [
+      "USA",
+      "Mexico"
+    ],
+    "keywordList": [
+      "implanted memory",
+      "false memory",
+      "space colony",
+      "ambiguous ending",
+      "memory"
+    ],
+    "description": "Douglas Quaid is haunted by a recurring dream about a journey to Mars. He hopes to find out more about this dream and buys a holiday at Rekall Inc. where they sell implanted memories. But something goes wrong with the memory implantation and he remembers being a secret agent fighting against the evil Mars administrator Cohaagen. Now the story really begins and it's a rollercoaster ride until the massive end of the movie.",
+    "directorList": [
+      "Paul Verhoeven"
+    ],
+    "castList": [
+      "Arnold Schwarzenegger",
+      "Rachel Ticotin",
+      "Sharon Stone",
+      "Ronny Cox",
+      "Michael Ironside",
+      "Marshall Bell",
+      "Mel Johnson Jr.",
+      "Michael Champion",
+      "Roy Brocksmith",
+      "Ray Baker",
+      "Rosemary Dunsmore",
+      "David Knell",
+      "Alexia Robinson",
+      "Dean Norris",
+      "Mark Carlton"
+    ],
+    "characterList": [
+      "Quaid",
+      "Melina",
+      "Lori",
+      "Cohaagen",
+      "Richter",
+      "George / Kuato",
+      "Benny",
+      "Helm",
+      "Dr. Edgemar",
+      "McClane",
+      "Dr. Lull",
+      "Ernie",
+      "Tiffany",
+      "Tony",
+      "Bartender"
+    ],
+    "duration": "1h 53min",
+    "budget": "$65,000,000 (estimated)",
+    "gross": "$261,317,921",
+    "ratingValue": "7.5",
+    "ratingCount": "306,198",
+    "contentRating": "18",
+    "aspectRatio": "1.85 : 1",
+    "reviews": "500 user",
+    "critics": "253 critic"
+  }
+]

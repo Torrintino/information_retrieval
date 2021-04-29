@@ -1,0 +1,71 @@
+[
+  {
+    "url": "https://www.imdb.com/title/tt0338526/?ref_=fn_ft_tt_1",
+    "title": "Van Helsing",
+    "year": "2004",
+    "genreList": [
+      "Action",
+      "Adventure",
+      "Fantasy"
+    ],
+    "countryList": [
+      "USA",
+      "Czech Republic",
+      "Romania"
+    ],
+    "keywordList": [
+      "werewolf",
+      "van helsing",
+      "dracula",
+      "vampire",
+      "creature"
+    ],
+    "description": "Van Helsing is in the world to rid all evil, even if not everyone agrees with him. The Vatican sends the monster hunter and his ally, Carl, to Transylvania. They have been sent to this land to stop the powerful Count Dracula. Whilst there they join forces with a Gypsy Princess called Anna Valerious, who is determined to end an ancient curse on her family by destroying the vampire. They just don't know how!",
+    "directorList": [
+      "Stephen Sommers"
+    ],
+    "castList": [
+      "Hugh Jackman",
+      "Kate Beckinsale",
+      "Richard Roxburgh",
+      "David Wenham",
+      "Shuler Hensley",
+      "Elena Anaya",
+      "Will Kemp",
+      "Kevin J. O'Connor",
+      "Alun Armstrong",
+      "Silvia Colloca",
+      "Josie Maran",
+      "Tom Fisher",
+      "Samuel West",
+      "Robbie Coltrane",
+      "Stephen Fisher"
+    ],
+    "characterList": [
+      "Van Helsing",
+      "Anna Valerious",
+      "Count Vladislaus Dracula",
+      "Carl",
+      "Frankenstein's Monster",
+      "Aleera",
+      "Velkan",
+      "Igor",
+      "Cardinal Jinette",
+      "Verona",
+      "Marishka",
+      "Top Hat",
+      "Dr. Victor Frankenstein",
+      "Mr. Hyde",
+      "Dr. Jekyll (as Stephen H. Fisher)"
+    ],
+    "duration": "2h 11min",
+    "budget": "$160,000,000 (estimated)",
+    "gross": "$300,157,638",
+    "ratingValue": "6.1",
+    "ratingCount": "247,417",
+    "contentRating": "12",
+    "aspectRatio": "1.85 : 1",
+    "reviews": "1,395 user",
+    "critics": "127 critic"
+  }
+]

@@ -1,0 +1,71 @@
+[
+  {
+    "url": "https://www.imdb.com/title/tt1392190/?ref_=fn_ft_tt_1",
+    "title": "Mad Max: Fury Road",
+    "year": "2015",
+    "genreList": [
+      "Action",
+      "Adventure",
+      "Sci-Fi",
+      "Thriller"
+    ],
+    "countryList": [
+      "Australia",
+      "South Africa"
+    ],
+    "keywordList": [
+      "post apocalypse",
+      "desert",
+      "car chase",
+      "chase",
+      "escape"
+    ],
+    "description": "An apocalyptic story set in the furthest reaches of our planet, in a stark desert landscape where humanity is broken, and almost everyone is crazed fighting for the necessities of life. Within this world exist two rebels on the run who just might be able to restore order. There's Max, a man of action and a man of few words, who seeks peace of mind following the loss of his wife and child in the aftermath of the chaos. And Furiosa, a woman of action and a woman who believes her path to survival may be achieved if she can make it across the desert back to her childhood homeland.",
+    "directorList": [
+      "George Miller"
+    ],
+    "castList": [
+      "Tom Hardy",
+      "Charlize Theron",
+      "Nicholas Hoult",
+      "Hugh Keays-Byrne",
+      "Josh Helman",
+      "Nathan Jones",
+      "Zoë Kravitz",
+      "Rosie Huntington-Whiteley",
+      "Riley Keough",
+      "Abbey Lee",
+      "Courtney Eaton",
+      "John Howard",
+      "Richard Carter",
+      "Iota",
+      "Angus Sampson"
+    ],
+    "characterList": [
+      "Max Rockatansky",
+      "Imperator Furiosa",
+      "Nux",
+      "Immortan Joe",
+      "Slit",
+      "Rictus Erectus",
+      "Toast the Knowing",
+      "The Splendid Angharad",
+      "Capable",
+      "The Dag",
+      "Cheedo the Fragile",
+      "The People Eater",
+      "The Bullet Farmer",
+      "The Doof Warrior (as iOTA)",
+      "The Organic Mechanic"
+    ],
+    "duration": "2h",
+    "budget": "$150,000,000 (estimated)",
+    "gross": "$376,109,824",
+    "ratingValue": "8.1",
+    "ratingCount": "897,869",
+    "contentRating": "16",
+    "aspectRatio": "2.39 : 1",
+    "reviews": "2,126 user",
+    "critics": "834 critic"
+  }
+]

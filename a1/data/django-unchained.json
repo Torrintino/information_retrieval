@@ -1,0 +1,68 @@
+[
+  {
+    "url": "https://www.imdb.com/title/tt1853728/?ref_=fn_ft_tt_1",
+    "title": "Django Unchained",
+    "year": "2012",
+    "genreList": [
+      "Drama",
+      "Western"
+    ],
+    "countryList": [
+      "USA"
+    ],
+    "keywordList": [
+      "slavery",
+      "racial vengeance",
+      "racial violence",
+      "historically inaccurate",
+      "one against many"
+    ],
+    "description": "In 1858, a bounty-hunter named King Schultz seeks out a slave named Django and buys him because he needs him to find some men he is looking for. After finding them, Django wants to find his wife, Broomhilda, who along with him were sold separately by his former owner for trying to escape. Schultz offers to help him if he chooses to stay with him and be his partner. Eventually they learn that she was sold to a plantation in Mississippi. Knowing they can't just go in and say they want her, they come up with a plan so that the owner will welcome them into his home and they can find a way.",
+    "directorList": [
+      "Quentin Tarantino"
+    ],
+    "castList": [
+      "Jamie Foxx",
+      "Christoph Waltz",
+      "Leonardo DiCaprio",
+      "Kerry Washington",
+      "Samuel L. Jackson",
+      "Walton Goggins",
+      "Dennis Christopher",
+      "James Remar",
+      "David Steen",
+      "Dana Gourrier",
+      "Nichole Galicia",
+      "Laura Cayouette",
+      "Ato Essandoh",
+      "Sammi Rotibi",
+      "Clay Donahue Fontenot"
+    ],
+    "characterList": [
+      "Django",
+      "Dr. King Schultz",
+      "Calvin Candie",
+      "Broomhilda von Shaft",
+      "Stephen",
+      "Billy Crash",
+      "Leonide Moguy",
+      "Butch Pooch / Ace Speck",
+      "Mr. Stonesipher",
+      "Cora",
+      "Sheba",
+      "Lara Lee Candie-Fitzwilly",
+      "D'Artagnan",
+      "Rodney",
+      "Big Fred's Opponent"
+    ],
+    "duration": "2h 45min",
+    "budget": "$100,000,000 (estimated)",
+    "gross": "$426,074,373",
+    "ratingValue": "8.4",
+    "ratingCount": "1,382,884",
+    "contentRating": "16",
+    "aspectRatio": "2.39 : 1",
+    "reviews": "1,652 user",
+    "critics": "658 critic"
+  }
+]
