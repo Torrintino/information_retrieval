@@ -52,7 +52,7 @@ public class IMDBSpider {
         String[] movies = new String[movie_list_length];
 
         for(int i=0;i<movie_list_length;i++){
-          movies[i] = movie_list.get(i).getAsJsonObject().get("movie_name").getAsString();
+            movies[i] = movie_list.get(i).getAsJsonObject().get("movie_name").getAsString();
         }
 
         JsonArray arrayResult = new JsonArray();
@@ -116,7 +116,7 @@ public class IMDBSpider {
 
             } catch (NullPointerException m) {
 
-                result.addProperty("title", target);
+                result.addProperty("title", "");
 
             }
         }
@@ -396,7 +396,7 @@ public class IMDBSpider {
 
         } catch (NullPointerException n) {
 
-            result.addProperty("ratingCount", "0");
+            result.addProperty("ratingCount", "");
 
         }
 
@@ -442,7 +442,7 @@ public class IMDBSpider {
 
         } catch (NullPointerException n) {
 
-            result.addProperty("reviews", "0");
+            result.addProperty("reviews", "");
 
         }
 
@@ -457,7 +457,7 @@ public class IMDBSpider {
 
         } catch (NullPointerException n) {
 
-            result.addProperty("critics", "0");
+            result.addProperty("critics", "");
 
         }
 
@@ -500,7 +500,7 @@ public class IMDBSpider {
      */
     protected static String cleanText(String text) {
         return text.replaceAll("\\<.*?>", "").replace("&nbsp;", " ")
-            .replace("\n", " ").replaceAll("\\s+", " ").trim();
+                .replace("\n", " ").replaceAll("\\s+", " ").trim();
     }
 
     public static void main(String[] argv) throws IOException {
