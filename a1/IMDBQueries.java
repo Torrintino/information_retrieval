@@ -1,7 +1,6 @@
 import java.io.IOException;
 import java.nio.file.Paths;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 public class IMDBQueries {
 
@@ -41,8 +40,62 @@ public class IMDBQueries {
      * @return top ten movies and the director, sorted by decreasing IMDB rating
      */
     protected List<Tuple<Movie, String>> queryAllRounder(List<Movie> movies) {
-        // TODO Basic Query: insert code here
-        return new ArrayList<>();
+
+        LinkedList<Tuple<Movie, String>> resultList = new LinkedList<>();
+
+        for (Movie movie : movies) {
+
+            for (String director : movie.getDirectorList()) {
+
+                if(movie.getCastList().contains(director)) {
+
+                    // First entry
+                    if (resultList.isEmpty()) {
+
+                        resultList.add(new Tuple<>(movie, director));
+                        continue;
+
+                    }
+
+                    // Latter entries
+                    int i = 0;
+
+                    while (i < resultList.size()) {
+
+                        double rating = Double.parseDouble(resultList.get(i).first.getRatingValue());
+
+                        if (Double.parseDouble(movie.getRatingValue()) > rating) {
+
+                            resultList.add(i, new Tuple<>(movie, director));
+                            break;
+
+                        }
+
+                        i++;
+
+                        if (i == resultList.size()) {
+
+                            resultList.add(i, new Tuple<>(movie, director));
+                            break;
+
+                        }
+
+                    }
+
+                    if (resultList.size() > 10) {
+
+                        resultList.removeLast();
+
+                    }
+
+                }
+
+            }
+
+        }
+
+        return resultList;
+
     }
 
     /**
@@ -56,8 +109,68 @@ public class IMDBQueries {
      * monetary loss, which is also returned
      */
     protected List<Tuple<Movie, Long>> queryUnderTheRadar(List<Movie> movies) {
-        // TODO Basic Query: insert code here
-        return new ArrayList<>();
+
+        LinkedList<Tuple<Movie, Long>> resultList = new LinkedList<>();
+
+        for (Movie movie : movies) {
+
+            int year = Integer.parseInt(movie.getYear());
+            double rating = Double.parseDouble(movie.getRatingValue());
+            int ratingCount = Integer.parseInt(movie.getRatingCount().replaceAll("[^0-9]", ""));
+
+            if (year <= 2015 && rating > 8.0 && ratingCount >= 1000) {
+
+                // calculate loss
+                Long gross = Long.parseLong(movie.getGross().replaceAll("[^0-9]", ""));
+                Long budget = Long.parseLong(movie.getBudget().replaceAll("[^0-9]", ""));
+
+                Long loss = -(gross-budget);
+
+                // First entry
+                if (resultList.isEmpty()) {
+
+                    resultList.add(new Tuple<>(movie, loss));
+                    continue;
+
+                }
+
+                // Latter entries
+                int i = 0;
+
+                while (i < resultList.size()) {
+
+                    Long list_loss = resultList.get(i).second;
+
+                    if (loss > list_loss) {
+
+                        resultList.add(i, new Tuple<>(movie, loss));
+                        break;
+
+                    }
+
+                    i++;
+
+                    if (i == resultList.size()) {
+
+                        resultList.add(i, new Tuple<>(movie, loss));
+                        break;
+
+                    }
+
+                }
+
+                if (resultList.size() > 10) {
+
+                    resultList.removeLast();
+
+                }
+
+            }
+
+        }
+
+        return resultList;
+
     }
 
     /**
@@ -71,10 +184,82 @@ public class IMDBQueries {
      * their lowercase description, sorted by the number of appearances of
      * these words, which is also returned.
      */
-    protected List<Tuple<Movie, Integer>> queryPillarsOfStorytelling(
-        List<Movie> movies) {
-        // TODO Basic Query: insert code here
-        return new ArrayList<>();
+    protected List<Tuple<Movie, Integer>> queryPillarsOfStorytelling(List<Movie> movies) {
+
+        LinkedList<Tuple<Movie, Integer>> resultList = new LinkedList<>();
+
+        for (Movie movie : movies) {
+
+            String description = movie.getDescription().toLowerCase();
+
+            String kill = "kill", love = "love";
+            int kill_count = 0, love_count = 0, index = 0;
+
+            while ((index = description.indexOf(kill, index)) != -1 ){
+
+                kill_count++;
+                index++;
+
+            }
+
+            index = 0;
+
+            while ((index = description.indexOf(love, index)) != -1 ){
+
+                love_count++;
+                index++;
+
+            }
+
+            if (kill_count > 0 && love_count > 0) {
+
+                int word_count = kill_count+love_count;
+
+                // First entry
+                if (resultList.isEmpty()) {
+
+                    resultList.add(new Tuple<>(movie, word_count));
+                    continue;
+
+                }
+
+                // Latter entries
+                int i = 0;
+
+                while (i < resultList.size()) {
+
+                    int list_word_count = resultList.get(i).second;
+
+                    if (word_count > list_word_count) {
+
+                        resultList.add(i, new Tuple<>(movie, word_count));
+                        break;
+
+                    }
+
+                    i++;
+
+                    if (i == resultList.size()) {
+
+                        resultList.add(i, new Tuple<>(movie, word_count));
+                        break;
+
+                    }
+
+                }
+
+                if (resultList.size() > 10) {
+
+                    resultList.removeLast();
+
+                }
+
+            }
+
+        }
+
+        return resultList;
+
     }
 
     /**
@@ -87,8 +272,28 @@ public class IMDBQueries {
      * publication.
      */
     protected List<Movie> queryRedPlanet(List<Movie> movies) {
-        // TODO Basic Query: insert code here
-        return new ArrayList<>();
+
+        LinkedList<Movie> resultList = new LinkedList<>();
+        Comparator<Movie> comparator = Comparator.comparing(o -> Integer.parseInt(o.getYear()));
+
+        for (Movie movie : movies) {
+
+            String description = movie.getDescription();
+
+            if (movie.getGenreList().contains("Sci-Fi") && (description.contains("Mars.")
+                    || description.contains("Mars,") || description.contains("Mars ")
+                    || description.contains("Mars?") || description.contains("Mars!"))) {
+
+                resultList.add(movie);
+
+            }
+
+        }
+
+        resultList.sort(comparator);
+
+        return resultList;
+
     }
 
     /**
@@ -101,8 +306,44 @@ public class IMDBQueries {
      * bad IMDB rating, sorted by ascending IMDB rating
      */
     protected List<Movie> queryColossalFailure(List<Movie> movies) {
-        // TODO Basic Query: insert code here
-        return new ArrayList<>();
+
+        LinkedList<Movie> resultList = new LinkedList<>();
+        Comparator<Movie> comparator = Comparator.comparing(o -> Double.parseDouble(o.getRatingValue()));
+
+        for (Movie movie : movies) {
+
+            if (movie.getDuration().equals("")) {
+
+                continue;
+
+            }
+
+            int h=0, min=0;
+
+            if (movie.getDuration().contains("min")) {
+
+                min = Integer.parseInt(movie.getDuration().split("h")[1].split("m")[0].trim());
+
+            }
+
+            h = Integer.parseInt(movie.getDuration().split("h")[0]);
+
+            int duration = 60*h + min;
+            Long budget = Long.parseLong(movie.getBudget().replaceAll("[^0-9]", ""));
+            double rating = Double.parseDouble(movie.getRatingValue());
+
+            if (duration > 120 && budget > 1000000 && rating < 5.0) {
+
+                resultList.add(movie);
+
+            }
+
+        }
+
+        resultList.sort(comparator);
+
+        return resultList;
+
     }
 
     /**
@@ -115,8 +356,72 @@ public class IMDBQueries {
      * sorted in decreasing order of frequency
      */
     protected List<Tuple<String, Integer>> queryUncreativeWriters(List<Movie> movies) {
-        // TODO Impossibly Hard Query: insert code here
-        return new ArrayList<>();
+
+        LinkedList<Tuple<String, Integer>> resultList = new LinkedList<>();
+        Comparator<Tuple<String, Integer>> comparator = Comparator.comparing(o -> o.second);
+
+        for (Movie movie : movies) {
+
+            for (String character : movie.getCharacterList()) {
+
+                if (character.contains("himself") || character.contains("herself") || character.contains("doctor")) {
+
+                    continue;
+
+                }
+
+                /*
+                String name = character.replaceAll("himself", "")
+                        .replaceAll("herself", "")
+                        .replaceAll("doctor", "")
+                        .replaceAll("Dr\\.", "")
+                        .replaceAll("\\(\\)", "")
+                        .trim();
+                 */
+
+                // First entry
+                if (resultList.isEmpty()) {
+
+                    resultList.add(new Tuple<>(character, 1));
+                    continue;
+
+                }
+
+                // Latter entries
+                boolean in_list = false;
+
+                for (Tuple<String, Integer> element : resultList) {
+
+                    if (element.first.equals(character)) {
+
+                        element.second++;
+                        in_list = true;
+                        break;
+
+                    }
+
+                }
+
+                if (!in_list) {
+
+                    resultList.add(new Tuple<>(character, 1));
+
+                }
+
+            }
+
+        }
+
+        resultList.sort(comparator);
+        Collections.reverse(resultList);
+
+        while (resultList.size() > 10) {
+
+            resultList.removeLast();
+
+        }
+
+        return resultList;
     }
 
     /**
@@ -128,8 +433,58 @@ public class IMDBQueries {
      * sorted by the latter.
      */
     protected List<Tuple<String, Integer>> queryWorkHorse(List<Movie> movies) {
-        // TODO Impossibly Hard Query: insert code here
-        return new ArrayList<>();
+
+        LinkedList<Tuple<String, Integer>> resultList = new LinkedList<>();
+        Comparator<Tuple<String, Integer>> comparator = Comparator.comparing(o -> o.second);
+
+        for (Movie movie : movies) {
+
+            for (String actor : movie.getCastList()) {
+
+                // First entry
+                if (resultList.isEmpty()) {
+
+                    resultList.add(new Tuple<>(actor, 1));
+                    continue;
+
+                }
+
+                // Latter entries
+                boolean in_list = false;
+
+                for (Tuple<String, Integer> element : resultList) {
+
+                    if (element.first.equals(actor)) {
+
+                        element.second++;
+                        in_list = true;
+                        break;
+
+                    }
+
+                }
+
+                if (!in_list) {
+
+                    resultList.add(new Tuple<>(actor, 1));
+
+                }
+
+            }
+
+        }
+
+        resultList.sort(comparator);
+        Collections.reverse(resultList);
+
+        while (resultList.size() > 10) {
+
+            resultList.removeLast();
+
+        }
+
+        return resultList;
+
     }
 
     /**
@@ -141,8 +496,41 @@ public class IMDBQueries {
      * @return best movies by year, starting from 1990 until 2010.
      */
     protected List<Movie> queryMustSee(List<Movie> movies) {
-        // TODO Impossibly Hard Query: insert code here
-        return new ArrayList<>();
+
+        LinkedList<Movie> resultList = new LinkedList<>();
+        Movie dummy = new Movie();
+        dummy.setRatingValue("0.0");
+
+        for (int i=0; i < 21; i++) {
+
+            resultList.add(dummy);
+
+        }
+
+        for (Movie movie : movies) {
+
+            int year = Integer.parseInt(movie.getYear());
+            int year_diff = year-1990;
+
+            int ratingCount = Integer.parseInt(movie.getRatingCount().replaceAll("[^0-9]", ""));
+            double rating = Double.parseDouble(movie.getRatingValue());
+
+            if(year_diff >= 0 && year_diff <= 20 && ratingCount > 10000) {
+
+                double rating_list = Double.parseDouble(resultList.get(year_diff).getRatingValue());
+
+                if (rating > rating_list) {
+
+                    resultList.set(year_diff, movie);
+
+                }
+
+            }
+
+        }
+
+        return resultList;
+
     }
 
     /**
@@ -154,8 +542,40 @@ public class IMDBQueries {
      * @return worst movies by year, starting from 1990 till (including) 2010.
      */
     protected List<Movie> queryRottenTomatoes(List<Movie> movies) {
-        // TODO Impossibly Hard Query: insert code here
-        return new ArrayList<>();
+
+        LinkedList<Movie> resultList = new LinkedList<>();
+        Movie dummy = new Movie();
+        dummy.setRatingValue("10.0");
+
+        for (int i=0; i < 21; i++) {
+
+            resultList.add(dummy);
+
+        }
+
+        for (Movie movie : movies) {
+
+            int year = Integer.parseInt(movie.getYear());
+            int year_diff = year-1990;
+
+            double rating = Double.parseDouble(movie.getRatingValue());
+
+            if(year_diff >= 0 && year_diff <= 20 && rating > 0) {
+
+                double rating_list = Double.parseDouble(resultList.get(year_diff).getRatingValue());
+
+                if (rating < rating_list) {
+
+                    resultList.set(year_diff, movie);
+
+                }
+
+            }
+
+        }
+
+        return resultList;
+
     }
 
     /**
@@ -169,8 +589,73 @@ public class IMDBQueries {
      * feature together. Sort by number of movies.
      */
     protected List<Tuple<Tuple<String, String>, Integer>> queryMagicCouple(List<Movie> movies) {
-        // TODO Impossibly Hard Query: insert code here
-        return new ArrayList<>();
+
+        LinkedList<Tuple<Tuple<String, String>, Integer>> resultList = new LinkedList<>();
+        Comparator<Tuple<Tuple<String, String>, Integer>> comparator = Comparator.comparing(o -> o.second);
+
+        LinkedList<String> done = new LinkedList<>();
+
+        for (Movie movie : movies) {
+
+            for (String actor1 : movie.getCastList()) {
+
+                for (String actor2 : movie.getCastList()) {
+
+                    if (actor1.equals(actor2) || done.contains(actor2)) {
+                        continue;
+                    }
+
+                    // First entry
+                    if (resultList.isEmpty()) {
+
+                        resultList.add(new Tuple<>(new Tuple<>(actor1, actor2), 1));
+                        continue;
+
+                    }
+
+                    // Latter entries
+                    boolean in_list = false;
+
+                    for (Tuple<Tuple<String, String>, Integer> element : resultList) {
+
+                        if ((element.first.first.equals(actor1) && element.first.second.equals(actor2))
+                                || (element.first.first.equals(actor2) && element.first.second.equals(actor1))) {
+
+                            element.second++;
+                            in_list = true;
+                            break;
+
+                        }
+
+                    }
+
+                    if (!in_list) {
+
+                        resultList.add(new Tuple<>(new Tuple<>(actor1, actor2), 1));
+
+                    }
+
+                }
+
+                done.add(actor1);
+
+            }
+
+            done.clear();
+
+        }
+
+        resultList.sort(comparator);
+        Collections.reverse(resultList);
+
+        while (resultList.size() > 10) {
+
+            resultList.removeLast();
+
+        }
+
+        return resultList;
+
     }
 
 

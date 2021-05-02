@@ -2,6 +2,8 @@ import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import com.google.gson.stream.JsonReader;
+import org.jsoup.Connection;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
@@ -10,6 +12,9 @@ import org.jsoup.select.Elements;
 import java.io.*;
 import java.net.URLEncoder;
 import java.nio.charset.StandardCharsets;
+
+import java.util.HashMap;
+import java.util.List;
 
 public class IMDBSpider {
 
@@ -47,7 +52,7 @@ public class IMDBSpider {
         String[] movies = new String[movie_list_length];
 
         for(int i=0;i<movie_list_length;i++){
-            movies[i] = movie_list.get(i).getAsJsonObject().get("movie_name").getAsString();
+          movies[i] = movie_list.get(i).getAsJsonObject().get("movie_name").getAsString();
         }
 
         JsonArray arrayResult = new JsonArray();
@@ -495,12 +500,12 @@ public class IMDBSpider {
      */
     protected static String cleanText(String text) {
         return text.replaceAll("\\<.*?>", "").replace("&nbsp;", " ")
-                .replace("\n", " ").replaceAll("\\s+", " ").trim();
+            .replace("\n", " ").replaceAll("\\s+", " ").trim();
     }
 
     public static void main(String[] argv) throws IOException {
         String moviesPath = "./data/movies.json";
-        String outputDir = "./data";
+        String outputDir = "./data/movies";
 
         if (argv.length == 2) {
             moviesPath = argv[0];
