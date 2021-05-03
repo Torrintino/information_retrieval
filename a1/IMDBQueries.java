@@ -1,6 +1,7 @@
 import java.io.IOException;
 import java.nio.file.Paths;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -190,6 +191,16 @@ public class IMDBQueries {
         return new ArrayList<>();
     }
 
+    protected String pairToSingle(String actor1, String actor2) {
+	if(actor1.compareTo(actor2) < 0) {
+	    return actor1 + ":" + actor2;
+	} else {
+	    return actor2 + ":" + actor1;
+	}
+    }
+
+    
+    
     /**
      * Magic Couples: Determine those couples that feature together in the most
      * movies. E.g., Adam Sandler and Allen Covert feature together in multiple
@@ -201,8 +212,42 @@ public class IMDBQueries {
      * feature together. Sort by number of movies.
      */
     protected List<Tuple<Tuple<String, String>, Integer>> queryMagicCouple(List<Movie> movies) {
-        // TODO Impossibly Hard Query: insert code here
-        return new ArrayList<>();
+	ArrayList<Tuple<Tuple<String, String>, Integer>> result = new ArrayList<>();
+	HashMap<String, Integer> store = new HashMap<>();
+        for(var movie : movies) {
+	    var cast_list = movie.getCastList();
+	    for(int i=0; i<cast_list.size()-1; i++) {
+		String actor1 = cast_list.get(i);
+		for(int j=i+1; j<cast_list.size(); j++) {
+		    String actor2 = cast_list.get(j);
+		    String name = pairToSingle(actor1, actor2);
+		    
+		    if(! store.containsKey(name)) {
+			Tuple<Tuple<String, String>, Integer> entry = new Tuple<>(new Tuple<>(actor1, actor2), 1);
+			store.put(name, result.size());
+			result.add(entry);
+		    } else {
+			var index = store.get(name);
+			var entry = result.get(index);
+			entry.second++;
+			while(index > 0) {
+			    var temp = result.get(index-1);
+			    if(temp.second < entry.second) {
+				result.set(index - 1, entry);
+				result.set(index, temp);
+				String old_name = pairToSingle(temp.first.first, temp.first.second);
+				store.put(old_name, index);
+			    } else {
+				break;
+			    }
+			    index--;
+			    store.put(name, index);
+			}
+		    }
+		}
+	    }
+	}
+        return result.subList(0, 10);
     }
 
 
