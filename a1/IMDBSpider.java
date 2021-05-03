@@ -60,19 +60,26 @@ public class IMDBSpider {
 
         for(String movie : movies){
 
-            //for debugging
-            System.out.println(i+"/500");
-
             JsonObject result = scrapeMoviePage(movie, movies, i);
             arrayResult.add(result);
 
-            try (Writer writer = new FileWriter(outputDir + "/" + movie.toLowerCase().replaceAll("/", "-").replaceAll(" ", "-") + ".json")) {
+            File f = new File(outputDir + "/" + movie.toLowerCase()
+                    .replaceAll("/", "-")
+                    .replaceAll("\\.", "-")
+                    .replaceAll("!", "")
+                    .replaceAll("\\?", "")
+                    .replaceAll(" ", "-") + ".json");
+
+            try (Writer writer = new FileWriter(f)) {
                 gson.toJson(arrayResult, writer);
             }
 
             arrayResult.remove(0);
 
             i++;
+
+            //Show Progress
+            System.out.println(i+"/"+movie_list_length);
 
         }
 
@@ -505,7 +512,7 @@ public class IMDBSpider {
 
     public static void main(String[] argv) throws IOException {
         String moviesPath = "./data/movies.json";
-        String outputDir = "./data/movies";
+        String outputDir = "./data";
 
         if (argv.length == 2) {
             moviesPath = argv[0];
