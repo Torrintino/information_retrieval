@@ -42,55 +42,28 @@ public class IMDBQueries {
     protected List<Tuple<Movie, String>> queryAllRounder(List<Movie> movies) {
 
         LinkedList<Tuple<Movie, String>> resultList = new LinkedList<>();
+        Comparator<Tuple<Movie, String>> comparator = Comparator.comparing(o -> o.first.getRatingValue());
 
         for (Movie movie : movies) {
 
             for (String director : movie.getDirectorList()) {
 
-                if(movie.getCastList().contains(director)) {
+                if (movie.getCastList().contains(director)) {
 
-                    // First entry
-                    if (resultList.isEmpty()) {
-
-                        resultList.add(new Tuple<>(movie, director));
-                        continue;
-
-                    }
-
-                    // Latter entries
-                    int i = 0;
-
-                    while (i < resultList.size()) {
-
-                        double rating = Double.parseDouble(resultList.get(i).first.getRatingValue());
-
-                        if (Double.parseDouble(movie.getRatingValue()) > rating) {
-
-                            resultList.add(i, new Tuple<>(movie, director));
-                            break;
-
-                        }
-
-                        i++;
-
-                        if (i == resultList.size()) {
-
-                            resultList.add(i, new Tuple<>(movie, director));
-                            break;
-
-                        }
-
-                    }
-
-                    if (resultList.size() > 10) {
-
-                        resultList.removeLast();
-
-                    }
+                    resultList.add(new Tuple<>(movie, director));
 
                 }
 
             }
+
+        }
+
+        resultList.sort(comparator);
+        Collections.reverse(resultList);
+
+        while (resultList.size() > 10) {
+
+            resultList.removeLast();
 
         }
 
@@ -111,6 +84,7 @@ public class IMDBQueries {
     protected List<Tuple<Movie, Long>> queryUnderTheRadar(List<Movie> movies) {
 
         LinkedList<Tuple<Movie, Long>> resultList = new LinkedList<>();
+        Comparator<Tuple<Movie, Long>> comparator = Comparator.comparing(o -> o.second);
 
         for (Movie movie : movies) {
 
@@ -126,46 +100,18 @@ public class IMDBQueries {
 
                 Long loss = -(gross-budget);
 
-                // First entry
-                if (resultList.isEmpty()) {
-
-                    resultList.add(new Tuple<>(movie, loss));
-                    continue;
-
-                }
-
-                // Latter entries
-                int i = 0;
-
-                while (i < resultList.size()) {
-
-                    Long list_loss = resultList.get(i).second;
-
-                    if (loss > list_loss) {
-
-                        resultList.add(i, new Tuple<>(movie, loss));
-                        break;
-
-                    }
-
-                    i++;
-
-                    if (i == resultList.size()) {
-
-                        resultList.add(i, new Tuple<>(movie, loss));
-                        break;
-
-                    }
-
-                }
-
-                if (resultList.size() > 10) {
-
-                    resultList.removeLast();
-
-                }
+                resultList.add(new Tuple<>(movie, loss));
 
             }
+
+        }
+
+        resultList.sort(comparator);
+        Collections.reverse(resultList);
+
+        while (resultList.size() > 10) {
+
+            resultList.removeLast();
 
         }
 
@@ -386,15 +332,6 @@ public class IMDBQueries {
 
                 }
 
-                /*
-                String name = character.replaceAll("himself", "")
-                        .replaceAll("herself", "")
-                        .replaceAll("doctor", "")
-                        .replaceAll("Dr\\.", "")
-                        .replaceAll("\\(\\)", "")
-                        .trim();
-                 */
-
                 // First entry
                 if (resultList.isEmpty()) {
 
@@ -594,6 +531,20 @@ public class IMDBQueries {
 
     }
 
+    protected String pairToSingle(String actor1, String actor2) {
+
+        if(actor1.compareTo(actor2) < 0) {
+
+            return actor1 + ":" + actor2;
+
+        } else {
+
+            return actor2 + ":" + actor1;
+
+        }
+    }
+
+
     /**
      * Magic Couples: Determine those couples that feature together in the most
      * movies. E.g., Adam Sandler and Allen Covert feature together in multiple
@@ -606,73 +557,62 @@ public class IMDBQueries {
      */
     protected List<Tuple<Tuple<String, String>, Integer>> queryMagicCouple(List<Movie> movies) {
 
-        LinkedList<Tuple<Tuple<String, String>, Integer>> resultList = new LinkedList<>();
-        Comparator<Tuple<Tuple<String, String>, Integer>> comparator = Comparator.comparing(o -> o.second);
+        ArrayList<Tuple<Tuple<String, String>, Integer>> result = new ArrayList<>();
+        HashMap<String, Integer> store = new HashMap<>();
 
-        LinkedList<String> done = new LinkedList<>();
+        for(var movie : movies) {
 
-        for (Movie movie : movies) {
+            var cast_list = movie.getCastList();
 
-            for (String actor1 : movie.getCastList()) {
+            for(int i=0; i<cast_list.size()-1; i++) {
 
-                for (String actor2 : movie.getCastList()) {
+                String actor1 = cast_list.get(i);
 
-                    if (actor1.equals(actor2) || done.contains(actor2)) {
-                        continue;
-                    }
+                for(int j=i+1; j<cast_list.size(); j++) {
 
-                    // First entry
-                    if (resultList.isEmpty()) {
+                    String actor2 = cast_list.get(j);
+                    String name = pairToSingle(actor1, actor2);
 
-                        resultList.add(new Tuple<>(new Tuple<>(actor1, actor2), 1));
-                        continue;
+                    if(! store.containsKey(name)) {
 
-                    }
+                        Tuple<Tuple<String, String>, Integer> entry = new Tuple<>(new Tuple<>(actor1, actor2), 1);
+                        store.put(name, result.size());
+                        result.add(entry);
 
-                    // Latter entries
-                    boolean in_list = false;
+                    } else {
 
-                    for (Tuple<Tuple<String, String>, Integer> element : resultList) {
+                        var index = store.get(name);
+                        var entry = result.get(index);
+                        entry.second++;
 
-                        if ((element.first.first.equals(actor1) && element.first.second.equals(actor2))
-                                || (element.first.first.equals(actor2) && element.first.second.equals(actor1))) {
+                        while(index > 0) {
 
-                            element.second++;
-                            in_list = true;
-                            break;
+                            var temp = result.get(index-1);
 
+                            if(temp.second < entry.second) {
+
+                                result.set(index - 1, entry);
+                                result.set(index, temp);
+                                String old_name = pairToSingle(temp.first.first, temp.first.second);
+                                store.put(old_name, index);
+
+                            } else {
+
+                                break;
+
+                            }
+                            index--;
+                            store.put(name, index);
                         }
-
                     }
-
-                    if (!in_list) {
-
-                        resultList.add(new Tuple<>(new Tuple<>(actor1, actor2), 1));
-
-                    }
-
                 }
-
-                done.add(actor1);
-
             }
-
-            done.clear();
-
         }
 
-        resultList.sort(comparator);
-        Collections.reverse(resultList);
-
-        while (resultList.size() > 10) {
-
-            resultList.removeLast();
-
-        }
-
-        return resultList;
+        return result.subList(0, 10);
 
     }
+
 
 
     public static void main(String[] argv) throws IOException {
