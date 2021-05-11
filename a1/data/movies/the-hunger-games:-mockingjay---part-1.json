@@ -1,0 +1,72 @@
+[
+  {
+    "url": "https://www.imdb.com/title/tt1951265/?ref_=fn_ft_tt_1",
+    "title": "The Hunger Games: Mockingjay - Part 1",
+    "year": "2014",
+    "genreList": [
+      "Action",
+      "Adventure",
+      "Sci-Fi",
+      "Thriller"
+    ],
+    "countryList": [
+      "USA",
+      "Canada",
+      "France"
+    ],
+    "keywordList": [
+      "uprising",
+      "based on young adult novel",
+      "rebellion",
+      "symbol",
+      "manipulation"
+    ],
+    "description": "With the Games destroyed, Katniss Everdeen, along with Gale, Finnick and Beetee, end up in the so thought \"destroyed\" District 13. Under the leadership of President Coin and the advice of her friends, Katniss becomes the \"Mockingjay\", the symbol of rebellion for the districts of Panem.",
+    "directorList": [
+      "Francis Lawrence"
+    ],
+    "castList": [
+      "Jennifer Lawrence",
+      "Josh Hutcherson",
+      "Liam Hemsworth",
+      "Woody Harrelson",
+      "Donald Sutherland",
+      "Philip Seymour Hoffman",
+      "Julianne Moore",
+      "Willow Shields",
+      "Sam Claflin",
+      "Elizabeth Banks",
+      "Mahershala Ali",
+      "Jena Malone",
+      "Jeffrey Wright",
+      "Paula Malcomson",
+      "Stanley Tucci"
+    ],
+    "characterList": [
+      "Katniss Everdeen",
+      "Peeta Mellark",
+      "Gale Hawthorne",
+      "Haymitch Abernathy",
+      "President Snow",
+      "Plutarch Heavensbee",
+      "President Alma Coin",
+      "Primrose Everdeen",
+      "Finnick Odair",
+      "Effie Trinket",
+      "Boggs",
+      "Johanna Mason",
+      "Beetee",
+      "Katniss' Mother",
+      "Caesar Flickerman"
+    ],
+    "duration": "2h 3min",
+    "budget": "$125,000,000 (estimated)",
+    "gross": "$755,356,711",
+    "ratingValue": "6.6",
+    "ratingCount": "419,374",
+    "contentRating": "12",
+    "aspectRatio": "2.35 : 1",
+    "reviews": "626 user",
+    "critics": "432 critic"
+  }
+]

@@ -1,0 +1,70 @@
+[
+  {
+    "url": "https://www.imdb.com/title/tt1014759/?ref_=fn_ft_tt_1",
+    "title": "Alice in Wonderland",
+    "year": "2010",
+    "genreList": [
+      "Adventure",
+      "Family",
+      "Fantasy"
+    ],
+    "countryList": [
+      "USA",
+      "UK"
+    ],
+    "keywordList": [
+      "alice in wonderland",
+      "wonderland",
+      "alice character",
+      "shrinking potion",
+      "caterpillar character"
+    ],
+    "description": "Alice, an unpretentious and individual 19-year-old, is betrothed to a dunce of an English nobleman. At her engagement party, she escapes the crowd to consider whether to go through with the marriage and falls down a hole in the garden after spotting an unusual rabbit. Arriving in a strange and surreal place called \"Underland,\" she finds herself in a world that resembles the nightmares she had as a child, filled with talking animals, villainous queens and knights, and frumious bandersnatches. Alice realizes that she is there for a reason--to conquer the horrific Jabberwocky and restore the rightful queen to her throne.",
+    "directorList": [
+      "Tim Burton"
+    ],
+    "castList": [
+      "Johnny Depp",
+      "Mia Wasikowska",
+      "Helena Bonham Carter",
+      "Anne Hathaway",
+      "Crispin Glover",
+      "Matt Lucas",
+      "Michael Sheen",
+      "Stephen Fry",
+      "Alan Rickman",
+      "Barbara Windsor",
+      "Paul Whitehouse",
+      "Timothy Spall",
+      "Marton Csokas",
+      "Tim Pigott-Smith",
+      "John Surman"
+    ],
+    "characterList": [
+      "Mad Hatter",
+      "Alice Kingsleigh",
+      "Red Queen",
+      "White Queen",
+      "Stayne - Knave of Hearts",
+      "Tweedledee / Tweedledum",
+      "White Rabbit (voice)",
+      "Cheshire Cat (voice)",
+      "Blue Caterpillar (voice)",
+      "Dormouse (voice)",
+      "March Hare (voice)",
+      "Bayard (voice)",
+      "Charles Kingsleigh",
+      "Lord Ascot",
+      "Colleague #1"
+    ],
+    "duration": "1h 48min",
+    "budget": "$200,000,000 (estimated)",
+    "gross": "$1,025,468,216",
+    "ratingValue": "6.4",
+    "ratingCount": "388,232",
+    "contentRating": "12",
+    "aspectRatio": "1.85 : 1",
+    "reviews": "807 user",
+    "critics": "459 critic"
+  }
+]

@@ -1,0 +1,70 @@
+[
+  {
+    "url": "https://www.imdb.com/title/tt0970416/?ref_=fn_ft_tt_1",
+    "title": "The Day the Earth Stood Still",
+    "year": "2008",
+    "genreList": [
+      "Drama",
+      "Sci-Fi",
+      "Thriller"
+    ],
+    "countryList": [
+      "USA",
+      "Canada"
+    ],
+    "keywordList": [
+      "psychotronic film",
+      "military humvee",
+      "human versus extraterrestrial",
+      "night",
+      "helicopter gunship"
+    ],
+    "description": "Dr. Helen Benson is summoned to a military facility with several other scientists when an alien spacecraft of sorts arrives in New York City. Aboard is a human-like alien and a giant robot of immense size and power. The alien identifies himself as Klaatu and says he has come to save the Earth. The US military and political authorities see him as a threat however and decide to use so-called intensive interrogation techniques on him but Dr. Benson decides to facilitate his escape. When she learns exactly what he means when he says he is there to save the Earth, she tries to convince him to change his intentions.",
+    "directorList": [
+      "Scott Derrickson"
+    ],
+    "castList": [
+      "Keanu Reeves",
+      "Jennifer Connelly",
+      "Kathy Bates",
+      "Jaden Smith",
+      "John Cleese",
+      "Jon Hamm",
+      "Kyle Chandler",
+      "Robert Knepper",
+      "James Hong",
+      "John Rothman",
+      "Sunita Prasad",
+      "Juan Riedinger",
+      "Sam Gilroy",
+      "Tanya Champoux",
+      "Rukiya Bernard"
+    ],
+    "characterList": [
+      "Klaatu",
+      "Helen Benson",
+      "Regina Jackson",
+      "Jacob Benson",
+      "Professor Barnhardt",
+      "Michael Granier",
+      "John Driscoll",
+      "Colonel",
+      "Mr. Wu",
+      "Dr. Myron",
+      "Rouhani",
+      "William Kwan",
+      "Tom",
+      "Isabel",
+      "Student"
+    ],
+    "duration": "1h 44min",
+    "budget": "$80,000,000 (estimated)",
+    "gross": "$233,093,859",
+    "ratingValue": "5.5",
+    "ratingCount": "164,710",
+    "contentRating": "12",
+    "aspectRatio": "2.35 : 1",
+    "reviews": "797 user",
+    "critics": "284 critic"
+  }
+]

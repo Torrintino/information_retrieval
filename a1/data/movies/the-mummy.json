@@ -1,0 +1,71 @@
+[
+  {
+    "url": "https://www.imdb.com/title/tt0120616/?ref_=fn_ft_tt_1",
+    "title": "The Mummy",
+    "year": "1999",
+    "genreList": [
+      "Action",
+      "Adventure",
+      "Fantasy"
+    ],
+    "countryList": [
+      "USA",
+      "UK",
+      "Morocco"
+    ],
+    "keywordList": [
+      "mummy",
+      "mummy character",
+      "good versus evil",
+      "gallows",
+      "1920s"
+    ],
+    "description": "An English librarian called Evelyn Carnahan becomes interested in starting an archaeological dig at the ancient city of Hamunaptra. She gains the help of Rick O'Connell, after saving him from his death. What Evelyn, her brother Jonathan and Rick are unaware of is that another group of explorers are interested in the same dig. Unfortunately for everyone, this group ends up unleashing a curse which been laid on the dead High Priest Imhotep. Now 'The Mummy' is awake and it's going to take a lot more than guns to send him back to where he came from.",
+    "directorList": [
+      "Stephen Sommers"
+    ],
+    "castList": [
+      "Brendan Fraser",
+      "Rachel Weisz",
+      "John Hannah",
+      "Arnold Vosloo",
+      "Kevin J. O'Connor",
+      "Jonathan Hyde",
+      "Oded Fehr",
+      "Erick Avari",
+      "Stephen Dunham",
+      "Corey Johnson",
+      "Tuc Watkins",
+      "Omid Djalili",
+      "Aharon Ipalé",
+      "Bernard Fox",
+      "Patricia Velasquez"
+    ],
+    "characterList": [
+      "Rick O'Connell",
+      "Evelyn Carnahan",
+      "Jonathan Carnahan",
+      "Imhotep",
+      "Beni Gabor",
+      "Dr. Allen Chamberlain",
+      "Ardeth Bay",
+      "Dr. Terrence Bey",
+      "Mr. Henderson",
+      "Mr. Daniels",
+      "Mr. Burns",
+      "Warden Gad Hassan",
+      "Pharaoh Seti I",
+      "Captain Winston Havelock",
+      "Anck Su Namun"
+    ],
+    "duration": "2h 4min",
+    "budget": "$80,000,000 (estimated)",
+    "gross": "$415,933,406",
+    "ratingValue": "7.0",
+    "ratingCount": "395,578",
+    "contentRating": "12",
+    "aspectRatio": "2.39 : 1",
+    "reviews": "1,095 user",
+    "critics": "132 critic"
+  }
+]

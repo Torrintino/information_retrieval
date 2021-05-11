@@ -1,0 +1,73 @@
+[
+  {
+    "url": "https://www.imdb.com/title/tt1217209/?ref_=fn_ft_tt_1",
+    "title": "Brave",
+    "year": "2012",
+    "genreList": [
+      "Animation",
+      "Adventure",
+      "Comedy",
+      "Family",
+      "Fantasy"
+    ],
+    "countryList": [
+      "USA",
+      "UK"
+    ],
+    "keywordList": [
+      "princess",
+      "mother daughter relationship",
+      "archery",
+      "female warrior",
+      "rebellious daughter"
+    ],
+    "description": "Set in Scotland in a rugged and mythical time, this movie features Princess Merida (Kelly Macdonald), an aspiring archer and impetuous daughter of Queen Elinor (Dame Emma Thompson). Merida makes a reckless choice that unleashes unintended peril and forces her to spring into action to set things right.",
+    "directorList": [
+      "Mark Andrews",
+      "Brenda Chapman"
+    ],
+    "castList": [
+      "Kelly Macdonald",
+      "Billy Connolly",
+      "Emma Thompson",
+      "Julie Walters",
+      "Robbie Coltrane",
+      "Kevin McKidd",
+      "Craig Ferguson",
+      "Sally Kinghorn",
+      "Eilidh Fraser",
+      "Peigi Barker",
+      "Steven Cree",
+      "Steve Purcell",
+      "Callum O'Neill",
+      "Patrick Doyle",
+      "John Ratzenberger"
+    ],
+    "characterList": [
+      "Merida (voice)",
+      "Fergus (voice)",
+      "Elinor (voice)",
+      "The Witch (voice)",
+      "Lord Dingwall (voice)",
+      "Lord MacGuffin / Young MacGuffin (voice)",
+      "Lord Macintosh (voice)",
+      "Maudie (voice)",
+      "Maudie (voice)",
+      "Young Merida (voice)",
+      "Young Macintosh (voice)",
+      "The Crow (voice)",
+      "Wee Dingwall (voice)",
+      "Martin (voice)",
+      "Gordon (voice)"
+    ],
+    "duration": "1h 33min",
+    "budget": "$185,000,000 (estimated)",
+    "gross": "$538,983,207",
+    "ratingValue": "7.1",
+    "ratingCount": "378,448",
+    "contentRating": "6",
+    "aspectRatio": "2.39 : 1",
+    "reviews": "538 user",
+    "critics": "511 critic"
+  }
+]

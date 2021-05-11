@@ -1,0 +1,70 @@
+[
+  {
+    "url": "https://www.imdb.com/title/tt1222817/?ref_=fn_ft_tt_1",
+    "title": "Zookeeper",
+    "year": "2011",
+    "genreList": [
+      "Comedy",
+      "Family",
+      "Fantasy",
+      "Romance"
+    ],
+    "countryList": [
+      "USA"
+    ],
+    "keywordList": [
+      "porcupine",
+      "columbia tristar",
+      "mgm",
+      "slimehouse",
+      "zoo"
+    ],
+    "description": "A group of zoo animals decide to break their code of silence in order to help their lovable zookeeper find love, without opting to leave his current job for something more illustrious.",
+    "directorList": [
+      "Frank Coraci"
+    ],
+    "castList": [
+      "Kevin James",
+      "Rosario Dawson",
+      "Leslie Bibb",
+      "Ken Jeong",
+      "Donnie Wahlberg",
+      "Joe Rogan",
+      "Nat Faxon",
+      "Steffiana De La Cruz",
+      "Nick Bakay",
+      "Jackie Sandler",
+      "Nicholas Turturro",
+      "Thomas Gottschalk",
+      "Brandon Keener",
+      "Robin Bakay",
+      "Gary Valentine"
+    ],
+    "characterList": [
+      "Griffin Keyes",
+      "Kate",
+      "Stephanie",
+      "Venom",
+      "Shane",
+      "Gale",
+      "Dave",
+      "Robin",
+      "Franky",
+      "TGIF Waitress",
+      "Manny (as Nick Turturro)",
+      "Jurgen",
+      "Nimer",
+      "Rebecca",
+      "Pizza Guy"
+    ],
+    "duration": "1h 42min",
+    "budget": "$80,000,000 (estimated)",
+    "gross": "$169,852,759",
+    "ratingValue": "5.2",
+    "ratingCount": "58,131",
+    "contentRating": "0",
+    "aspectRatio": "2.35 : 1",
+    "reviews": "144 user",
+    "critics": "183 critic"
+  }
+]

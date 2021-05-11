@@ -1,31 +1,20 @@
-// IO
-import org.apache.commons.io.FileUtils;
-import java.io.File;
-import java.io.FileWriter;
-import java.io.IOException;
-
-// Data structures
-import java.util.LinkedList;
-import java.util.Queue;
-
-// Network
-import java.net.URI;;
-import java.net.http.HttpClient;
-import java.net.http.HttpRequest;
-import java.net.http.HttpResponse;
-
-// JSON
-import org.json.JSONObject;
-import org.json.JSONArray;
-
-// Jsoup
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+import com.google.gson.JsonArray;
+import com.google.gson.JsonObject;
+import com.google.gson.stream.JsonReader;
+import org.jsoup.Connection;
 import org.jsoup.Jsoup;
-import org.jsoup.helper.Validate;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
 
+import java.io.*;
+import java.net.URLEncoder;
+import java.nio.charset.StandardCharsets;
 
+import java.util.HashMap;
+import java.util.List;
 
 public class IMDBSpider {
 
@@ -51,153 +40,463 @@ public class IMDBSpider {
      * @param outputDir     output directory for JSON files with metadata of movies.
      * @throws IOException
      */
-    public void persistOutput(JSONArray result, String outputDir, String filename) {
-	String file_name = outputDir + "/" + filename + ".json";
-	File output_file = new File(file_name);
-	try {
-	    output_file.createNewFile();
-	} catch (IOException e) {
-	    System.err.println("Cannot create new file");
-	    return;
-	}
-	try {
-	    FileWriter writer = new FileWriter(file_name);
-	    writer.write(result.toString());
-	    writer.close();
-	} catch (IOException e) {
-	    System.err.println("Cannot write to file");
-	    return;
-	}
-    }
-
     public void fetchIMDBMovies(String movieListJSON, String outputDir) throws IOException {
-	// TODO: ID is missing
-	Queue<String> movie_queue = new LinkedList<>();
-	JSONArray result = new JSONArray();
-	File file = new File(movieListJSON);
-	String content = FileUtils.readFileToString(file, "utf-8");
-        JSONArray movie_list = new JSONArray(content);
 
-	for (Object o : movie_list) {
-	    JSONObject movie_object = (JSONObject) o;
-	    String movie = (String) movie_object.get("movie_name");
-	    movie_queue.add(movie);
-	}
+        BufferedReader bufferedReader = new BufferedReader(new FileReader(movieListJSON));
 
-	var client = HttpClient.newHttpClient();
-	for (String movie : movie_queue) {
-	    var output = this.scrapeMovie(client, movie);
-	    result.put(output);
-	    this.persistOutput(result, outputDir, titleToFilename(movie));
-	}
+        Gson gson = new GsonBuilder().disableHtmlEscaping().setPrettyPrinting().create();
+        JsonArray movie_list = gson.fromJson(bufferedReader, JsonArray.class);
+
+        int movie_list_length = movie_list.size();
+
+        String[] movies = new String[movie_list_length];
+
+        for(int i=0;i<movie_list_length;i++){
+          movies[i] = movie_list.get(i).getAsJsonObject().get("movie_name").getAsString();
+        }
+
+        JsonArray arrayResult = new JsonArray();
+        int i = 0;
+
+        for(String movie : movies){
+
+            JsonObject result = scrapeMoviePage(movie, movies, i);
+            arrayResult.add(result);
+
+            File f = new File(outputDir + "/" + movie.toLowerCase()
+                    .replaceAll("/", "-")
+                    .replaceAll("\\.", "-")
+                    .replaceAll("!", "")
+                    .replaceAll("\\?", "")
+                    .replaceAll(" ", "-") + ".json");
+
+            try (Writer writer = new FileWriter(f)) {
+                gson.toJson(arrayResult, writer);
+            }
+
+            arrayResult.remove(0);
+
+            i++;
+
+            //Show Progress
+            System.out.println(i+"/"+movie_list_length);
+
+        }
+
     }
 
-    public String titleToFilename(String title) {
-	return title.replaceAll(" ", "_")
-	    .replaceAll(":", "")
-	    .replaceAll(",", "")
-	    .replaceAll("\\.", "")
-	    .replaceAll("\\\\", "")
-	    .replaceAll("&", "")
-	    .replaceAll("é", "e")
-	    .replaceAll("à", "a")
-	    .replaceAll("\\(", "")
-	    .replaceAll("\\)", "")
-	    .replaceAll("/", "")
-	    .replaceAll("'", "")
-	    .toLowerCase();
+    public JsonObject scrapeMoviePage(String target, String[] movies, int index) throws IOException {
+
+        JsonObject result = new JsonObject();
+        String movie_url = getTargetURL(target);
+        Document html = Jsoup.connect(movie_url).get();
+
+        // Movie URL
+
+        result.addProperty("url", movie_url);
+
+        // Title
+
+        try {
+
+            String title = html.select("div.originalTitle").first().ownText();
+
+            if(title.equals(target)){
+                result.addProperty("title", target);
+            } else {
+                result.addProperty("title", title);
+                movies[index] = title;
+            }
+
+        } catch (NullPointerException n) {
+
+            try {
+
+                String title = html.select("div.title_wrapper").select("h1").first().ownText();
+
+                if(title.equals(target)){
+                    result.addProperty("title", target);
+                } else {
+                    result.addProperty("title", title);
+                    movies[index] = title;
+                }
+
+            } catch (NullPointerException m) {
+
+                result.addProperty("title", "");
+
+            }
+        }
+
+        // Year
+
+        try {
+
+            Element span = html.getElementById("titleYear");
+            Elements a = span.select("a");
+            String year = a.text();
+
+            result.addProperty("year", year);
+
+        } catch (NullPointerException n){
+
+            result.addProperty("year", "");
+
+        }
+
+        // GenreList
+
+        JsonArray genres = new JsonArray();
+
+        try {
+
+            Element genreStart = html.select("h4:contains(Genre)").first().parent();
+            Elements genreCollection = genreStart.getElementsByTag("a");
+
+            for(Element genre : genreCollection){
+                genres.add(genre.text());
+            }
+
+            result.add("genreList", genres);
+
+        } catch (NullPointerException n) {
+
+            result.add("genreList", genres);
+
+        }
+
+        // CountryList
+
+        JsonArray countries = new JsonArray();
+
+        try {
+
+            Element countryStart = html.select("h4:contains(Countr)").first().parent();
+            Elements countryCollection = countryStart.getElementsByTag("a");
+
+            for(Element country : countryCollection){
+                countries.add(country.text());
+            }
+
+            result.add("countryList", countries);
+
+        } catch (NullPointerException n) {
+
+            result.add("countryList", countries);
+
+        }
+
+        // KeywordList
+
+        JsonArray keywords = new JsonArray();
+
+        try {
+
+            Element keywordStart = html.select("h4:contains(Plot Keyword)").first().parent();
+            Elements keywordCollection = keywordStart.getElementsByTag("a").not("a:contains(See All)");
+
+            for(Element keyword : keywordCollection){
+                keywords.add(keyword.text());
+            }
+
+            result.add("keywordList", keywords);
+
+        } catch (NullPointerException n) {
+
+            result.add("keywordList", keywords);
+
+        }
+
+        // Description
+
+        try {
+
+            Element storyline = html.select("h2:contains(Storyline)").first().nextElementSibling().child(0).child(0);
+            String description = storyline.text();
+
+            result.addProperty("description", description);
+
+        } catch (NullPointerException n) {
+
+            result.addProperty("description", "");
+
+        }
+
+        // DirectorList
+
+        JsonArray directors = new JsonArray();
+
+        try {
+
+            Element directorStart = html.select("h4:contains(Director)").first().parent();
+            Elements directorCollection = directorStart.getElementsByTag("a").not("a:contains(more credit)");
+
+            for(Element director : directorCollection){
+                directors.add(director.text());
+            }
+
+            result.add("directorList", directors);
+
+        } catch (NullPointerException n) {
+
+            result.add("directorList", directors);
+
+        }
+
+        // CastList
+
+        JsonArray cast = new JsonArray();
+
+        try {
+
+            Element castStart = html.select("table.cast_list").first();
+            Elements castCollection = castStart.getElementsByAttributeValueContaining("href", "/name/");
+
+            for(Element actor : castCollection){
+
+                if(actor.text().equals("")){
+                    continue;
+                }
+
+                cast.add(actor.text());
+            }
+
+            result.add("castList", cast);
+
+        } catch (NullPointerException n) {
+
+            result.add("castList", cast);
+
+        }
+
+        // CharacterList
+
+        JsonArray characters = new JsonArray();
+
+        try {
+
+            Element castStart = html.select("table.cast_list").first();
+            Elements characterCollection = castStart.getElementsByClass("character");
+
+            for(Element character : characterCollection){
+                characters.add(character.text());
+            }
+
+            result.add("characterList", characters);
+
+        } catch (NullPointerException n) {
+
+            result.add("characterList", characters);
+
+        }
+
+        // Duration
+
+        try {
+
+            Element movie_length = html.select("time").first();
+            String duration = movie_length.text();
+
+            result.addProperty("duration", duration);
+
+        } catch (NullPointerException n) {
+
+            result.addProperty("duration", "");
+
+        }
+
+        // Budget
+
+        try {
+
+            String budget = "";
+
+            Element budgetElement = html.select("h4:contains(Budget)").first().parent();
+            budgetElement.select("h4").remove();
+
+            if (budgetElement.text().contains("$")) {
+
+                budget = budgetElement.text();
+
+            }
+
+            result.addProperty("budget", budget);
+
+        } catch (NullPointerException n){
+
+            result.addProperty("budget", "");
+
+        }
+
+        // Gross
+
+        String gross = "";
+
+        try {
+
+            Element grossElement = html.select("h4:contains(Cumulative Worldwide Gross)").first().parent();
+            grossElement.select("h4").remove();
+
+            if(grossElement.text().contains("$")) {
+
+                gross = grossElement.text();
+
+            } else {
+
+                grossElement = html.select("h4:contains(Gross USA)").first().parent();
+                grossElement.select("h4").remove();
+
+                if(grossElement.text().contains("$")) {
+
+                    gross = grossElement.text();
+
+                }
+
+            }
+
+            result.addProperty("gross", gross);
+
+        } catch (NullPointerException n) {
+
+            try {
+
+                Element grossElement = html.select("h4:contains(Gross USA)").first().parent();
+                grossElement.select("h4").remove();
+
+                if(grossElement.text().contains("$")) {
+
+                    gross = grossElement.text();
+
+                }
+
+                result.addProperty("gross", gross);
+
+            } catch (NullPointerException m) {
+
+                result.addProperty("gross", gross);
+
+            }
+
+        }
+
+        // RatingValue
+
+        try {
+
+            String ratingValue = html.select("div.ratingValue").first().child(0).child(0).text();
+
+            result.addProperty("ratingValue", ratingValue);
+
+        } catch (NullPointerException n) {
+
+            result.addProperty("ratingValue", "");
+
+        }
+
+        // RatingCount
+
+        try {
+
+            String ratingCount = html.select("div.ratingValue").first().nextElementSibling().child(0).text();
+
+            result.addProperty("ratingCount", ratingCount);
+
+        } catch (NullPointerException n) {
+
+            result.addProperty("ratingCount", "");
+
+        }
+
+        // ContentRating
+
+        try {
+
+            Element titleWrapper = html.select("div.title_wrapper").first();
+            String contentRating = titleWrapper.select("div.subtext").first().ownText().replaceAll(",", "").trim();
+
+            result.addProperty("contentRating", contentRating);
+
+        } catch (NullPointerException n) {
+
+            result.addProperty("contentRating", "");
+
+        }
+
+        // AspectRatio
+
+        try {
+
+            Element aspectRatioElement = html.select("h4:contains(Aspect Ratio)").first().parent();
+            aspectRatioElement.select("h4").remove();
+            String aspectRatio = aspectRatioElement.text();
+
+            result.addProperty("aspectRatio", aspectRatio);
+
+        } catch (NullPointerException n) {
+
+            result.addProperty("aspectRatio", "");
+
+        }
+
+        // Reviews
+
+        try {
+
+            Element titleReviewBar = html.select("div.titleReviewBar").first();
+            String reviews = titleReviewBar.select("div:containsOwn(Reviews)").first().nextElementSibling().child(0).child(0).text();
+
+            result.addProperty("reviews", reviews);
+
+        } catch (NullPointerException n) {
+
+            result.addProperty("reviews", "");
+
+        }
+
+        // Critics
+
+        try {
+
+            Element titleReviewBar = html.select("div.titleReviewBar").first();
+            String critics = titleReviewBar.select("div:containsOwn(Reviews)").first().nextElementSibling().child(0).child(2).text();
+
+            result.addProperty("critics", critics);
+
+        } catch (NullPointerException n) {
+
+            result.addProperty("critics", "");
+
+        }
+
+        // return JsonObject
+
+        return result;
     }
 
-    public String titleToQuery(String title) {
-	return title.replaceAll(" ", "+")
-	    .replaceAll(":", "%3A")
-	    .replaceAll(",", "%2C")
-	    .replaceAll("&", "%26")
-	    .replaceAll("/", "%2F");
+    public String getTargetURL(String target) throws IOException {
+
+        String base_url = "https://www.imdb.com";
+        String url = base_url + "/find?q=" + encodeAsURL(target) + "&s=tt&ttype=ft";
+
+        Document html = Jsoup.connect(url).get();
+
+        Element table = html.select("table").first();
+        Element link = table.select("a").first();
+        String relHref = link.attr("href");
+
+        return base_url+relHref;
     }
 
-    public Element getLinkFromSearch(String content) {
-	Document search_html = Jsoup.parse(content);
-	Element table = search_html.getElementsByClass("findList").first();
-	Element tr = table.getElementsByTag("tr").first();
-	Element td = tr.getElementsByClass("result_text").first();
-	return td.getElementsByTag("a").first();
-    }
+    public String encodeAsURL(String text){
 
-    public String getContent(HttpClient client, String url) {
-	HttpRequest request = HttpRequest.newBuilder()
-          .uri(URI.create(url))
-          .build();
-	HttpResponse<String> response;
-	try {
-	    response = client.send(request, HttpResponse.BodyHandlers.ofString());
-	} catch (Exception e) {
-	    System.err.println("Connection error for URL: " + url);
-	    return null;
-	}
-	return response.body();
-    }
+        try {
 
-    public JSONObject scrapeMovie(HttpClient client, String title) {
-	// ToDo: Consider Async Call
-	String url = "https://www.imdb.com/find?q=" + titleToQuery(title) + "&s=tt&ttype=ft";
-	String content = getContent(client, url);
-	if (content == null) {
-	    return null;
-	}
-	Element link = getLinkFromSearch(content);
-	String href = "https://www.imdb.com" + link.attr("href") + "?ref_=fn_ft_tt_1";
-	JSONObject result = parsePage(client, href);
-	return result;
-    }
+            return URLEncoder.encode(text, StandardCharsets.UTF_8.toString());
 
-    public JSONObject parsePage(HttpClient client, String url) {
-	JSONObject result = new JSONObject();
-	result.put("url", url);
-	
-	String content = getContent(client, url);
-	Document html = Jsoup.parse(content);
+        } catch (UnsupportedEncodingException ex) {
 
-	Element title_wrapper = html.getElementsByClass("title_wrapper").first();
-	Element heading = title_wrapper.getElementsByTag("h1").first();
-	String title = heading.text();
-	String year = heading.child(0).child(0).text();
-	result.put("title", title);
-	result.put("year", year);
-
-	JSONArray genreList = new JSONArray();
-        Element genreSection = html.select("h4:contains(Genres:)").first().parent();
-	Elements genreElements = genreSection.getElementsByTag("a");
-	for(var e : genreElements) {
-	    genreList.put(e.text());
-	}
-	result.put("genreList", genreList);
-
-	JSONArray countryList = new JSONArray();
-        Element countrySection = html.select("h4:contains(Country:)").first().parent();
-	Elements countryElements = countrySection.getElementsByTag("a");
-	for(var e : countryElements) {
-	    countryList.put(e.text());
-	}
-	result.put("countryList", countryList);
-	
-	JSONArray keywordList = new JSONArray();
-        Element keywordSection = html.select("h4:contains(Plot Keywords:)").first().parent();
-	Elements keywordElements = keywordSection.getElementsByTag("a");
-	for(var e : keywordElements) {
-	    String keyword = e.text();
-	    if(keyword.contains("See All"))
-	       break;
-	    keywordList.put(keyword);
-	}
-	result.put("keywordList", keywordList);
-
-        Element storyLine = html.select("h2:contains(Storyline)").first();
-	String description = storyLine.nextElementSibling().child(0).child(0).text();
-	result.put("description", description);
-	System.out.println(description);
-	
-	return result;
+            throw new RuntimeException(ex.getCause());
+        }
     }
 
     /**

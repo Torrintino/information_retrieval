@@ -1,0 +1,69 @@
+[
+  {
+    "url": "https://www.imdb.com/title/tt0057413/?ref_=fn_ft_tt_1",
+    "title": "The Pink Panther",
+    "year": "1963",
+    "genreList": [
+      "Comedy",
+      "Crime",
+      "Romance"
+    ],
+    "countryList": [
+      "USA"
+    ],
+    "keywordList": [
+      "jewel thief",
+      "diamond",
+      "bumbling",
+      "inspector",
+      "framed for robbery"
+    ],
+    "description": "The trademark of The Phantom, a renowned jewel thief, is a glove left at the scene of the crime. Inspector Clouseau, an expert on The Phantom's exploits, feels sure that he knows where The Phantom will strike next and leaves Paris for Switzerland, where the famous Lugashi jewel 'The Pink Panther' is going to be. However, he does not know who The Phantom really is, or for that matter who anyone else really is...",
+    "directorList": [
+      "Blake Edwards"
+    ],
+    "castList": [
+      "David Niven",
+      "Peter Sellers",
+      "Robert Wagner",
+      "Capucine",
+      "Brenda de Banzie",
+      "Colin Gordon",
+      "John Le Mesurier",
+      "James Lanphier",
+      "Guy Thomajan",
+      "Michael Trubshawe",
+      "Riccardo Billi",
+      "Meri Welles",
+      "Martin Miller",
+      "Fran Jeffries",
+      "Claudia Cardinale"
+    ],
+    "characterList": [
+      "Sir Charles Lytton",
+      "Insp. Jacques Clouseau",
+      "George Lytton",
+      "Simone Clouseau",
+      "Angela Dunning",
+      "Tucker",
+      "Defence Barrister (as John LeMesurier)",
+      "Saloud",
+      "Artoff",
+      "Felix Townes",
+      "Aristotle Sarajos",
+      "Monica Fawn (as Meri Wells)",
+      "Pierre Luigi - Photographer",
+      "Greek 'cousin'",
+      "The Princess"
+    ],
+    "duration": "1h 55min",
+    "budget": "",
+    "gross": "$10,878,107",
+    "ratingValue": "7.1",
+    "ratingCount": "49,040",
+    "contentRating": "12",
+    "aspectRatio": "2.20 : 1",
+    "reviews": "191 user",
+    "critics": "84 critic"
+  }
+]

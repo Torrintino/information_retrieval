@@ -1,0 +1,73 @@
+[
+  {
+    "url": "https://www.imdb.com/title/tt0367594/?ref_=fn_ft_tt_1",
+    "title": "Charlie and the Chocolate Factory",
+    "year": "2005",
+    "genreList": [
+      "Adventure",
+      "Comedy",
+      "Family",
+      "Fantasy",
+      "Musical"
+    ],
+    "countryList": [
+      "UK",
+      "USA",
+      "Australia"
+    ],
+    "keywordList": [
+      "chocolate factory",
+      "caterpillar",
+      "psychiatrist",
+      "cannibalism",
+      "garbage"
+    ],
+    "description": "When Willy Wonka decides to let five children into his chocolate factory, he decides to release five golden tickets in five separate chocolate bars, causing complete mayhem. The tickets start to be found, with the fifth going to a very special boy, called Charlie Bucket. With his Grandpa, Charlie joins the rest of the children to experience the most amazing factory ever. But not everything goes to plan within the factory.",
+    "directorList": [
+      "Tim Burton"
+    ],
+    "castList": [
+      "Johnny Depp",
+      "Freddie Highmore",
+      "David Kelly",
+      "Helena Bonham Carter",
+      "Noah Taylor",
+      "Missi Pyle",
+      "James Fox",
+      "Deep Roy",
+      "Christopher Lee",
+      "Adam Godley",
+      "Franziska Troegner",
+      "AnnaSophia Robb",
+      "Julia Winter",
+      "Jordan Fry",
+      "Philip Wiegratz"
+    ],
+    "characterList": [
+      "Willy Wonka",
+      "Charlie Bucket",
+      "Grandpa Joe",
+      "Mrs. Bucket",
+      "Mr. Bucket",
+      "Mrs. Beauregarde",
+      "Mr. Salt",
+      "Oompa Loompa",
+      "Dr. Wonka",
+      "Mr. Teavee",
+      "Mrs. Gloop",
+      "Violet Beauregarde (as Annasophia Robb)",
+      "Veruca Salt",
+      "Mike Teavee",
+      "Augustus Gloop"
+    ],
+    "duration": "1h 55min",
+    "budget": "$150,000,000 (estimated)",
+    "gross": "$474,968,763",
+    "ratingValue": "6.6",
+    "ratingCount": "435,550",
+    "contentRating": "0",
+    "aspectRatio": "1.85 : 1",
+    "reviews": "1,467 user",
+    "critics": "266 critic"
+  }
+]
