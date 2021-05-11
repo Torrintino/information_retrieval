@@ -1,0 +1,69 @@
+[
+  {
+    "url": "https://www.imdb.com/title/tt0800080/?ref_=fn_ft_tt_1",
+    "title": "The Incredible Hulk",
+    "year": "2008",
+    "genreList": [
+      "Action",
+      "Adventure",
+      "Sci-Fi"
+    ],
+    "countryList": [
+      "USA"
+    ],
+    "keywordList": [
+      "marvel cinematic universe",
+      "based on comic",
+      "bruce banner character",
+      "reboot of series",
+      "scene during opening credits"
+    ],
+    "description": "Depicting the events after the Gamma Bomb. 'The Incredible Hulk' tells the story of Dr Bruce Banner, who seeks a cure to his unique condition, which causes him to turn into a giant green monster under emotional stress. Whilst on the run from military which seeks his capture, Banner comes close to a cure. But all is lost when a new creature emerges: The Abomination.",
+    "directorList": [
+      "Louis Leterrier"
+    ],
+    "castList": [
+      "Edward Norton",
+      "Liv Tyler",
+      "Tim Roth",
+      "William Hurt",
+      "Tim Blake Nelson",
+      "Ty Burrell",
+      "Christina Cabot",
+      "Peter Mensah",
+      "Lou Ferrigno",
+      "Paul Soles",
+      "Débora Nascimento",
+      "Greg Bryk",
+      "Chris Owens",
+      "Al Vrkljan",
+      "Adrian Hein"
+    ],
+    "characterList": [
+      "Bruce Banner",
+      "Betty Ross",
+      "Emil Blonsky",
+      "General 'Thunderbolt' Ross",
+      "Samuel Sterns",
+      "Leonard",
+      "Major Kathleen Sparr",
+      "General Joe Greller",
+      "Voice of The Incredible Hulk / Security Guard",
+      "Stanley",
+      "Martina",
+      "Commando",
+      "Commando",
+      "Commando (as Alan Vrkljan)",
+      "Commando"
+    ],
+    "duration": "1h 52min",
+    "budget": "$150,000,000 (estimated)",
+    "gross": "$264,770,996",
+    "ratingValue": "6.7",
+    "ratingCount": "441,831",
+    "contentRating": "16",
+    "aspectRatio": "2.39 : 1",
+    "reviews": "833 user",
+    "critics": "403 critic"
+  }
+]

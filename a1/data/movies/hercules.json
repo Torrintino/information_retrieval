@@ -1,0 +1,75 @@
+[
+  {
+    "url": "https://www.imdb.com/title/tt0119282/?ref_=fn_ft_tt_1",
+    "title": "Hercules",
+    "year": "1997",
+    "genreList": [
+      "Animation",
+      "Adventure",
+      "Comedy",
+      "Family",
+      "Fantasy",
+      "Musical",
+      "Romance"
+    ],
+    "countryList": [
+      "USA",
+      "France"
+    ],
+    "keywordList": [
+      "hercules",
+      "olympus",
+      "satyr",
+      "hero",
+      "titan"
+    ],
+    "description": "Hercules, son of the Greek God, Zeus, is turned into a half-god, half-mortal by evil Hades, God of the Underworld, who plans to overthrow Zeus. Hercules is raised on Earth and retains his god-like strength, but when he discovers his immortal heritage Zeus tells him that to return to Mount Olympus he must become a true hero. Hercules becomes a famous hero with the help of his friend Pegasus and his personal trainer, Phil the satyr. Hercules battles monsters, Hades and the Titans, but it is his self-sacrifice to rescue his love Meg which makes him a true hero.",
+    "directorList": [
+      "Ron Clements",
+      "John Musker"
+    ],
+    "castList": [
+      "Tate Donovan",
+      "Josh Keaton",
+      "Roger Bart",
+      "Danny DeVito",
+      "James Woods",
+      "Susan Egan",
+      "Bobcat Goldthwait",
+      "Matt Frewer",
+      "Rip Torn",
+      "Samantha Eggar",
+      "Barbara Barrie",
+      "Hal Holbrook",
+      "Paul Shaffer",
+      "Amanda Plummer",
+      "Carole Shelley"
+    ],
+    "characterList": [
+      "Hercules (voice)",
+      "Young Hercules (voice)",
+      "Young Hercules (singing voice)",
+      "Phil (voice)",
+      "Hades (voice)",
+      "Meg (voice)",
+      "Pain (voice)",
+      "Panic (voice)",
+      "Zeus (voice)",
+      "Hera (voice)",
+      "Alcmene (voice)",
+      "Amphitryon (voice)",
+      "Hermes (voice)",
+      "Clotho (voice)",
+      "Lachesis (voice)"
+    ],
+    "duration": "1h 33min",
+    "budget": "$85,000,000 (estimated)",
+    "gross": "$252,712,101",
+    "ratingValue": "7.3",
+    "ratingCount": "209,814",
+    "contentRating": "0",
+    "aspectRatio": "1.85 : 1",
+    "reviews": "236 user",
+    "critics": "98 critic"
+  }
+]

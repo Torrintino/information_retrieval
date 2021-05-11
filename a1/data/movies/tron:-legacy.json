@@ -1,0 +1,69 @@
+[
+  {
+    "url": "https://www.imdb.com/title/tt1104001/?ref_=fn_ft_tt_1",
+    "title": "Tron",
+    "year": "2010",
+    "genreList": [
+      "Action",
+      "Adventure",
+      "Sci-Fi"
+    ],
+    "countryList": [
+      "USA"
+    ],
+    "keywordList": [
+      "cyberpunk",
+      "disappearance",
+      "electronic music score",
+      "pumps",
+      "mysterious disappearance"
+    ],
+    "description": "Sam Flynn, the tech-savvy 27-year-old son of Kevin Flynn, looks into his father's disappearance and finds himself pulled into the same world of fierce programs and gladiatorial games where his father has been living for 20 years. Along with Kevin's loyal confidant Quorra, father and son embark on a life-and-death journey across a visually-stunning cyber universe that has become far more advanced and exceedingly dangerous. Meanwhile, the malevolent program CLU, who dominates the digital world, plans to invade the real world and will stop at nothing to prevent their escape.",
+    "directorList": [
+      "Joseph Kosinski"
+    ],
+    "castList": [
+      "Jeff Bridges",
+      "Garrett Hedlund",
+      "Olivia Wilde",
+      "Bruce Boxleitner",
+      "James Frain",
+      "Beau Garrett",
+      "Michael Sheen",
+      "Anis Cheurfa",
+      "Serinda Swan",
+      "Yaya DaCosta",
+      "Elizabeth Mathis",
+      "Yurij Kis",
+      "Conrad Coates",
+      "Daft Punk",
+      "Ron Selmour"
+    ],
+    "characterList": [
+      "Kevin Flynn / Clu",
+      "Sam Flynn",
+      "Quorra",
+      "Alan Bradley / Tron",
+      "Jarvis",
+      "Gem",
+      "Castor / Zuse",
+      "Rinzler",
+      "Siren #2",
+      "Siren #3",
+      "Siren #4",
+      "Half Faced Man",
+      "Bartik",
+      "Masked DJ's",
+      "Chattering Homeless Man"
+    ],
+    "duration": "2h 5min",
+    "budget": "$170,000,000 (estimated)",
+    "gross": "$400,063,852",
+    "ratingValue": "6.8",
+    "ratingCount": "316,339",
+    "contentRating": "12",
+    "aspectRatio": "2.39 : 1",
+    "reviews": "786 user",
+    "critics": "493 critic"
+  }
+]

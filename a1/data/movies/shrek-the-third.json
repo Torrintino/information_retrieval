@@ -1,0 +1,73 @@
+[
+  {
+    "url": "https://www.imdb.com/title/tt0413267/?ref_=fn_ft_tt_1",
+    "title": "Shrek the Third",
+    "year": "2007",
+    "genreList": [
+      "Animation",
+      "Adventure",
+      "Comedy",
+      "Family",
+      "Fantasy"
+    ],
+    "countryList": [
+      "USA",
+      "Japan"
+    ],
+    "keywordList": [
+      "far far away",
+      "donkey character",
+      "fiona character",
+      "2000s",
+      "anthropomorphic cat"
+    ],
+    "description": "When King Harold (John Cleese) of Far, Far Away dies, the clumsy Shrek (Mike Myers) becomes the immediate successor of the throne. However, Shrek decides to find the legitimate heir Artie (Justin Timberlake) in a distant kingdom with his friends Donkey (Eddie Murphy) and Puss in Boots (Antonio Banderas) to be able return to his beloved house in the swamp with the pregnant Fiona (Cameron Diaz). Meanwhile, the envious and ambitious Prince Charming (Rupert Everett) joins the villains of the fairytales plotting a coup d'état to become the new King.",
+    "directorList": [
+      "Chris Miller",
+      "Raman Hui"
+    ],
+    "castList": [
+      "Mike Myers",
+      "Eddie Murphy",
+      "Cameron Diaz",
+      "Antonio Banderas",
+      "Julie Andrews",
+      "John Cleese",
+      "Rupert Everett",
+      "Eric Idle",
+      "Justin Timberlake",
+      "Susanne Blakeslee",
+      "Cody Cameron",
+      "Larry King",
+      "Christopher Knights",
+      "John Krasinski",
+      "Ian McShane"
+    ],
+    "characterList": [
+      "Shrek (voice)",
+      "Donkey (voice)",
+      "Princess Fiona (voice)",
+      "Puss in Boots (voice)",
+      "Queen (voice)",
+      "King (voice)",
+      "Prince Charming (voice)",
+      "Merlin (voice)",
+      "Artie (voice)",
+      "Evil Queen (voice)",
+      "Pinocchio / Three Pigs (voice)",
+      "Doris (voice)",
+      "Blind Mice / Heckler / Evil Tree #2 / Guard #2 (voice)",
+      "Lancelot (voice)",
+      "Captain Hook (voice)"
+    ],
+    "duration": "1h 33min",
+    "budget": "$160,000,000 (estimated)",
+    "gross": "$813,367,380",
+    "ratingValue": "6.1",
+    "ratingCount": "284,658",
+    "contentRating": "0",
+    "aspectRatio": "1.85 : 1",
+    "reviews": "380 user",
+    "critics": "219 critic"
+  }
+]

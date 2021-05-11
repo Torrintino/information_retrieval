@@ -1,0 +1,69 @@
+[
+  {
+    "url": "https://www.imdb.com/title/tt1210819/?ref_=fn_ft_tt_1",
+    "title": "The Lone Ranger",
+    "year": "2013",
+    "genreList": [
+      "Action",
+      "Adventure",
+      "Western"
+    ],
+    "countryList": [
+      "USA"
+    ],
+    "keywordList": [
+      "texas ranger",
+      "wild west",
+      "old west",
+      "american indian",
+      "horse"
+    ],
+    "description": "In the 1930s, an elderly Tonto tells a young boy the tale of John Reid, the Lone Ranger. An idealistic lawyer, he rides with his brother and fellow Texas Rangers in pursuit of the notorious Butch Cavendish. Ambushed by the outlaw and left for dead, John Reid is rescued by the renegade Comanche, Tonto, at the insistence of a mysterious white horse and offers to help him to bring Cavendish to justice. Becoming a reluctant masked rider with a seemingly incomprehensible partner, Reid pursues the criminal against all obstacles. However, John and Tonto learn that Cavendish is only part of a far greater injustice and the pair must fight it in an adventure that would make them a legend.",
+    "directorList": [
+      "Gore Verbinski"
+    ],
+    "castList": [
+      "Johnny Depp",
+      "Armie Hammer",
+      "William Fichtner",
+      "Tom Wilkinson",
+      "Ruth Wilson",
+      "Helena Bonham Carter",
+      "James Badge Dale",
+      "Bryant Prince",
+      "Barry Pepper",
+      "Mason Cook",
+      "JD Cullum",
+      "Saginaw Grant",
+      "Harry Treadaway",
+      "James Frain",
+      "Joaquín Cosio"
+    ],
+    "characterList": [
+      "Tonto",
+      "John Reid (Lone Ranger)",
+      "Butch Cavendish",
+      "Cole",
+      "Rebecca Reid",
+      "Red Harrington",
+      "Dan Reid",
+      "Danny",
+      "Fuller",
+      "Will",
+      "Wendell",
+      "Chief Big Bear",
+      "Frank",
+      "Barret",
+      "Jesus"
+    ],
+    "duration": "2h 30min",
+    "budget": "$215,000,000 (estimated)",
+    "gross": "$260,502,115",
+    "ratingValue": "6.4",
+    "ratingCount": "223,664",
+    "contentRating": "12",
+    "aspectRatio": "2.39 : 1",
+    "reviews": "786 user",
+    "critics": "471 critic"
+  }
+]

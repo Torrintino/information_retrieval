@@ -1,0 +1,57 @@
+[
+  {
+    "url": "https://www.imdb.com/title/tt1483013/?ref_=fn_ft_tt_1",
+    "title": "Oblivion",
+    "year": "2013",
+    "genreList": [
+      "Action",
+      "Adventure",
+      "Sci-Fi"
+    ],
+    "countryList": [
+      "USA"
+    ],
+    "keywordList": [
+      "post apocalypse",
+      "drone",
+      "cabin in the woods",
+      "black and white scene",
+      "alien invasion"
+    ],
+    "description": "One of the few remaining drone repairmen assigned to Earth, its surface devastated after decades of war with the alien Scavs, discovers a crashed spacecraft with contents that bring into question everything he believed about the war, and may even put the fate of mankind in his hands.",
+    "directorList": [
+      "Joseph Kosinski"
+    ],
+    "castList": [
+      "Tom Cruise",
+      "Morgan Freeman",
+      "Olga Kurylenko",
+      "Andrea Riseborough",
+      "Nikolaj Coster-Waldau",
+      "Melissa Leo",
+      "Zoë Bell",
+      "Abigail Lowe",
+      "Isabelle Lowe"
+    ],
+    "characterList": [
+      "Jack",
+      "Beech",
+      "Julia",
+      "Victoria",
+      "Sykes",
+      "Sally",
+      "Kara",
+      "Julia's Child",
+      "Julia's Child"
+    ],
+    "duration": "2h 4min",
+    "budget": "$120,000,000 (estimated)",
+    "gross": "$286,168,572",
+    "ratingValue": "7.0",
+    "ratingCount": "491,380",
+    "contentRating": "12",
+    "aspectRatio": "2.39 : 1",
+    "reviews": "1,055 user",
+    "critics": "565 critic"
+  }
+]

@@ -1,0 +1,69 @@
+[
+  {
+    "url": "https://www.imdb.com/title/tt0118928/?ref_=fn_ft_tt_1",
+    "title": "Dante's Peak",
+    "year": "1997",
+    "genreList": [
+      "Action",
+      "Adventure",
+      "Thriller"
+    ],
+    "countryList": [
+      "USA"
+    ],
+    "keywordList": [
+      "volcano",
+      "mayor",
+      "lava",
+      "volcanologist",
+      "volcanic eruption"
+    ],
+    "description": "Volcanologist Harry Dalton and mayor Rachel Wando of Dante's Peak try to convince the city council and the other volcanologists that the volcano right above Dante's peak is indeed dangerous. People's safety is being set against economical interests.",
+    "directorList": [
+      "Roger Donaldson"
+    ],
+    "castList": [
+      "Pierce Brosnan",
+      "Linda Hamilton",
+      "Jamie Renée Smith",
+      "Jeremy Foley",
+      "Elizabeth Hoffman",
+      "Charles Hallahan",
+      "Grant Heslov",
+      "Kirk Trutner",
+      "Arabella Field",
+      "Tzi Ma",
+      "Brian Reddy",
+      "Lee Garlington",
+      "Bill Bolender",
+      "Carole Androsky",
+      "Peter Jason"
+    ],
+    "characterList": [
+      "Harry Dalton",
+      "Rachel Wando",
+      "Lauren Wando",
+      "Graham Wando",
+      "Ruth",
+      "Paul Dreyfus",
+      "Greg",
+      "Terry Furlong",
+      "Nancy",
+      "Stan",
+      "Les Worrell",
+      "Dr. Jane Fox",
+      "Sheriff Turner",
+      "Mary Kelly (as Carol Androsky)",
+      "Norman Gates"
+    ],
+    "duration": "1h 48min",
+    "budget": "$116,000,000 (estimated)",
+    "gross": "$178,127,760",
+    "ratingValue": "6.0",
+    "ratingCount": "83,323",
+    "contentRating": "12",
+    "aspectRatio": "2.39 : 1",
+    "reviews": "330 user",
+    "critics": "102 critic"
+  }
+]

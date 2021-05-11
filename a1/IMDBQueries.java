@@ -280,6 +280,22 @@ public class IMDBQueries {
 
             String description = movie.getDescription();
 
+	    // if (movie.getGenreList().contains("Sci-Fi")) {
+	    // 	int index = 0;
+	    // 	while ((index = description.indexOf("Mars", index)) != -1 ) {
+	    // 	    switch(description.charAt(index+4)) {
+	    // 	    case '!':
+	    // 	    case '.':
+	    // 	    case ' ':
+	    // 	    case '?':
+	    // 		resultList.add(movie);
+	    // 		break;
+	    // 	    default:
+	    // 		break;
+	    // 	    }
+	    // 	    index++;
+	    // 	}
+	    // }
             if (movie.getGenreList().contains("Sci-Fi") && (description.contains("Mars.")
                     || description.contains("Mars,") || description.contains("Mars ")
                     || description.contains("Mars?") || description.contains("Mars!"))) {

@@ -1,0 +1,71 @@
+[
+  {
+    "url": "https://www.imdb.com/title/tt0167260/?ref_=fn_ft_tt_1",
+    "title": "The Lord of the Rings: The Return of the King",
+    "year": "2003",
+    "genreList": [
+      "Action",
+      "Adventure",
+      "Drama",
+      "Fantasy"
+    ],
+    "countryList": [
+      "New Zealand",
+      "USA"
+    ],
+    "keywordList": [
+      "epic",
+      "orc",
+      "hobbit",
+      "ring",
+      "battle"
+    ],
+    "description": "The final confrontation between the forces of good and evil fighting for control of the future of Middle-earth. Frodo and Sam reach Mordor in their quest to destroy the One Ring, while Aragorn leads the forces of good against Sauron's evil army at the stone city of Minas Tirith.",
+    "directorList": [
+      "Peter Jackson"
+    ],
+    "castList": [
+      "Noel Appleby",
+      "Ali Astin",
+      "Sean Astin",
+      "David Aston",
+      "John Bach",
+      "Sean Bean",
+      "Cate Blanchett",
+      "Orlando Bloom",
+      "Billy Boyd",
+      "Sadwyn Brophy",
+      "Alistair Browning",
+      "Marton Csokas",
+      "Richard Edge",
+      "Jason Fitch",
+      "Bernard Hill"
+    ],
+    "characterList": [
+      "Everard Proudfoot",
+      "Elanor Gamgee (as Alexandra Astin)",
+      "Sam",
+      "Gondorian Soldier 3",
+      "Madril",
+      "Boromir",
+      "Galadriel",
+      "Legolas",
+      "Pippin",
+      "Eldarion",
+      "Damrod",
+      "Celeborn",
+      "Gondorian Soldier 1",
+      "Uruk 2",
+      "Theoden"
+    ],
+    "duration": "3h 21min",
+    "budget": "$94,000,000 (estimated)",
+    "gross": "$1,142,623,460",
+    "ratingValue": "8.9",
+    "ratingCount": "1,667,552",
+    "contentRating": "12",
+    "aspectRatio": "2.39 : 1",
+    "reviews": "3,847 user",
+    "critics": "356 critic"
+  }
+]

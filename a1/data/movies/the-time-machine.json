@@ -1,0 +1,70 @@
+[
+  {
+    "url": "https://www.imdb.com/title/tt0268695/?ref_=fn_ft_tt_1",
+    "title": "The Time Machine",
+    "year": "2002",
+    "genreList": [
+      "Action",
+      "Adventure",
+      "Sci-Fi"
+    ],
+    "countryList": [
+      "USA",
+      "United Arab Emirates"
+    ],
+    "keywordList": [
+      "time travel",
+      "abduction",
+      "bowler hat",
+      "scientist",
+      "time traveller"
+    ],
+    "description": "Based on the classic sci-fi novel by H.G. Wells, scientist and inventor, Alexander Hartdegen, is determined to prove that time travel is possible. His determination is turned to desperation by a personal tragedy that now drives him to want to change the past. Testing his theories with a time machine of his own invention, Hartdegen is hurtled 800,000 years into the future, where he discovers that mankind has divided into the hunter - and the hunted.",
+    "directorList": [
+      "Simon Wells"
+    ],
+    "castList": [
+      "Guy Pearce",
+      "Mark Addy",
+      "Phyllida Law",
+      "Sienna Guillory",
+      "Laura Kirk",
+      "Josh Stamberg",
+      "John W. Momrow",
+      "Max Baker",
+      "Jeffrey M. Meyer",
+      "Jeremy Irons",
+      "Alan Young",
+      "Myndy Crist",
+      "Connie Ray",
+      "Orlando Jones",
+      "Lennie Loftin"
+    ],
+    "characterList": [
+      "Alexander Hartdegen",
+      "David Philby",
+      "Mrs. Watchit",
+      "Emma",
+      "Flower Seller",
+      "Motorist",
+      "Fifth Avenue Carriage Driver",
+      "Robber",
+      "Central Park Carriage Driver",
+      "Über-Morlock",
+      "Flower Store Worker",
+      "Jogger",
+      "Teacher",
+      "Vox",
+      "Soldier #1"
+    ],
+    "duration": "1h 36min",
+    "budget": "$80,000,000 (estimated)",
+    "gross": "$123,729,176",
+    "ratingValue": "6.0",
+    "ratingCount": "119,381",
+    "contentRating": "12",
+    "aspectRatio": "2.35 : 1",
+    "reviews": "672 user",
+    "critics": "120 critic"
+  }
+]

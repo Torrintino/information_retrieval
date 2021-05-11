@@ -1,0 +1,71 @@
+[
+  {
+    "url": "https://www.imdb.com/title/tt0435761/?ref_=fn_ft_tt_1",
+    "title": "Toy Story 3",
+    "year": "2010",
+    "genreList": [
+      "Animation",
+      "Adventure",
+      "Comedy",
+      "Family",
+      "Fantasy"
+    ],
+    "countryList": [
+      "USA"
+    ],
+    "keywordList": [
+      "toy",
+      "college",
+      "escape",
+      "day care",
+      "evil teddy bear"
+    ],
+    "description": "Woody, Buzz and the whole gang are back. As their owner Andy prepares to depart for college, his loyal toys find themselves in daycare where untamed tots with their sticky little fingers do not play nice. So, it's all for one and one for all as they join Barbie's counterpart Ken, a thespian hedgehog named Mr. Pricklepants and a pink, strawberry-scented teddy bear called Lots-o'-Huggin' Bear to plan their great escape.",
+    "directorList": [
+      "Lee Unkrich"
+    ],
+    "castList": [
+      "Tom Hanks",
+      "Tim Allen",
+      "Joan Cusack",
+      "Ned Beatty",
+      "Don Rickles",
+      "Michael Keaton",
+      "Wallace Shawn",
+      "John Ratzenberger",
+      "Estelle Harris",
+      "John Morris",
+      "Jodi Benson",
+      "Emily Hahn",
+      "Laurie Metcalf",
+      "Blake Clark",
+      "Teddy Newton"
+    ],
+    "characterList": [
+      "Woody (voice)",
+      "Buzz Lightyear (voice)",
+      "Jessie (voice)",
+      "Lotso (voice)",
+      "Mr. Potato Head (voice)",
+      "Ken (voice)",
+      "Rex (voice)",
+      "Hamm (voice)",
+      "Mrs. Potato Head (voice)",
+      "Andy (voice)",
+      "Barbie (voice)",
+      "Bonnie (voice)",
+      "Andy's Mom (voice)",
+      "Slinky Dog (voice)",
+      "Chatter Telephone (voice)"
+    ],
+    "duration": "1h 43min",
+    "budget": "$200,000,000 (estimated)",
+    "gross": "$1,066,970,811",
+    "ratingValue": "8.2",
+    "ratingCount": "767,706",
+    "contentRating": "0",
+    "aspectRatio": "1.78 : 1",
+    "reviews": "924 user",
+    "critics": "480 critic"
+  }
+]

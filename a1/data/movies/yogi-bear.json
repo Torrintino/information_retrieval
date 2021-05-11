@@ -1,0 +1,71 @@
+[
+  {
+    "url": "https://www.imdb.com/title/tt1302067/?ref_=fn_ft_tt_1",
+    "title": "Yogi Bear",
+    "year": "2010",
+    "genreList": [
+      "Animation",
+      "Adventure",
+      "Comedy",
+      "Family"
+    ],
+    "countryList": [
+      "USA",
+      "New Zealand"
+    ],
+    "keywordList": [
+      "park",
+      "bear",
+      "mayor",
+      "sabotage",
+      "documentary filmmaker"
+    ],
+    "description": "Jellystone Park is celebrating its 100th anniversary, however it may be for the last time, because attendance is down and Mayor Brown wants to close the park and sell the land. If the park is closed, Yogi Bear and Boo Boo will lose their home. They join forces with Ranger Smith to save Jellystone from closing forever. Yogi must really prove in this endeavor that he is \"smarter than the average bear\".",
+    "directorList": [
+      "Eric Brevig"
+    ],
+    "castList": [
+      "Dan Aykroyd",
+      "Justin Timberlake",
+      "Anna Faris",
+      "Tom Cavanagh",
+      "T.J. Miller",
+      "Nate Corddry",
+      "Andrew Daly",
+      "Josh Robert Thompson",
+      "David Stott",
+      "Greg Johnson",
+      "Christy Qulliam",
+      "Patricia Aldersley",
+      "Tim McLachlan",
+      "Hayden Vernon",
+      "Dean Knowsley"
+    ],
+    "characterList": [
+      "Yogi Bear (voice)",
+      "Boo Boo (voice)",
+      "Rachel",
+      "Ranger Smith",
+      "Ranger Jones",
+      "Chief of Staff",
+      "Mayor Brown",
+      "Narrator (voice)",
+      "Mayor's Tailor",
+      "Dirty Shopper",
+      "Stylist (as Christy Quillam)",
+      "Elderly Purse Lady",
+      "Purse Snatcher",
+      "Security Guard",
+      "Security Guard"
+    ],
+    "duration": "1h 21min",
+    "budget": "$80,000,000 (estimated)",
+    "gross": "$203,509,374",
+    "ratingValue": "4.6",
+    "ratingCount": "20,707",
+    "contentRating": "0",
+    "aspectRatio": "1.85 : 1",
+    "reviews": "120 user",
+    "critics": "146 critic"
+  }
+]

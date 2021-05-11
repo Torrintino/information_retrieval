@@ -1,0 +1,72 @@
+[
+  {
+    "url": "https://www.imdb.com/title/tt1979388/?ref_=fn_ft_tt_1",
+    "title": "The Good Dinosaur",
+    "year": "2015",
+    "genreList": [
+      "Animation",
+      "Adventure",
+      "Comedy",
+      "Drama",
+      "Family",
+      "Fantasy"
+    ],
+    "countryList": [
+      "USA"
+    ],
+    "keywordList": [
+      "dinosaur",
+      "interspecies friendship",
+      "human dinosaur friendship",
+      "apatosaurus",
+      "river"
+    ],
+    "description": "\"The Good Dinosaur\" asks the question: What if the asteroid that forever changed life on Earth missed the planet completely and giant dinosaurs never became extinct? In this epic journey into the world of dinosaurs, an Apatosaurus named Arlo makes an unlikely human friend. While travelling through a harsh and mysterious landscape, Arlo learns the power of confronting his fears and discovers what he is truly capable of.",
+    "directorList": [
+      "Peter Sohn"
+    ],
+    "castList": [
+      "Jeffrey Wright",
+      "Frances McDormand",
+      "Maleah Nipay-Padilla",
+      "Ryan Teeple",
+      "Jack McGraw",
+      "Marcus Scribner",
+      "Raymond Ochoa",
+      "Jack Bright",
+      "Peter Sohn",
+      "Steve Zahn",
+      "Mandy Freund",
+      "Steven Clay Hunter",
+      "A.J. Buckley",
+      "Anna Paquin",
+      "Sam Elliott"
+    ],
+    "characterList": [
+      "Poppa (voice)",
+      "Momma (voice)",
+      "Young Libby (voice) (as Maleah Padilla)",
+      "Young Buck (voice)",
+      "Young Arlo (voice)",
+      "Buck (voice)",
+      "Arlo (voice)",
+      "Spot (voice)",
+      "Pet Collector (voice)",
+      "Thunderclap (voice)",
+      "Downpour (voice)",
+      "Coldfront (voice)",
+      "Nash (voice) (as AJ Buckley)",
+      "Ramsey (voice)",
+      "Butch (voice)"
+    ],
+    "duration": "1h 33min",
+    "budget": "$200,000,000 (estimated)",
+    "gross": "$332,207,671",
+    "ratingValue": "6.7",
+    "ratingCount": "104,071",
+    "contentRating": "6",
+    "aspectRatio": "2.39 : 1",
+    "reviews": "507 user",
+    "critics": "338 critic"
+  }
+]

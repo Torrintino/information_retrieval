@@ -1,0 +1,69 @@
+[
+  {
+    "url": "https://www.imdb.com/title/tt0473075/?ref_=fn_ft_tt_1",
+    "title": "Prince of Persia: The Sands of Time",
+    "year": "2010",
+    "genreList": [
+      "Action",
+      "Adventure",
+      "Fantasy"
+    ],
+    "countryList": [
+      "USA"
+    ],
+    "keywordList": [
+      "persia",
+      "alamut",
+      "dagger",
+      "prince",
+      "sand"
+    ],
+    "description": "Set in the mystical lands of Persia, a rogue prince and a mysterious princess race against dark forces to safeguard an ancient dagger capable of releasing the Sands of Time -- a gift from the gods that can reverse time and allow its possessor to rule the world.",
+    "directorList": [
+      "Mike Newell"
+    ],
+    "castList": [
+      "Jake Gyllenhaal",
+      "Gemma Arterton",
+      "Ben Kingsley",
+      "Alfred Molina",
+      "Steve Toussaint",
+      "Toby Kebbell",
+      "Richard Coyle",
+      "Ronald Pickup",
+      "Reece Ritchie",
+      "Gísli Örn Garðarsson",
+      "Claudio Pacifico",
+      "Thomas DuPont",
+      "Dave Pope",
+      "Domonkos Pardanyi",
+      "Massimiliano Ubaldi"
+    ],
+    "characterList": [
+      "Dastan",
+      "Tamina",
+      "Nizam",
+      "Sheik Amar",
+      "Seso",
+      "Garsiv",
+      "Tus",
+      "King Sharaman",
+      "Bis",
+      "Hassansin Leader",
+      "Hassansin Porcupine",
+      "Hassansin Whip Man",
+      "Hassansin Giant Scimitar",
+      "Hassansin Double-Bladed Halberd",
+      "Hassansin Long Razor (as Massimilano Ubaldi)"
+    ],
+    "duration": "1h 56min",
+    "budget": "$200,000,000 (estimated)",
+    "gross": "$336,365,676",
+    "ratingValue": "6.6",
+    "ratingCount": "274,183",
+    "contentRating": "12",
+    "aspectRatio": "2.39 : 1",
+    "reviews": "484 user",
+    "critics": "315 critic"
+  }
+]

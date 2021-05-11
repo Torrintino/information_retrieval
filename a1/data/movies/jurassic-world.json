@@ -1,0 +1,69 @@
+[
+  {
+    "url": "https://www.imdb.com/title/tt0369610/?ref_=fn_ft_tt_1",
+    "title": "Jurassic World",
+    "year": "2015",
+    "genreList": [
+      "Action",
+      "Adventure",
+      "Sci-Fi"
+    ],
+    "countryList": [
+      "USA"
+    ],
+    "keywordList": [
+      "dinosaur",
+      "experiment gone wrong",
+      "disaster film",
+      "velociraptor",
+      "theme park"
+    ],
+    "description": "Twenty-two years after the original Jurassic Park failed, the new park, also known as Jurassic World, is open for business. After years of studying genetics, the scientists on the park genetically engineer a new breed of dinosaur, the Indominus Rex. When everything goes horribly wrong, will our heroes make it off the island?",
+    "directorList": [
+      "Colin Trevorrow"
+    ],
+    "castList": [
+      "Chris Pratt",
+      "Bryce Dallas Howard",
+      "Irrfan Khan",
+      "Vincent D'Onofrio",
+      "Ty Simpkins",
+      "Nick Robinson",
+      "Jake Johnson",
+      "Omar Sy",
+      "BD Wong",
+      "Judy Greer",
+      "Lauren Lapkus",
+      "Brian Tee",
+      "Katie McGrath",
+      "Andy Buckley",
+      "Eric Edelstein"
+    ],
+    "characterList": [
+      "Owen",
+      "Claire",
+      "Masrani",
+      "Hoskins",
+      "Gray",
+      "Zach",
+      "Lowery",
+      "Barry",
+      "Dr. Henry Wu",
+      "Karen",
+      "Vivian",
+      "Hamada",
+      "Zara",
+      "Scott",
+      "Paddock Supervisor"
+    ],
+    "duration": "2h 4min",
+    "budget": "$150,000,000 (estimated)",
+    "gross": "$1,670,516,444",
+    "ratingValue": "7.0",
+    "ratingCount": "586,132",
+    "contentRating": "12",
+    "aspectRatio": "2.00 : 1",
+    "reviews": "1,576 user",
+    "critics": "696 critic"
+  }
+]
