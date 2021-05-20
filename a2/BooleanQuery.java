@@ -9,12 +9,111 @@ import java.util.*;
 
 import static java.nio.charset.StandardCharsets.ISO_8859_1;
 
+class Document {
+
+    int ID;
+    String name; // Full title
+    String type;
+    String year;
+    ArrayList<String> plot;
+    ArrayList<String> title; // Tokenized title
+
+    public void Document() {
+	plot = new ArrayList<>();
+	title = new ArrayList<>();
+    }
+    
+}
+
+class Occurence {
+    // An occurence is a pointer a document in the doc_list (first
+    //   and a list of positions in that document (second), that contain the term
+    int doc_id;
+    ArrayList<Integer> pos_list;
+}
+
+class Index {
+    // Map Terms to Occurences
+    HashMap<String, Occurence> dict;
+}
+
 public class BooleanQuery {
+
+    ArrayList<Document> doc_list;
+
+    // + 
+    // "[a-zA-Z0-9\\#\\'\\!\\ \\@\\-\\.\\:\\/\\\\\\;\\%\\$]+"
+    String MOVIE_NAME_REGEX = "[^\"]+";
+    String YEAR_REGEX = " \\([0-9\\?]+(\\/(X|V|I|L|C)+)?\\)";
+    String MOVIE_REGEX = MOVIE_NAME_REGEX + YEAR_REGEX;
+    String SERIES_REGEX = "\"" + MOVIE_NAME_REGEX + "\"" + YEAR_REGEX;
+    String EPISODE_REGEX = SERIES_REGEX + " \\{[^\\}]*\\}";
+    String TELEVISION_REGEX = MOVIE_REGEX + " \\(TV\\)";
+    String VIDEO_REGEX = MOVIE_REGEX + " \\(V\\)";
+    String VIDEOGAME_REGEX = MOVIE_REGEX + " \\(VG\\)";
 
     /**
      * DO NOT CHANGE THE CONSTRUCTOR. DO NOT ADD PARAMETERS TO THE CONSTRUCTOR.
      */
     public BooleanQuery() {
+    }
+
+    private void skip_initial_lines(BufferedReader reader) throws IOException {
+	String line;
+	while ((line = reader.readLine()) != null) {
+	    if (line.contains("PLOT SUMMARIES LIST")) {
+		reader.readLine();
+		return;
+	    }
+	}
+    }
+
+    public String parse_paragraph(BufferedReader reader,
+				  ArrayList<Document> doc_list) throws IOException {
+	String line;
+	do {
+	    line = reader.readLine();
+	    if(line == null)
+		return null;
+	} while(!(line.contains("-----------------------------------------------")));
+	String title_line = reader.readLine();
+	if(title_line.contains("{{SUSPENDED}}"))
+	    return "";
+	if(!title_line.substring(0, 4).equals("MV: ")) {
+	    System.out.println("Expected line with MV, but got: " + title_line);
+	    return null;
+	}
+	title_line = title_line.substring(4);
+	if(title_line.matches(MOVIE_REGEX)) {
+	    ;
+	} else if (title_line.matches(SERIES_REGEX)) {
+	    ;
+	} else if (title_line.matches(EPISODE_REGEX)) {
+	    ;
+	} else if (title_line.matches(TELEVISION_REGEX)) {
+	    ;
+	} else if (title_line.matches(VIDEO_REGEX)) {
+	    ;
+	} else if (title_line.matches(VIDEOGAME_REGEX)) {
+	    ;
+	} else {
+	    System.out.println("Unknown type: " + title_line);
+	}
+
+	return title_line;
+    }
+
+    private void build_doc_list(Path plotFile) {
+	doc_list = new ArrayList<>();
+
+        try (BufferedReader reader = Files.newBufferedReader(plotFile, ISO_8859_1)) {
+	    skip_initial_lines(reader);
+	    String title;
+            while ((title = parse_paragraph(reader, doc_list)) != null) {}
+	} catch (IOException e) {
+            e.printStackTrace();
+            System.exit(-1);
+        }
     }
 
     /**
@@ -28,7 +127,11 @@ public class BooleanQuery {
      *                 use.
      */
     public void buildIndices(Path plotFile) {
-        // TODO: insert code here
+	System.out.println("Start building indices...");
+
+	build_doc_list(plotFile);
+	
+	System.out.println("Done.");
     }
 
     /**
