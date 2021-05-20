@@ -22,7 +22,7 @@ class Document {
 	plot = new ArrayList<>();
 	title = new ArrayList<>();
     }
-    
+
 }
 
 class Occurence {
@@ -41,7 +41,7 @@ public class BooleanQuery {
 
     ArrayList<Document> doc_list;
 
-    // + 
+    // +
     // "[a-zA-Z0-9\\#\\'\\!\\ \\@\\-\\.\\:\\/\\\\\\;\\%\\$]+"
     String MOVIE_NAME_REGEX = "[^\"]+";
     String YEAR_REGEX = " \\([0-9\\?]+(\\/(X|V|I|L|C)+)?\\)";
@@ -76,6 +76,7 @@ public class BooleanQuery {
 	    if(line == null)
 		return null;
 	} while(!(line.contains("-----------------------------------------------")));
+
 	String title_line = reader.readLine();
 	if(title_line.contains("{{SUSPENDED}}"))
 	    return "";
@@ -84,6 +85,7 @@ public class BooleanQuery {
 	    return null;
 	}
 	title_line = title_line.substring(4);
+
 	if(title_line.matches(MOVIE_REGEX)) {
 	    ;
 	} else if (title_line.matches(SERIES_REGEX)) {
@@ -130,7 +132,7 @@ public class BooleanQuery {
 	System.out.println("Start building indices...");
 
 	build_doc_list(plotFile);
-	
+
 	System.out.println("Done.");
     }
 
