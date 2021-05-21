@@ -113,6 +113,8 @@ public class BooleanQuery {
 	}
 
 	String title = title_line.substring(0, pos).replace("\"", "");
+	doc.title = new ArrayList<String>(Arrays.asList(title.split("[\\ \\.\\:\\!\\?]")));
+	while(doc.title.remove("")); // Remove empty tokens
        	doc.year = year.substring(2,6);
 	return doc;
     }
