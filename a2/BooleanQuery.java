@@ -9,6 +9,8 @@ import java.util.*;
 
 import static java.nio.charset.StandardCharsets.ISO_8859_1;
 
+import java.util.regex.*;
+
 class Document {
 
     int ID;
@@ -75,33 +77,47 @@ public class BooleanQuery {
 	    line = reader.readLine();
 	    if(line == null)
 		return null;
-	} while(!(line.contains("-----------------------------------------------")));
-
-	String title_line = reader.readLine();
+	} while(!line.contains("MV: "));
+	
+	String title_line = line.substring(4);
 	if(title_line.contains("{{SUSPENDED}}"))
 	    return "";
-	if(!title_line.substring(0, 4).equals("MV: ")) {
-	    System.out.println("Expected line with MV, but got: " + title_line);
-	    return null;
-	}
-	title_line = title_line.substring(4);
 
+	Document doc = new Document();
 	if(title_line.matches(MOVIE_REGEX)) {
-	    ;
+	    doc.type="movie";
 	} else if (title_line.matches(SERIES_REGEX)) {
-	    ;
+	    doc.type="series";
 	} else if (title_line.matches(EPISODE_REGEX)) {
-	    ;
+	    doc.type="episode";
 	} else if (title_line.matches(TELEVISION_REGEX)) {
-	    ;
+	    doc.type="television";
 	} else if (title_line.matches(VIDEO_REGEX)) {
-	    ;
+	    doc.type="video";
 	} else if (title_line.matches(VIDEOGAME_REGEX)) {
-	    ;
+	    doc.type="videogame";
 	} else {
 	    System.out.println("Unknown type: " + title_line);
 	}
 
+	Pattern year_pattern = Pattern.compile(YEAR_REGEX);
+	Matcher m = year_pattern.matcher(title_line);
+	String year = "";
+	int pos = 0;
+	boolean found = false;
+	while(m.find()) {
+	    found = true;
+	    year = m.group();
+	    pos = m.start();
+	}
+	if (!found) {
+	    System.out.println("Could not find year in line: " + title_line);
+	    return null;
+	}
+	
+	String title = title_line.substring(0, pos).replace("\"", "");
+	doc.year = year.substring(2,6);
+ 
 	return title_line;
     }
 
