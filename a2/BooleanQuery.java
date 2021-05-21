@@ -119,6 +119,20 @@ public class BooleanQuery {
 	return doc;
     }
 
+    private ArrayList<String> parse_plotline(String line) {
+	line = line.substring(4);
+	ArrayList<String> tokens = new ArrayList<String>(Arrays.asList(line.split("[\\ \\.\\:\\!\\?]")));
+	while(tokens.remove("")); // Remove empty tokens
+	return tokens;
+    }
+
+    private void parse_plot(Document doc, BufferedReader reader) throws IOException {
+	String line;
+	while((line = reader.readLine()).contains("PL: ")) {
+	    ArrayList<String> tokens = parse_plotline(line);
+	}
+    }
+
     private Document parse_paragraph(BufferedReader reader,
 				  ArrayList<Document> doc_list) throws IOException {
 	String line;
@@ -138,6 +152,8 @@ public class BooleanQuery {
 
 	if(parse_headline(doc, title_line) == null)
 	    return null;
+	reader.readLine();
+	parse_plot(doc, reader);
  
 	return doc;
     }
@@ -147,7 +163,10 @@ public class BooleanQuery {
 
         try (BufferedReader reader = Files.newBufferedReader(plotFile, ISO_8859_1)) {
 	    skip_initial_lines(reader);
-            while (parse_paragraph(reader, doc_list) != null) {}
+	    Document doc;
+            while ((doc = parse_paragraph(reader, doc_list)) != null) {
+		doc_list.add(doc);
+	    }
 	} catch (IOException e) {
             e.printStackTrace();
             System.exit(-1);
