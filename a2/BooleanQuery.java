@@ -68,20 +68,7 @@ public class BooleanQuery {
 	}
     }
 
-    public String parse_paragraph(BufferedReader reader,
-				  ArrayList<Document> doc_list) throws IOException {
-	String line;
-	do {
-	    line = reader.readLine();
-	    if(line == null)
-		return null;
-	} while(!line.contains("MV: "));
-	
-	String title_line = line.substring(4);
-	if(title_line.contains("{{SUSPENDED}}"))
-	    return "";
-
-	Document doc = new Document();
+    private void parse_headline(Document doc, String title_line) {
 	if(title_line.matches(MOVIE_REGEX)) {
 	    doc.type="movie";
 	} else if (title_line.matches(SERIES_REGEX)) {
@@ -126,6 +113,23 @@ public class BooleanQuery {
 
 	String title = title_line.substring(0, pos).replace("\"", "");
        	doc.year = year.substring(2,6);
+    }
+
+    public String parse_paragraph(BufferedReader reader,
+				  ArrayList<Document> doc_list) throws IOException {
+	String line;
+	do {
+	    line = reader.readLine();
+	    if(line == null)
+		return null;
+	} while(!line.contains("MV: "));
+	
+	String title_line = line.substring(4);
+	if(title_line.contains("{{SUSPENDED}}"))
+	    return "";
+
+	Document doc = new Document();
+	parse_headline(doc, title_line);
  
 	return title_line;
     }
