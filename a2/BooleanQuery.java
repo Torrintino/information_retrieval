@@ -14,6 +14,7 @@ import java.util.regex.*;
 class Document {
 
     int ID;
+    boolean suspended;
     String name; // Full title
     String type;
     String year;
@@ -68,7 +69,7 @@ public class BooleanQuery {
 	}
     }
 
-    private void parse_headline(Document doc, String title_line) {
+    private Document parse_headline(Document doc, String title_line) {
 	if(title_line.matches(MOVIE_REGEX)) {
 	    doc.type="movie";
 	} else if (title_line.matches(SERIES_REGEX)) {
@@ -107,15 +108,16 @@ public class BooleanQuery {
 	    pos = m.start();
 	}
 	if (!found) {
-	    System.out.println("Could not find year in line: " + line);
+	    System.out.println("Could not find year in line");
 	    return null;
 	}
 
 	String title = title_line.substring(0, pos).replace("\"", "");
        	doc.year = year.substring(2,6);
+	return doc;
     }
 
-    public String parse_paragraph(BufferedReader reader,
+    private Document parse_paragraph(BufferedReader reader,
 				  ArrayList<Document> doc_list) throws IOException {
 	String line;
 	do {
@@ -124,14 +126,18 @@ public class BooleanQuery {
 		return null;
 	} while(!line.contains("MV: "));
 	
-	String title_line = line.substring(4);
-	if(title_line.contains("{{SUSPENDED}}"))
-	    return "";
-
 	Document doc = new Document();
-	parse_headline(doc, title_line);
+	String title_line = line.substring(4);
+	if(title_line.contains("{{SUSPENDED}}")) {
+	    doc.suspended = true;
+	    return doc;
+	}
+	doc.suspended = false;
+
+	if(parse_headline(doc, title_line) == null)
+	    return null;
  
-	return title_line;
+	return doc;
     }
 
     private void build_doc_list(Path plotFile) {
@@ -139,8 +145,7 @@ public class BooleanQuery {
 
         try (BufferedReader reader = Files.newBufferedReader(plotFile, ISO_8859_1)) {
 	    skip_initial_lines(reader);
-	    String title;
-            while ((title = parse_paragraph(reader, doc_list)) != null) {}
+            while (parse_paragraph(reader, doc_list) != null) {}
 	} catch (IOException e) {
             e.printStackTrace();
             System.exit(-1);
