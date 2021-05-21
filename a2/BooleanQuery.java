@@ -43,13 +43,11 @@ public class BooleanQuery {
 
     ArrayList<Document> doc_list;
 
-    // +
-    // "[a-zA-Z0-9\\#\\'\\!\\ \\@\\-\\.\\:\\/\\\\\\;\\%\\$]+"
     String MOVIE_NAME_REGEX = "[^\"]+";
-    String YEAR_REGEX = " \\([0-9\\?]+(\\/(X|V|I|L|C)+)?\\)";
+    String YEAR_REGEX = " \\([0-9\\?]{4}(\\/(X|V|I|L|C)+)?\\)";
     String MOVIE_REGEX = MOVIE_NAME_REGEX + YEAR_REGEX;
     String SERIES_REGEX = "\"" + MOVIE_NAME_REGEX + "\"" + YEAR_REGEX;
-    String EPISODE_REGEX = SERIES_REGEX + " \\{[^\\}]*\\}";
+    String EPISODE_REGEX = SERIES_REGEX + " \\{[^\\}]+\\}";
     String TELEVISION_REGEX = MOVIE_REGEX + " \\(TV\\)";
     String VIDEO_REGEX = MOVIE_REGEX + " \\(V\\)";
     String VIDEOGAME_REGEX = MOVIE_REGEX + " \\(VG\\)";
@@ -101,6 +99,17 @@ public class BooleanQuery {
 	}
 
 	Pattern year_pattern = Pattern.compile(YEAR_REGEX);
+	Pattern episode_pattern = Pattern.compile("\\{[^\\}]+\\}");
+	Matcher em = episode_pattern.matcher(title_line);
+
+	if(doc.type == "episode") {
+	    int episode_found = 0;
+	    while(em.find())
+		episode_found = em.start();
+	    if(episode_found != 0)
+		title_line = title_line.substring(0, episode_found);
+	}
+
 	Matcher m = year_pattern.matcher(title_line);
 	String year = "";
 	int pos = 0;
@@ -111,12 +120,12 @@ public class BooleanQuery {
 	    pos = m.start();
 	}
 	if (!found) {
-	    System.out.println("Could not find year in line: " + title_line);
+	    System.out.println("Could not find year in line: " + line);
 	    return null;
 	}
-	
+
 	String title = title_line.substring(0, pos).replace("\"", "");
-	doc.year = year.substring(2,6);
+       	doc.year = year.substring(2,6);
  
 	return title_line;
     }
