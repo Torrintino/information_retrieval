@@ -20,10 +20,7 @@ class Document {
     ArrayList<String> plot;
     ArrayList<String> title; // Tokenized title
 
-    public void Document() {
-	plot = new ArrayList<>();
-	title = new ArrayList<>();
-    }
+    public void Document() {}
 
 }
 
@@ -125,7 +122,7 @@ public class BooleanQuery {
 
     private void parse_plot(Document doc, BufferedReader reader) throws IOException {
 	String line;
-	doc.plot = new ArrayList<String>();
+	doc.plot = new ArrayList<>();
 	while((line = reader.readLine()).contains("PL: ")) {
 	    ArrayList<String> tokens = parse_plotline(line);
 	    doc.plot.addAll(tokens);
