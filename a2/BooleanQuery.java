@@ -34,14 +34,12 @@ class Occurence {
     ArrayList<Integer> pos_list;
 }
 
-class Index {
-    // Map Terms to Occurences
-    HashMap<String, Occurence> dict;
-}
-
 public class BooleanQuery {
 
     ArrayList<Document> doc_list;
+    HashMap<String, Occurence> title_index;
+    HashMap<String, Occurence> plot_index;
+    HashMap<String, ArrayList<Integer>> type_index;
 
     String MOVIE_NAME_REGEX = "[^\"]+";
     String YEAR_REGEX = " \\([0-9\\?]{4}(\\/(X|V|I|L|C)+)?\\)";
@@ -142,7 +140,7 @@ public class BooleanQuery {
 	    if(line == null)
 		return null;
 	} while(!line.contains("MV: "));
-	
+
 	Document doc = new Document();
 	String title_line = line.substring(4);
 	int pos;
@@ -153,7 +151,7 @@ public class BooleanQuery {
 	    return null;
 	reader.readLine();
 	parse_plot(doc, reader);
- 
+
 	return doc;
     }
 
@@ -163,13 +161,75 @@ public class BooleanQuery {
         try (BufferedReader reader = Files.newBufferedReader(plotFile, ISO_8859_1)) {
 	    skip_initial_lines(reader);
 	    Document doc;
+	    int i = 0;
             while ((doc = parse_paragraph(reader, doc_list)) != null) {
+		doc.ID = i;
 		doc_list.add(doc);
+		i++;
 	    }
 	} catch (IOException e) {
             e.printStackTrace();
             System.exit(-1);
         }
+    }
+
+    private void build_title_index() {
+	title_index = new HashMap<>();
+	Document doc;
+
+	for(int j=0; j<doc_list.size(); j++) {
+	    doc = doc_list.get(j);
+	    for(int i=0; i<doc.title.size(); i++) {
+		String key = doc.title.get(i);
+		Occurence entry = title_index.get(key);
+		if(entry == null) {
+		    entry = new Occurence();
+		    entry.doc_id = j;
+		    entry.pos_list = new ArrayList<Integer>();
+		    entry.pos_list.add(i);
+		    title_index.put(key, entry);
+		} else {
+		    entry.pos_list.add(i);
+		}
+	    }
+	}
+    }
+
+    private void build_plot_index() {
+	plot_index = new HashMap<>();
+	Document doc;
+
+	for(int j=0; j<doc_list.size(); j++) {
+	    doc = doc_list.get(j);
+	    for(int i=0; i<doc.plot.size(); i++) {
+		String key = doc.plot.get(i);
+		Occurence entry = plot_index.get(key);
+		if(entry == null) {
+		    entry = new Occurence();
+		    entry.doc_id = j;
+		    entry.pos_list = new ArrayList<Integer>();
+		    entry.pos_list.add(i);
+		    plot_index.put(key, entry);
+		} else {
+		    entry.pos_list.add(i);
+		}
+	    }
+	}
+    }
+
+    private void build_type_index() {
+	type_index = new HashMap<>();
+
+	for(String type : Arrays.asList("movie", "series", "episode",
+					"television", "video", "videogame")) {
+	    type_index.put(type, new ArrayList<Integer>());
+	}
+
+	Document doc;
+	for(int j=0; j<doc_list.size(); j++) {
+	    doc = doc_list.get(j);
+	    type_index.get(doc.type).add(j);
+	}
     }
 
     /**
@@ -183,9 +243,13 @@ public class BooleanQuery {
      *                 use.
      */
     public void buildIndices(Path plotFile) {
-	System.out.println("Start building indices...");
-
+	System.out.println("Start parsing...");
 	build_doc_list(plotFile);
+
+	System.out.println("Start building indices...");
+	build_title_index();
+	build_plot_index();
+	build_type_index();
 
 	System.out.println("Done.");
     }
