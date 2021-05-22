@@ -14,7 +14,6 @@ import java.util.regex.*;
 class Document {
 
     int ID;
-    boolean suspended;
     String name; // Full title
     String type;
     String year;
@@ -128,8 +127,10 @@ public class BooleanQuery {
 
     private void parse_plot(Document doc, BufferedReader reader) throws IOException {
 	String line;
+	doc.plot = new ArrayList<String>();
 	while((line = reader.readLine()).contains("PL: ")) {
 	    ArrayList<String> tokens = parse_plotline(line);
+	    doc.plot.addAll(tokens);
 	}
     }
 
@@ -144,11 +145,9 @@ public class BooleanQuery {
 	
 	Document doc = new Document();
 	String title_line = line.substring(4);
-	if(title_line.contains("{{SUSPENDED}}")) {
-	    doc.suspended = true;
-	    return doc;
-	}
-	doc.suspended = false;
+	int pos;
+	if((pos = title_line.indexOf("{{SUSPENDED}}")) != -1)
+	    title_line = title_line.substring(0, pos-1);
 
 	if(parse_headline(doc, title_line) == null)
 	    return null;
