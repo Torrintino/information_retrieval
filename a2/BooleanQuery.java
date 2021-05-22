@@ -14,7 +14,7 @@ import java.util.regex.*;
 class Document {
 
     int ID;
-    String name; // Full title
+    String name;
     String type;
     String year;
     ArrayList<String> plot;
@@ -149,6 +149,7 @@ public class BooleanQuery {
 
 	if(parse_headline(doc, title_line) == null)
 	    return null;
+	doc.name = title_line;
 	reader.readLine();
 	parse_plot(doc, reader);
 
