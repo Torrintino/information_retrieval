@@ -134,6 +134,7 @@ public class BooleanQuery {
 	} while(!line.contains("MV: "));
 
 	Document doc = new Document();
+	doc.name = line;
 	String title_line = line.substring(4);
 	int pos;
 	if((pos = title_line.indexOf("{{SUSPENDED}}")) != -1)
@@ -141,7 +142,6 @@ public class BooleanQuery {
 
 	if(parse_headline(doc, title_line) == null)
 	    return null;
-	doc.name = title_line;
 	reader.readLine();
 	parse_plot(doc, reader);
 
@@ -180,12 +180,12 @@ public class BooleanQuery {
 		    entry = new HashMap<>();
 		    title_index.put(key, entry);
 		}
-		ArrayList<Integer> doc_entry = entry.get(j);
-		if(doc_entry == null) {
-		    doc_entry = new ArrayList<Integer>();
-		    entry.put(j, doc_entry);
+		ArrayList<Integer> pos_list = entry.get(j);
+		if(pos_list == null) {
+		    pos_list = new ArrayList<Integer>();
+		    entry.put(j, pos_list);
 		}
-		doc_entry.add(i);
+		pos_list.add(i);
 	    }
 	}
     }
@@ -199,17 +199,17 @@ public class BooleanQuery {
 
 	    for(int i=0; i<doc.plot.size(); i++) {
 		String key = doc.plot.get(i);
-		HashMap<Integer, ArrayList<Integer>> entry = title_index.get(key);
+		HashMap<Integer, ArrayList<Integer>> entry = plot_index.get(key);
 		if(entry == null) {
 		    entry = new HashMap<>();
 		    plot_index.put(key, entry);
 		}
-		ArrayList<Integer> doc_entry = entry.get(j);
-		if(doc_entry == null) {
-		    doc_entry = new ArrayList<Integer>();
-		    entry.put(j, doc_entry);
+		ArrayList<Integer> pos_list = entry.get(j);
+		if(pos_list == null) {
+		    pos_list = new ArrayList<Integer>();
+		    entry.put(j, pos_list);
 		}
-		doc_entry.add(i);
+		pos_list.add(i);
 	    }
 	}
     }
@@ -244,8 +244,11 @@ public class BooleanQuery {
 	build_doc_list(plotFile);
 
 	System.out.println("Start building indices...");
+	System.out.println("Title index...");
 	build_title_index();
+	System.out.println("Plot index...");
 	build_plot_index();
+	System.out.println("Start building indices...");
 	build_type_index();
 
 	System.out.println("Done.");
@@ -307,9 +310,34 @@ public class BooleanQuery {
      *  If current_result is empty, every found document will be saved.
      *  Otherwise all entries in current_result
      */
-    public void get_query_results(LinkedList<Integer> current_result,
-				  String token) {
-	
+    public LinkedList<Integer> update_query_results(LinkedList<Integer> current_result,
+						    String token,
+						    boolean first) {
+	if(!first) {
+	    if(current_result.size() == 0)
+		return current_result;
+	}
+	    
+	LinkedList<Integer> tmp_result = get_query_results(token);
+	Collections.sort(tmp_result);
+		     
+	if(first)
+	    return tmp_result;
+
+	int i=0, j=0;
+	LinkedList<Integer> result = new LinkedList<>();
+	while(i < current_result.size() && j < tmp_result.size()) {
+	    int doc1 = current_result.get(i);
+	    int doc2 = tmp_result.get(j);
+	    if(doc1 == doc2) {
+		result.add(doc1);
+	    } else if (doc1 < doc2) {
+		i++;
+	    } else {
+		j++;
+	    }
+	}
+	return result;
     }
 
     /**
@@ -354,12 +382,18 @@ public class BooleanQuery {
 	    query_tokens.set(i, query_tokens.get(i).strip());
 
 
-	LinkedList<Integer> current_result = new LinkedList<>();
+	LinkedList<Integer> current_result = null;
+	boolean first = true;
 	for(var token : query_tokens) {
-	    get_query_results(current_result, token);
+	    current_result = update_query_results(current_result, token, first);
+	    first = false;
 	}
 
-        return new HashSet<>();
+	HashSet<String> result = new HashSet<>();
+	for(int doc_id : current_result)
+	    result.add(doc_list.get(doc_id).name);
+
+        return result;
     }
 
     public static void main(String[] args) {
