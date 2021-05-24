@@ -24,18 +24,11 @@ class Document {
 
 }
 
-class Occurence {
-    // An occurence is a pointer a document in the doc_list (first
-    //   and a list of positions in that document (second), that contain the term
-    int doc_id;
-    ArrayList<Integer> pos_list;
-}
-
 public class BooleanQuery {
 
     ArrayList<Document> doc_list;
-    HashMap<String, Occurence> title_index;
-    HashMap<String, Occurence> plot_index;
+    HashMap<String, HashMap<Integer, ArrayList<Integer>>> title_index;
+    HashMap<String, HashMap<Integer, ArrayList<Integer>>> plot_index;
     HashMap<String, ArrayList<Integer>> type_index;
 
     String MOVIE_NAME_REGEX = "[^\"]+";
@@ -46,6 +39,8 @@ public class BooleanQuery {
     String TELEVISION_REGEX = MOVIE_REGEX + " \\(TV\\)";
     String VIDEO_REGEX = MOVIE_REGEX + " \\(V\\)";
     String VIDEOGAME_REGEX = MOVIE_REGEX + " \\(VG\\)";
+
+    String DELIM_REGEX = "[\\ \\.\\:\\!\\?]";
 
     /**
      * DO NOT CHANGE THE CONSTRUCTOR. DO NOT ADD PARAMETERS TO THE CONSTRUCTOR.
@@ -107,7 +102,7 @@ public class BooleanQuery {
 	}
 
 	String title = title_line.substring(0, pos).replace("\"", "");
-	doc.title = new ArrayList<String>(Arrays.asList(title.split("[\\ \\.\\:\\!\\?]")));
+	doc.title = new ArrayList<String>(Arrays.asList(title.split(DELIM_REGEX)));
 	while(doc.title.remove("")); // Remove empty tokens
        	doc.year = year.substring(2,6);
 	return doc;
@@ -115,7 +110,7 @@ public class BooleanQuery {
 
     private ArrayList<String> parse_plotline(String line) {
 	line = line.substring(4);
-	ArrayList<String> tokens = new ArrayList<String>(Arrays.asList(line.split("[\\ \\.\\:\\!\\?]")));
+	ArrayList<String> tokens = new ArrayList<String>(Arrays.asList(line.split(DELIM_REGEX)));
 	while(tokens.remove("")); // Remove empty tokens
 	return tokens;
     }
@@ -177,18 +172,20 @@ public class BooleanQuery {
 
 	for(int j=0; j<doc_list.size(); j++) {
 	    doc = doc_list.get(j);
+
 	    for(int i=0; i<doc.title.size(); i++) {
 		String key = doc.title.get(i);
-		Occurence entry = title_index.get(key);
+		HashMap<Integer, ArrayList<Integer>> entry = title_index.get(key);
 		if(entry == null) {
-		    entry = new Occurence();
-		    entry.doc_id = j;
-		    entry.pos_list = new ArrayList<Integer>();
-		    entry.pos_list.add(i);
+		    entry = new HashMap<>();
 		    title_index.put(key, entry);
-		} else {
-		    entry.pos_list.add(i);
 		}
+		ArrayList<Integer> doc_entry = entry.get(j);
+		if(doc_entry == null) {
+		    doc_entry = new ArrayList<Integer>();
+		    entry.put(j, doc_entry);
+		}
+		doc_entry.add(i);
 	    }
 	}
     }
@@ -199,18 +196,20 @@ public class BooleanQuery {
 
 	for(int j=0; j<doc_list.size(); j++) {
 	    doc = doc_list.get(j);
+
 	    for(int i=0; i<doc.plot.size(); i++) {
 		String key = doc.plot.get(i);
-		Occurence entry = plot_index.get(key);
+		HashMap<Integer, ArrayList<Integer>> entry = title_index.get(key);
 		if(entry == null) {
-		    entry = new Occurence();
-		    entry.doc_id = j;
-		    entry.pos_list = new ArrayList<Integer>();
-		    entry.pos_list.add(i);
+		    entry = new HashMap<>();
 		    plot_index.put(key, entry);
-		} else {
-		    entry.pos_list.add(i);
 		}
+		ArrayList<Integer> doc_entry = entry.get(j);
+		if(doc_entry == null) {
+		    doc_entry = new ArrayList<Integer>();
+		    entry.put(j, doc_entry);
+		}
+		doc_entry.add(i);
 	    }
 	}
     }
@@ -252,6 +251,67 @@ public class BooleanQuery {
 	System.out.println("Done.");
     }
 
+    public boolean phrase_search(ArrayList<String> doc, ArrayList<Integer> occurences,
+				      ArrayList<String> phrase) {
+	boolean found;
+	for(var o : occurences) {
+	    found = true;
+	    for(int i=0; i<phrase.size(); i++) {
+		if(!(phrase.get(i) == doc.get(o + i))) {
+		    found = false;
+		    break;
+		}
+	    }
+	    if(found)
+		return true;
+	}
+	return false;
+    }
+
+    public LinkedList<Integer> get_query_results(String token) {
+	String[] query = token.split(":");
+	String field = query[0];
+	String phrase = query[1];
+	LinkedList<Integer> result = new LinkedList<>();
+
+	if(field == "plot") {
+	    if(phrase.charAt(0) == '"') {
+		phrase = phrase.substring(1, phrase.length() - 1);
+		ArrayList<String> token_list = new ArrayList<String>(Arrays.asList(phrase.split(DELIM_REGEX)));
+		var doc_map = plot_index.get(token_list.get(0));
+		for(int doc_id : doc_map.keySet()) {
+		    if(phrase_search(doc_list.get(doc_id).plot, doc_map.get(doc_id), token_list))
+		       result.add(doc_id);
+		}
+		return result;
+	    }
+
+	    if(!plot_index.containsKey(phrase))
+		return result;
+	    for(var doc_id : plot_index.get(phrase).keySet())
+		result.add(doc_id);
+	    return result;
+
+	} else if (field == "title") {
+	    if(phrase.charAt(0) == '"');
+	} else if (field == "type") {
+	    ;
+	} else {
+	    System.out.println("Field not supported: " + field);
+	}
+
+	return result;
+    }
+
+    /*  Gets the result of the token.
+     *  If current_result is empty, every found document will be saved.
+     *  Otherwise all entries in current_result
+     */
+    public void get_query_results(LinkedList<Integer> current_result,
+				  String token) {
+	
+    }
+
     /**
      * A method for performing a boolean search on a textual movie plot file after
      * indices were built using the {@link #buildIndices(String) buildIndices}
@@ -289,7 +349,16 @@ public class BooleanQuery {
      * lines (starting with "MV: ") of the documents matching the query
      */
     public Set<String> booleanQuery(String queryString) {
-        // TODO: insert code here
+	ArrayList<String> query_tokens = new ArrayList<>(Arrays.asList(queryString.split(" AND ")));
+	for(int i=0; i<query_tokens.size(); i++)
+	    query_tokens.set(i, query_tokens.get(i).strip());
+
+
+	LinkedList<Integer> current_result = new LinkedList<>();
+	for(var token : query_tokens) {
+	    get_query_results(current_result, token);
+	}
+
         return new HashSet<>();
     }
 
