@@ -29,7 +29,7 @@ public class BooleanQuery {
     ArrayList<Document> doc_list;
     HashMap<String, HashMap<Integer, ArrayList<Integer>>> title_index;
     HashMap<String, HashMap<Integer, ArrayList<Integer>>> plot_index;
-    HashMap<String, ArrayList<Integer>> type_index;
+    HashMap<String, LinkedList<Integer>> type_index;
 
     String MOVIE_NAME_REGEX = "[^\"]+";
     String YEAR_REGEX = " \\([0-9\\?]{4}(\\/(X|V|I|L|C)+)?\\)";
@@ -223,7 +223,7 @@ public class BooleanQuery {
 
 	for(String type : Arrays.asList("movie", "series", "episode",
 					"television", "video", "videogame")) {
-	    type_index.put(type, new ArrayList<Integer>());
+	    type_index.put(type, new LinkedList<Integer>());
 	}
 
 	Document doc;
@@ -327,7 +327,14 @@ public class BooleanQuery {
 
     public LinkedList<Integer> type_search(String type) {
 	LinkedList<Integer> result = new LinkedList<>();
-	return result;
+
+	if(!Arrays.asList("movie", "series", "episode",
+			  "television", "video", "videogame").contains(type)) {
+	    System.out.println("Type not supported: " + type);
+	    return result;
+	}
+	
+	return type_index.get(type);
     }
 
     public LinkedList<Integer> get_query_results(String token) {
@@ -361,6 +368,8 @@ public class BooleanQuery {
 	}
 	    
 	LinkedList<Integer> tmp_result = get_query_results(token);
+	if(tmp_result == null)
+	    return null;
 	Collections.sort(tmp_result);
 		     
 	if(first)
@@ -430,6 +439,8 @@ public class BooleanQuery {
 	boolean first = true;
 	for(var token : query_tokens) {
 	    current_result = update_query_results(current_result, token, first);
+	    if(current_result == null)
+		return new HashSet<>();
 	    first = false;
 	}
 
