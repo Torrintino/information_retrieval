@@ -11,7 +11,7 @@ import static java.nio.charset.StandardCharsets.ISO_8859_1;
 
 import java.util.regex.*;
 
-class Document {
+public class Document {
 
     int ID;
     String name;
@@ -24,6 +24,8 @@ class Document {
 
 }
 
+//MV: Dronningens nytårstale (1991)
+//MV: The Wall: Live in Berlin (1990) (TV),
 public class BooleanQuery {
 
     ArrayList<Document> doc_list;
@@ -40,7 +42,7 @@ public class BooleanQuery {
     String VIDEO_REGEX = MOVIE_REGEX + " \\(V\\)";
     String VIDEOGAME_REGEX = MOVIE_REGEX + " \\(VG\\)";
 
-    String DELIM_REGEX = "[\\ \\.\\:\\!\\?]";
+    String DELIM_REGEX = "[\\ \\,\\.\\:\\!\\?]";
 
     /**
      * DO NOT CHANGE THE CONSTRUCTOR. DO NOT ADD PARAMETERS TO THE CONSTRUCTOR.
@@ -122,7 +124,13 @@ public class BooleanQuery {
     private void parse_plot(Document doc, BufferedReader reader) throws IOException {
 	String line;
 	doc.plot = new ArrayList<>();
-	while((line = reader.readLine()).contains("PL: ")) {
+	while((line = reader.readLine()) != null) {
+	    if(line.contains("--------------------------------------------------------------------------"))
+		break;
+	    if(line.length() < 4)
+		continue;
+	    if(!(line.substring(0, 4).equals("PL: ")))
+		continue;
 	    ArrayList<String> tokens = parse_plotline(line);
 	    doc.plot.addAll(tokens);
 	}
@@ -284,16 +292,19 @@ public class BooleanQuery {
     public LinkedList<Integer> plot_search(String phrase) {
 	LinkedList<Integer> result = new LinkedList<>();
 	if(phrase.charAt(0) == '"') {
-		phrase = phrase.substring(1, phrase.length() - 1);
-		ArrayList<String> token_list = new ArrayList<String>(Arrays.asList(phrase.split(DELIM_REGEX)));
-		var doc_map = plot_index.get(token_list.get(0));
-		if(doc_map == null)
-		    return result;
-		for(int doc_id : doc_map.keySet()) {
-		    if(phrase_search(doc_list.get(doc_id).plot, doc_map.get(doc_id), token_list))
-			result.add(doc_id);
-		}
+	    phrase = phrase.substring(1, phrase.length() - 1);
+	    ArrayList<String> token_list = new ArrayList<String>(Arrays.asList(phrase.split(DELIM_REGEX)));
+	    var doc_map = plot_index.get(token_list.get(0));
+	    if(doc_map == null)
 		return result;
+	    for(int doc_id : doc_map.keySet()) {
+		if(phrase_search(doc_list.get(doc_id).plot, doc_map.get(doc_id), token_list)) {
+		    // if(phrase.equals("game of thrones"))
+		    //     System.out.println("Match: " + doc_list.get(doc_id).name);
+		    result.add(doc_id);
+		}
+	    }
+	    return result;
 	}
 
 	if(!plot_index.containsKey(phrase))
