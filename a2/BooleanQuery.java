@@ -337,7 +337,8 @@ public class BooleanQuery {
 	return type_index.get(type);
     }
 
-    public LinkedList<Integer> get_query_results(String token) {
+    public LinkedList<Integer> get_query_results(LinkedList<Integer> current_result,
+						 String token, boolean first) {
 	String[] query = token.split(":");
 	String field = query[0];
 	String phrase = query[1];
@@ -348,7 +349,18 @@ public class BooleanQuery {
 	} else if (field.equals("title")) {
 	    return title_search(phrase);
 	} else if (field.equals("type")) {
-	    return type_search(phrase);
+	    if(!first) {
+		LinkedList<Integer> result = new LinkedList<>();
+		String type = phrase;
+		for(int doc_id : current_result) {
+		    Document doc = doc_list.get(doc_id);
+		    if(doc.type.equals(type))
+			result.add(doc_id);
+		}
+		return result;
+	    } else {
+		return type_search(phrase);
+	    }
 	} else {
 	    System.err.println("Field not supported: " + field);
 	}
@@ -367,7 +379,7 @@ public class BooleanQuery {
 		return current_result;
 	}
 	    
-	LinkedList<Integer> tmp_result = get_query_results(token);
+	LinkedList<Integer> tmp_result = get_query_results(current_result, token, first);
 	if(tmp_result == null)
 	    return null;
 	Collections.sort(tmp_result);
