@@ -79,7 +79,7 @@ public class BooleanQuery {
 	Pattern episode_pattern = Pattern.compile("\\{[^\\}]+\\}");
 	Matcher em = episode_pattern.matcher(title_line);
 
-	if(doc.type == "episode") {
+	if(doc.type.equals("episode")) {
 	    int episode_found = 0;
 	    while(em.find())
 		episode_found = em.start();
@@ -104,6 +104,8 @@ public class BooleanQuery {
 	String title = title_line.substring(0, pos).replace("\"", "");
 	doc.title = new ArrayList<String>(Arrays.asList(title.split(DELIM_REGEX)));
 	while(doc.title.remove("")); // Remove empty tokens
+	for(int i=0; i<doc.title.size(); i++)
+	    doc.title.set(i, doc.title.get(i).toLowerCase());
        	doc.year = year.substring(2,6);
 	return doc;
     }
@@ -112,6 +114,8 @@ public class BooleanQuery {
 	line = line.substring(4);
 	ArrayList<String> tokens = new ArrayList<String>(Arrays.asList(line.split(DELIM_REGEX)));
 	while(tokens.remove("")); // Remove empty tokens
+	for(int i=0; i<tokens.size(); i++)
+	    tokens.set(i, tokens.get(i).toLowerCase());
 	return tokens;
     }
 
@@ -260,7 +264,13 @@ public class BooleanQuery {
 	for(var o : occurences) {
 	    found = true;
 	    for(int i=0; i<phrase.size(); i++) {
-		if(!(phrase.get(i) == doc.get(o + i))) {
+		if(o + i >= doc.size()) {
+		    found = false;
+		    break;
+		}
+		String phrase_token = phrase.get(i);
+		String doc_token = doc.get(o + i);
+		if(!(phrase_token.equals(doc_token))) {
 		    found = false;
 		    break;
 		}
@@ -271,39 +281,71 @@ public class BooleanQuery {
 	return false;
     }
 
+    public LinkedList<Integer> plot_search(String phrase) {
+	LinkedList<Integer> result = new LinkedList<>();
+	if(phrase.charAt(0) == '"') {
+		phrase = phrase.substring(1, phrase.length() - 1);
+		ArrayList<String> token_list = new ArrayList<String>(Arrays.asList(phrase.split(DELIM_REGEX)));
+		var doc_map = plot_index.get(token_list.get(0));
+		if(doc_map == null)
+		    return result;
+		for(int doc_id : doc_map.keySet()) {
+		    if(phrase_search(doc_list.get(doc_id).plot, doc_map.get(doc_id), token_list))
+			result.add(doc_id);
+		}
+		return result;
+	}
+
+	if(!plot_index.containsKey(phrase))
+	    return result;
+	for(var doc_id : plot_index.get(phrase).keySet())
+	    result.add(doc_id);
+	return result;
+    }
+
+    public LinkedList<Integer> title_search(String phrase) {
+	LinkedList<Integer> result = new LinkedList<>();
+	if(phrase.charAt(0) == '"') {
+		phrase = phrase.substring(1, phrase.length() - 1);
+		ArrayList<String> token_list = new ArrayList<String>(Arrays.asList(phrase.split(DELIM_REGEX)));
+		var doc_map = title_index.get(token_list.get(0));
+		if(doc_map == null)
+		    return result;
+		for(int doc_id : doc_map.keySet()) {
+		    if(phrase_search(doc_list.get(doc_id).title, doc_map.get(doc_id), token_list))
+			result.add(doc_id);
+		}
+		return result;
+	}
+
+	if(!title_index.containsKey(phrase))
+	    return result;
+	for(var doc_id : title_index.get(phrase).keySet())
+	    result.add(doc_id);
+	return result;
+    }
+
+    public LinkedList<Integer> type_search(String type) {
+	LinkedList<Integer> result = new LinkedList<>();
+	return result;
+    }
+
     public LinkedList<Integer> get_query_results(String token) {
 	String[] query = token.split(":");
 	String field = query[0];
 	String phrase = query[1];
-	LinkedList<Integer> result = new LinkedList<>();
 
-	if(field == "plot") {
-	    if(phrase.charAt(0) == '"') {
-		phrase = phrase.substring(1, phrase.length() - 1);
-		ArrayList<String> token_list = new ArrayList<String>(Arrays.asList(phrase.split(DELIM_REGEX)));
-		var doc_map = plot_index.get(token_list.get(0));
-		for(int doc_id : doc_map.keySet()) {
-		    if(phrase_search(doc_list.get(doc_id).plot, doc_map.get(doc_id), token_list))
-		       result.add(doc_id);
-		}
-		return result;
-	    }
-
-	    if(!plot_index.containsKey(phrase))
-		return result;
-	    for(var doc_id : plot_index.get(phrase).keySet())
-		result.add(doc_id);
-	    return result;
-
-	} else if (field == "title") {
-	    if(phrase.charAt(0) == '"');
-	} else if (field == "type") {
-	    ;
+	phrase = phrase.toLowerCase();
+	if(field.equals("plot")) {
+	    return plot_search(phrase);
+	} else if (field.equals("title")) {
+	    return title_search(phrase);
+	} else if (field.equals("type")) {
+	    return type_search(phrase);
 	} else {
-	    System.out.println("Field not supported: " + field);
+	    System.err.println("Field not supported: " + field);
 	}
-
-	return result;
+	return null;
     }
 
     /*  Gets the result of the token.
@@ -331,6 +373,8 @@ public class BooleanQuery {
 	    int doc2 = tmp_result.get(j);
 	    if(doc1 == doc2) {
 		result.add(doc1);
+		i++;
+		j++;
 	    } else if (doc1 < doc2) {
 		i++;
 	    } else {
