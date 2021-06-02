@@ -9,7 +9,13 @@ import java.util.*;
 
 import static java.nio.charset.StandardCharsets.ISO_8859_1;
 
+import doc.Document;
+import doc.DocumentParser;
+
+
 public class BooleanQueryLucene {
+    
+    ArrayList<Document> doc_list;
 
     /**
      * DO NOT CHANGE THE CONSTRUCTOR. DO NOT ADD PARAMETERS TO THE CONSTRUCTOR.
@@ -30,7 +36,8 @@ public class BooleanQueryLucene {
      *                 use.
      */
     public void buildIndices(Path plotFile) {
-        // TODO: insert code here
+        DocumentParser parser = new DocumentParser();
+	doc_list = parser.build_doc_list(plotFile);
     }
 
     /**
