@@ -24,8 +24,6 @@ public class Document {
 
 }
 
-//MV: Dronningens nytårstale (1991)
-//MV: The Wall: Live in Berlin (1990) (TV),
 public class BooleanQuery {
 
     ArrayList<Document> doc_list;
@@ -297,10 +295,9 @@ public class BooleanQuery {
 	    var doc_map = plot_index.get(token_list.get(0));
 	    if(doc_map == null)
 		return result;
+	    
 	    for(int doc_id : doc_map.keySet()) {
 		if(phrase_search(doc_list.get(doc_id).plot, doc_map.get(doc_id), token_list)) {
-		    // if(phrase.equals("game of thrones"))
-		    //     System.out.println("Match: " + doc_list.get(doc_id).name);
 		    result.add(doc_id);
 		}
 	    }
