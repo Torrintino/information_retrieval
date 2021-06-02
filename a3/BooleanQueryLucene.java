@@ -9,15 +9,16 @@ import java.util.*;
 
 import static java.nio.charset.StandardCharsets.ISO_8859_1;
 
-import org.apache.lucene.analysis.standard.StandardAnalyzer;
-
-import doc.Document;
 import doc.DocumentParser;
+import org.apache.lucene.analysis.standard.StandardAnalyzer;
+import org.apache.lucene.document.Document;
+import org.apache.lucene.index.IndexWriter;
+import org.apache.lucene.index.IndexWriterConfig;
+import org.apache.lucene.store.Directory;
+import org.apache.lucene.store.FSDirectory;
 
 
 public class BooleanQueryLucene {
-    
-    ArrayList<Document> doc_list;
 
     /**
      * DO NOT CHANGE THE CONSTRUCTOR. DO NOT ADD PARAMETERS TO THE CONSTRUCTOR.
@@ -38,8 +39,21 @@ public class BooleanQueryLucene {
      *                 use.
      */
     public void buildIndices(Path plotFile) {
-        DocumentParser parser = new DocumentParser();
-	doc_list = parser.build_doc_list(plotFile);
+	StandardAnalyzer myAnalyzer = new StandardAnalyzer();
+	
+	try {
+	    Directory index = FSDirectory.open(Paths.get("../../index"));
+	    IndexWriterConfig config = new IndexWriterConfig(myAnalyzer);
+	    IndexWriter writer = new IndexWriter(index, config);
+	    
+	    DocumentParser parser = new DocumentParser();
+	    parser.build_doc_list(plotFile, writer);
+	    writer.commit();
+	    writer.close();
+	} catch (IOException e) {
+            e.printStackTrace();
+            System.exit(-1);
+	}
     }
 
     /**

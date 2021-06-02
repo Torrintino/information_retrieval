@@ -9,9 +9,18 @@ import java.util.*;
 
 import static java.nio.charset.StandardCharsets.ISO_8859_1;
 
-import java.util.regex.*;
+import org.apache.lucene.analysis.standard.StandardAnalyzer;
+import org.apache.lucene.document.Document;
+import org.apache.lucene.document.StringField;
+import org.apache.lucene.document.TextField;
+import org.apache.lucene.document.Field;
+//import org.apache.lucene.index.CorruptIndexException;
+import org.apache.lucene.index.IndexWriter;
+import org.apache.lucene.index.IndexWriterConfig;
+import org.apache.lucene.store.Directory;
+import org.apache.lucene.store.FSDirectory;
 
-import doc.Document;
+import java.util.regex.*;
 
 
 public class DocumentParser {
@@ -37,18 +46,20 @@ public class DocumentParser {
     }
 
     private Document parse_headline(Document doc, String title_line) {
+	boolean episode = false;
 	if(title_line.matches(MOVIE_REGEX)) {
-	    doc.type="movie";
+	    doc.add(new StringField("type", "movie", Field.Store.YES));
 	} else if (title_line.matches(SERIES_REGEX)) {
-	    doc.type="series";
+	    doc.add(new StringField("type", "series", Field.Store.YES));
 	} else if (title_line.matches(EPISODE_REGEX)) {
-	    doc.type="episode";
+	    doc.add(new StringField("type", "episode", Field.Store.YES));
+	    episode = true;
 	} else if (title_line.matches(TELEVISION_REGEX)) {
-	    doc.type="television";
+	    doc.add(new StringField("type", "television", Field.Store.YES));
 	} else if (title_line.matches(VIDEO_REGEX)) {
-	    doc.type="video";
+	    doc.add(new StringField("type", "video", Field.Store.YES));
 	} else if (title_line.matches(VIDEOGAME_REGEX)) {
-	    doc.type="videogame";
+	    doc.add(new StringField("type", "videogame", Field.Store.YES));
 	} else {
 	    System.out.println("Unknown type: " + title_line);
 	}
@@ -57,7 +68,7 @@ public class DocumentParser {
 	Pattern episode_pattern = Pattern.compile("\\{[^\\}]+\\}");
 	Matcher em = episode_pattern.matcher(title_line);
 
-	if(doc.type.equals("episode")) {
+	if(episode) {
 	    int episode_found = 0;
 	    while(em.find())
 		episode_found = em.start();
@@ -80,26 +91,13 @@ public class DocumentParser {
 	}
 
 	String title = title_line.substring(0, pos).replace("\"", "");
-	doc.title = new ArrayList<String>(Arrays.asList(title.split(DELIM_REGEX)));
-	while(doc.title.remove("")); // Remove empty tokens
-	for(int i=0; i<doc.title.size(); i++)
-	    doc.title.set(i, doc.title.get(i).toLowerCase());
-       	doc.year = year.substring(2,6);
+	doc.add(new TextField("title", title.toLowerCase(), Field.Store.YES));
+	doc.add(new StringField("year", year.substring(2,6), Field.Store.YES));
 	return doc;
-    }
-
-    private ArrayList<String> parse_plotline(String line) {
-	line = line.substring(4);
-	ArrayList<String> tokens = new ArrayList<String>(Arrays.asList(line.split(DELIM_REGEX)));
-	while(tokens.remove("")); // Remove empty tokens
-	for(int i=0; i<tokens.size(); i++)
-	    tokens.set(i, tokens.get(i).toLowerCase());
-	return tokens;
     }
 
     private void parse_plot(Document doc, BufferedReader reader) throws IOException {
 	String line;
-	doc.plot = new ArrayList<>();
 	while((line = reader.readLine()) != null) {
 	    if(line.contains("--------------------------------------------------------------------------"))
 		break;
@@ -107,13 +105,12 @@ public class DocumentParser {
 		continue;
 	    if(!(line.substring(0, 4).equals("PL: ")))
 		continue;
-	    ArrayList<String> tokens = parse_plotline(line);
-	    doc.plot.addAll(tokens);
+	    line = line.substring(4);
+	    doc.add(new TextField("title", line.toLowerCase(), Field.Store.YES));
 	}
     }
 
-    private Document parse_paragraph(BufferedReader reader,
-				  ArrayList<Document> doc_list) throws IOException {
+    private Document parse_paragraph(BufferedReader reader) throws IOException {
 	String line;
 	do {
 	    line = reader.readLine();
@@ -122,7 +119,8 @@ public class DocumentParser {
 	} while(!line.contains("MV: "));
 
 	Document doc = new Document();
-	doc.name = line;
+	doc.add(new StringField("name", line, Field.Store.YES));
+
 	String title_line = line.substring(4);
 	int pos;
 	if((pos = title_line.indexOf("{{SUSPENDED}}")) != -1)
@@ -132,27 +130,24 @@ public class DocumentParser {
 	    return null;
 	reader.readLine();
 	parse_plot(doc, reader);
-
 	return doc;
     }
 
-    public ArrayList<Document> build_doc_list(Path plotFile) {
-	ArrayList<Document> doc_list = new ArrayList<>();
+    public void build_doc_list(Path plotFile, IndexWriter writer) {
 
         try (BufferedReader reader = Files.newBufferedReader(plotFile, ISO_8859_1)) {
 	    skip_initial_lines(reader);
 	    Document doc;
 	    int i = 0;
-            while ((doc = parse_paragraph(reader, doc_list)) != null) {
-		doc.ID = i;
-		doc_list.add(doc);
+            while ((doc = parse_paragraph(reader)) != null) {
+		doc.add(new StringField("id", Integer.toString(i), Field.Store.YES));
+		writer.addDocument(doc);
 		i++;
 	    }
 	} catch (IOException e) {
             e.printStackTrace();
             System.exit(-1);
         }
-	return doc_list;
     }
     
 }
