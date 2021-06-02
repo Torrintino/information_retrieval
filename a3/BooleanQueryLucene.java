@@ -9,6 +9,8 @@ import java.util.*;
 
 import static java.nio.charset.StandardCharsets.ISO_8859_1;
 
+import org.apache.lucene.analysis.standard.StandardAnalyzer;
+
 import doc.Document;
 import doc.DocumentParser;
 
