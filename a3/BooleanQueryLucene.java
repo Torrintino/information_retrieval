@@ -14,11 +14,24 @@ import org.apache.lucene.analysis.standard.StandardAnalyzer;
 import org.apache.lucene.document.Document;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
+import org.apache.lucene.index.DirectoryReader;
+import org.apache.lucene.index.IndexReader;
+import org.apache.lucene.store.Directory;
+import org.apache.lucene.store.FSDirectory;
+import org.apache.lucene.queryparser.classic.ParseException;
+import org.apache.lucene.queryparser.classic.MultiFieldQueryParser;
+import org.apache.lucene.search.IndexSearcher;
+import org.apache.lucene.search.Query;
+import org.apache.lucene.search.ScoreDoc;
+import org.apache.lucene.search.TopDocs;
 import org.apache.lucene.store.Directory;
 import org.apache.lucene.store.FSDirectory;
 
 
 public class BooleanQueryLucene {
+
+    IndexSearcher indexSearcher;
+    MultiFieldQueryParser queryParser;
 
     /**
      * DO NOT CHANGE THE CONSTRUCTOR. DO NOT ADD PARAMETERS TO THE CONSTRUCTOR.
@@ -40,16 +53,19 @@ public class BooleanQueryLucene {
      */
     public void buildIndices(Path plotFile) {
 	StandardAnalyzer myAnalyzer = new StandardAnalyzer();
-	
+
 	try {
 	    Directory index = FSDirectory.open(Paths.get("../../index"));
 	    IndexWriterConfig config = new IndexWriterConfig(myAnalyzer);
 	    IndexWriter writer = new IndexWriter(index, config);
-	    
+
 	    DocumentParser parser = new DocumentParser();
 	    parser.build_doc_list(plotFile, writer);
 	    writer.commit();
 	    writer.close();
+	    IndexReader reader = DirectoryReader.open(index);
+	    indexSearcher = new IndexSearcher(reader);
+	    queryParser = new MultiFieldQueryParser(new String[]{"title", "plot", "type"}, new StandardAnalyzer());
 	} catch (IOException e) {
             e.printStackTrace();
             System.exit(-1);
@@ -92,8 +108,35 @@ public class BooleanQueryLucene {
      * lines (starting with "MV: ") of the documents matching the query
      */
     public Set<String> booleanQuery(String queryString) {
-        // TODO: insert code here
-        return new HashSet<>();
+	HashSet<String> result = new HashSet<>();
+	Query query = null;
+	TopDocs hits = null;
+
+	try {
+	    query = queryParser.parse(queryString);
+	} catch (ParseException e) {
+            e.printStackTrace();
+            System.exit(-1);
+	}
+
+	try {
+	    hits = indexSearcher.search(query, 100);
+	} catch (IOException e) {
+            e.printStackTrace();
+            System.exit(-1);
+	}
+
+	for(ScoreDoc scoreDoc : hits.scoreDocs) {
+	    try {
+		Document doc = indexSearcher.doc(scoreDoc.doc);
+		result.add(doc.get("name"));
+		System.out.println(doc.get("name"));
+	    } catch (IOException e) {
+		e.printStackTrace();
+		System.exit(-1);
+	    }
+	}
+        return result;
     }
 
     /**
