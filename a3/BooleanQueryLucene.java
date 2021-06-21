@@ -130,7 +130,6 @@ public class BooleanQueryLucene {
 	    try {
 		Document doc = indexSearcher.doc(scoreDoc.doc);
 		result.add(doc.get("name"));
-		System.out.println(doc.get("name"));
 	    } catch (IOException e) {
 		e.printStackTrace();
 		System.exit(-1);
