@@ -88,6 +88,8 @@ public class BooleanQueryWordnet {
 
     }
 
+    // [ beryllium, Be, glucinium]
+
     public void fill_synset(HashMap<String, ArrayList<String>> map, String syn,
 			    ArrayList<String> syns) {
 	ArrayList<String> list;
@@ -124,32 +126,66 @@ public class BooleanQueryWordnet {
 	    && (!line.contains("|"));
     }
 
+    public void fill_exc_entry(HashMap<String, ArrayList<String>> synset,
+			       String word, String syn) {
+	ArrayList<String> syn_list;
+	if(synset_noun.containsKey(word)) {
+	    syn_list = synset.get(word);
+	    if(syn_list == null) {
+		syn_list = new ArrayList<>();
+		synset_noun.put(word, syn_list);
+	    }
+	} else {
+	    syn_list = new ArrayList<>();
+	    synset_noun.put(word, syn_list);
+	}
+	syn_list.add(syn);
+	if(!synset_noun.containsKey(syn))
+	    return;
+	ArrayList<String> base_list = synset_noun.get(syn);
+	for(String base : base_list) {
+	    syn_list.add(base);
+	}
+    }
+
     public void parse_exec_file(Path wordnetDir, String s) {
 	try (BufferedReader reader = Files.newBufferedReader(Path.of(wordnetDir + "/" + s + ".exc"), ISO_8859_1)) {
 	    String line;
+	    String word;
 	    while ((line = reader.readLine()) != null) {
 		ArrayList<String> syns = new ArrayList<>();
 		String[] syn_line = line.split(" ");
-		for(String syn : syn_line) {
+		word = syn_line[0];
+		if(word.contains("_"))
+		    continue;
+		boolean start = true;
+		for(var syn : syn_line) {
+		    if(start) {
+			start = false;
+			continue;
+		    }
 		    if(syn.contains("_"))
 			continue;
-		    syns.add(syn);
+		    if(syn.equals(word))
+			continue;
+		    syns.add(syn.toLowerCase());
 		}
-		if(syns.size() < 2)
+		if(syns.size() < 1)
 		    continue;
+
 		for(String syn : syns) {
 		    switch(s) {
 		    case "noun":
-			fill_synset(synset_noun, syn, syns);
+			fill_exc_entry(synset_noun, word, syn);
 			break;
 		    case "verb":
-			fill_synset(synset_verb, syn, syns);
+			fill_exc_entry(synset_verb, word, syn);
 			break;
 		    case "adj":
-			fill_synset(synset_adj, syn, syns);
+			fill_exc_entry(synset_adj, word, syn);
 			break;
 		    case "adv":
-			fill_synset(synset_adv, syn, syns);
+			fill_exc_entry(synset_adv, word, syn);
 			break;
 		    }
 		}
@@ -183,11 +219,11 @@ public class BooleanQueryWordnet {
 			synset_line[i] = synset_line[i].replace("(a)", "");
 		    if(synset_line[i].contains("(ip)"))
 			synset_line[i] = synset_line[i].replace("(ip)", "");
-		    syns.add(synset_line[i]);
+		    syns.add(synset_line[i].toLowerCase());
 		    i += 2;
 		}
 
-		if(syns.size() == 1)
+		if(syns.size() <= 1)
 		    continue;
 
 		for (String syn: syns) {
