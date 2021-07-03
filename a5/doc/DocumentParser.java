@@ -10,14 +10,12 @@ import java.util.*;
 import static java.nio.charset.StandardCharsets.ISO_8859_1;
 
 import java.util.regex.*;
+import doc.Document;
 
 
 public class DocumentParser {
 
     ArrayList<Document> doc_list;
-    HashMap<String, HashMap<Integer, ArrayList<Integer>>> title_index;
-    HashMap<String, HashMap<Integer, ArrayList<Integer>>> plot_index;
-    HashMap<String, LinkedList<Integer>> type_index;
 
     String MOVIE_NAME_REGEX = "[^\"]+";
     String YEAR_REGEX = " \\([0-9\\?]{4}(\\/(X|V|I|L|C)+)?\\)";
@@ -41,27 +39,18 @@ public class DocumentParser {
     }
 
     private Document parse_headline(Document doc, String title_line) {
-	if(title_line.matches(MOVIE_REGEX)) {
-	    doc.type="movie";
-	} else if (title_line.matches(SERIES_REGEX)) {
-	    doc.type="series";
-	} else if (title_line.matches(EPISODE_REGEX)) {
-	    doc.type="episode";
-	} else if (title_line.matches(TELEVISION_REGEX)) {
-	    doc.type="television";
-	} else if (title_line.matches(VIDEO_REGEX)) {
-	    doc.type="video";
-	} else if (title_line.matches(VIDEOGAME_REGEX)) {
-	    doc.type="videogame";
+	String type;
+	if (title_line.matches(EPISODE_REGEX)) {
+	    type="episode";
 	} else {
-	    System.out.println("Unknown type: " + title_line);
+	    type="other";
 	}
 
 	Pattern year_pattern = Pattern.compile(YEAR_REGEX);
 	Pattern episode_pattern = Pattern.compile("\\{[^\\}]+\\}");
 	Matcher em = episode_pattern.matcher(title_line);
 
-	if(doc.type.equals("episode")) {
+	if(type.equals("episode")) {
 	    int episode_found = 0;
 	    while(em.find())
 		episode_found = em.start();
@@ -88,7 +77,6 @@ public class DocumentParser {
 	while(doc.title.remove("")); // Remove empty tokens
 	for(int i=0; i<doc.title.size(); i++)
 	    doc.title.set(i, doc.title.get(i).toLowerCase());
-       	doc.year = year.substring(2,6);
 	return doc;
     }
 
@@ -104,16 +92,27 @@ public class DocumentParser {
     private void parse_plot(Document doc, BufferedReader reader) throws IOException {
 	String line;
 	doc.plot = new ArrayList<>();
+	ArrayList<String> plot = new ArrayList<>();
+
+	boolean new_paragraph = true;
 	while((line = reader.readLine()) != null) {
 	    if(line.contains("--------------------------------------------------------------------------"))
 		break;
-	    if(line.length() < 4)
+	    if(line.length() < 4 || !(line.substring(0, 4).equals("PL: "))) {
+		if(!new_paragraph) {
+		    new_paragraph = true;
+		    doc.plot.add(plot);
+		    plot = new ArrayList<>();
+		}
 		continue;
-	    if(!(line.substring(0, 4).equals("PL: ")))
-		continue;
+	    }
 	    ArrayList<String> tokens = parse_plotline(line);
-	    doc.plot.addAll(tokens);
+	    plot.addAll(tokens);
+	    new_paragraph = false;
 	}
+
+	if(!new_paragraph)
+	    doc.plot.add(plot);
     }
 
     private Document parse_paragraph(BufferedReader reader,
@@ -126,7 +125,6 @@ public class DocumentParser {
 	} while(!line.contains("MV: "));
 
 	Document doc = new Document();
-	doc.name = line;
 	String title_line = line.substring(4);
 	int pos;
 	if((pos = title_line.indexOf("{{SUSPENDED}}")) != -1)
@@ -140,19 +138,16 @@ public class DocumentParser {
 	return doc;
     }
 
-
-    public void build_doc_list(Path plotFile, IndexWriter writer) {
+    public void build_doc_list(Path plotFile) {
 	doc_list = new ArrayList<>();
 
         try (BufferedReader reader = Files.newBufferedReader(plotFile, ISO_8859_1)) {
 	    skip_initial_lines(reader);
 	    Document doc;
-	    int i = 0;
             while ((doc = parse_paragraph(reader, doc_list)) != null) {
-		doc.ID = i;
 		doc_list.add(doc);
-		i++;
 	    }
+	    
 	} catch (IOException e) {
             e.printStackTrace();
             System.exit(-1);
