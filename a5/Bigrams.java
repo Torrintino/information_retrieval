@@ -1,5 +1,6 @@
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.FileWriter;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
@@ -70,18 +71,10 @@ public class Bigrams {
     public double compute_score(String word, String word1, String word2) {
 	double f1 = 2*collocation_count.get(word);
 	double f2 = occurence_count.get(word1) + occurence_count.get(word2);
-	if(word.equals("life:world")) {
-	    System.out.println("");
-	    System.out.println("life:world - " + collocation_count.get(word));
-	    System.out.println(word1 + ": " + occurence_count.get(word1));
-	    System.out.println(word2 + ": " + occurence_count.get(word2));
-	    System.out.println(word + " - f1: " + f1 + " f2: " + f2 + " f1/f2 " + f1/f2);
-	    System.out.println("");
-	}
 	return f1/f2;
     }
 
-    public void buildBigrams(Path plotFile) {
+    public void buildBigrams(Path plotFile, String outputFile) {
 	List<String> stop_words = Arrays.asList("a","about","above","after", "again", "against",
 						"all", "am", "an", "and", "any", "are", "aren't",
 						"as", "at", "be", "because", "been", "before",
@@ -131,29 +124,40 @@ public class Bigrams {
 	collocation_rank = new LinkedList<>();
 	for(String word : collocation_count.keySet()) {
 	    String[] original = word.split(":");
-	    if(occurence_count.get(original[0]) < 1000 || occurence_count.get(original[0]) < 1000)
+	    if(occurence_count.get(original[0]) < 1000 || occurence_count.get(original[1]) < 1000)
 		continue;
 	    double score = compute_score(word, original[0], original[1]);
 	    collocation_rank.add(new Collocation(original[0], original[1], score));
 	}
 	Collections.sort(collocation_rank, new ScoreComparator());
-	for(int i=0; i<100; i++) {
-	    System.out.println(collocation_rank.get(i).word1 + " " + collocation_rank.get(i).word2
-			       + " " + collocation_rank.get(i).score);
-	}
+
+	try {
+	    FileWriter writer = new FileWriter(outputFile);
+	    for(int i=0; i<1000; i++) {
+		writer.write(collocation_rank.get(i).word1
+			     + "\t" + collocation_rank.get(i).word2
+			     + "\t" + collocation_rank.get(i).score + "\n");
+	    }
+	    writer.close();
+	} catch (IOException e) {
+	    System.out.println("Could not write to file");
+	    e.printStackTrace();
+	}	
+
 	
     }
 
     public void close() {}
 
     public static void main(String[] args) {
-        if (args.length < 1) {
-            System.err.println("Usage: java -jar BooleanQueryWordnet.jar <plot list file>");
+        if (args.length < 2) {
+            System.err.println("Usage: java -jar CoOccurencesFinder.jar <plot list file> <output list path>");
             System.exit(-1);
         }
 
 	Bigrams bg = new Bigrams();
         Path plotFile = Paths.get(args[0]);
-        bg.buildBigrams(plotFile);
+        String outputFile = args[1];
+        bg.buildBigrams(plotFile, outputFile);
     }
 }
