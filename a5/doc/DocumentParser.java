@@ -15,7 +15,7 @@ import doc.Document;
 
 public class DocumentParser {
 
-    ArrayList<Document> doc_list;
+    public ArrayList<Document> doc_list;
 
     String MOVIE_NAME_REGEX = "[^\"]+";
     String YEAR_REGEX = " \\([0-9\\?]{4}(\\/(X|V|I|L|C)+)?\\)";

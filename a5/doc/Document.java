@@ -4,8 +4,8 @@ import java.util.*;
 
 
 public class Document {
-    ArrayList<ArrayList<String>> plot;
-    ArrayList<String> title;
+    public ArrayList<ArrayList<String>> plot;
+    public ArrayList<String> title;
 
     public void Document() {}
 }
