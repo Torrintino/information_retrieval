@@ -13,6 +13,7 @@ import org.apache.lucene.document.Field;
 import org.apache.lucene.document.StringField;
 import org.apache.lucene.index.IndexWriter;
 import org.apache.lucene.index.IndexWriterConfig;
+import org.apache.lucene.index.IndexWriterConfig.OpenMode;
 import org.apache.lucene.index.DirectoryReader;
 import org.apache.lucene.index.IndexReader;
 import org.apache.lucene.store.Directory;
@@ -88,8 +89,6 @@ public class BooleanQueryWordnet {
 
     }
 
-    // [ beryllium, Be, glucinium]
-
     public void fill_synset(HashMap<String, ArrayList<String>> map, String syn,
 			    ArrayList<String> syns) {
 	ArrayList<String> list;
@@ -115,7 +114,6 @@ public class BooleanQueryWordnet {
 	    && (!line.contains("="))
 	    && (!line.contains("+"))
 	    && (!line.contains(";"))
-	    && (!line.contains("-"))
 	    && (!line.contains("*"))
 	    && (!line.contains(">"))
 	    && (!line.contains("^"))
@@ -129,20 +127,20 @@ public class BooleanQueryWordnet {
     public void fill_exc_entry(HashMap<String, ArrayList<String>> synset,
 			       String word, String syn) {
 	ArrayList<String> syn_list;
-	if(synset_noun.containsKey(word)) {
+	if(synset.containsKey(word)) {
 	    syn_list = synset.get(word);
 	    if(syn_list == null) {
 		syn_list = new ArrayList<>();
-		synset_noun.put(word, syn_list);
+		synset.put(word, syn_list);
 	    }
 	} else {
 	    syn_list = new ArrayList<>();
-	    synset_noun.put(word, syn_list);
+	    synset.put(word, syn_list);
 	}
 	syn_list.add(syn);
-	if(!synset_noun.containsKey(syn))
+	if(!synset.containsKey(syn))
 	    return;
-	ArrayList<String> base_list = synset_noun.get(syn);
+	ArrayList<String> base_list = synset.get(syn);
 	for(String base : base_list) {
 	    syn_list.add(base);
 	}
@@ -305,6 +303,7 @@ public class BooleanQueryWordnet {
         try {
             Directory index = FSDirectory.open(Paths.get("../../index"));
             IndexWriterConfig config = new IndexWriterConfig(myAnalyzer);
+	    config.setOpenMode(OpenMode.CREATE);
             IndexWriter writer = new IndexWriter(index, config);
 
             DocumentParser parser = new DocumentParser();
@@ -313,7 +312,7 @@ public class BooleanQueryWordnet {
             writer.close();
             IndexReader reader = DirectoryReader.open(index);
             indexSearcher = new IndexSearcher(reader);
-            queryParser = new MultiFieldQueryParser(new String[]{"title", "plot", "type"}, new StandardAnalyzer());
+            queryParser = new MultiFieldQueryParser(new String[]{"title", "plot", "type", "year"}, new StandardAnalyzer());
         } catch (IOException e) {
             e.printStackTrace();
             System.exit(-1);
@@ -352,7 +351,7 @@ public class BooleanQueryWordnet {
 
         ArrayList<String> synonyms = synset.get(value);
         if(synonyms == null) // || field.equals("type")
-            return token;
+            return token.toLowerCase();
 
         String result = "(";
         boolean first = true;
@@ -362,11 +361,10 @@ public class BooleanQueryWordnet {
             } else {
                 result += " OR ";
             }
-            result += field + ":" + synonym;
-	    //System.out.println("Synonym to " + value + ": " + synonym);
+            result += field + ":" + synonym.toLowerCase();
 
         }
-        result += " OR " + token + ")";
+        result += " OR " + token.toLowerCase() + ")";
         return result;
     }
 
@@ -391,8 +389,6 @@ public class BooleanQueryWordnet {
                 result += expand(token);
             }
         }
-        // For testing, remove prints before deploy
-        System.out.println("Expansion: " + result);
 
         return result;
 

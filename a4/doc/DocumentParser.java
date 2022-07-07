@@ -106,7 +106,7 @@ public class DocumentParser {
 	    if(!(line.substring(0, 4).equals("PL: ")))
 		continue;
 	    line = line.substring(4);
-	    doc.add(new TextField("title", line.toLowerCase(), Field.Store.YES));
+	    doc.add(new TextField("plot", line.toLowerCase(), Field.Store.YES));
 	}
     }
 
